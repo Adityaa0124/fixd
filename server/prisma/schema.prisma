@@ -13,7 +13,7 @@ model Question {
   qid            String?
   subject        String
   chapter        String
-  level          String
+  level          String?
   currentVersion Int               @default(1)
   versions       QuestionVersion[]
   reports        Report[]

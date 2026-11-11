@@ -25,7 +25,7 @@ export async function seed() {
     db.case.deleteMany(),
     db.questionVersion.deleteMany(),
     db.question.deleteMany(),
-  ]);
+  ], { maxWait: 15000, timeout: 60000 });
 
   for (const q of ds.questions) {
     const body = q[q.questionType]!;
@@ -123,7 +123,7 @@ export async function seed() {
           where: { questionId_version: { questionId: c.questionId, version: v.to } },
           data: { actionId: a.id },
         });
-      });
+      }, { maxWait: 15000, timeout: 60000 });
     }
   }
   await db.auditLog.create({
@@ -136,7 +136,7 @@ export async function seed() {
   return { questions: ds.questions.length, cases: cases.length };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   seed().then((r) => {
     console.log('seeded', r);
     return db.$disconnect();

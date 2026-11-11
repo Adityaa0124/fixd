@@ -407,7 +407,7 @@ casesRouter.post('/:id/actions', async (req, res, next) => {
           break;
         }
       }
-    });
+    }, { maxWait: 15000, timeout: 60000 });
     res.json(await detail(c.id));
   } catch (e) {
     if (e instanceof z.ZodError) return next(bad(e.issues.map((i) => i.message).join('; ')));
