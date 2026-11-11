@@ -22,6 +22,7 @@
     "dev:web": "npm run dev -w @fixd/web",
     "dev": "npm-run-all -p dev:server dev:web",
     "typecheck": "npm run typecheck --workspaces --if-present",
+    "build": "npm run build -w @fixd/web",
     "test": "npm run test --workspaces --if-present"
   },
   "devDependencies": {
