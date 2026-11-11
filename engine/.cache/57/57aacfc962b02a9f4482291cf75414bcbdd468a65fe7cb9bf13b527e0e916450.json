@@ -1,0 +1,26 @@
+{
+ "key": "57aacfc962b02a9f4482291cf75414bcbdd468a65fe7cb9bf13b527e0e916450",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:08:42.899Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "20"
+  ],
+  "value": "20",
+  "steps": [
+   "Let the side of the cube be a cm and its mass be M g.",
+   "When the 800 g mass is placed on it, the cube is completely submerged: M + 800 = a^3 * 1 (density of water = 1 g/cm^3).",
+   "When the mass is removed, the cube floats with 2 cm above water, so the submerged depth is (a - 2) cm.",
+   "The mass of the cube alone is equal to the mass of the displaced water: M = a^2(a - 2) * 1.",
+   "Substitute M into the first equation: a^2(a - 2) + 800 = a^3.",
+   "Simplify to get 2a^2 = 800, which gives a^2 = 400, so a = 20 cm."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "key": "947dc2639cf4b7f8e044a726eec89cc693ce5dd8480aedfaccb44e84348eb88f",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:08:56.034Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": "16.8 eV",
+  "steps": [
+   "The de-Broglie wavelength of an electron is given by λ = h / √(2mK).",
+   "Rearranging for kinetic energy gives K = h² / (2mλ²).",
+   "Substitute standard approximations: h ≈ 6.6 × 10⁻³⁴ J·s, m ≈ 9 × 10⁻³¹ kg, and λ = 0.3 × 10⁻⁹ m.",
+   "K = (6.6 × 10⁻³⁴)² / (2 × 9 × 10⁻³¹ × (0.3 × 10⁻⁹)²) = 26.88 × 10⁻¹⁹ J.",
+   "Convert the energy to electron-volts by dividing by e ≈ 1.6 × 10⁻¹⁹ C.",
+   "K = (26.88 × 10⁻¹⁹) / (1.6 × 10⁻¹⁹) = 16.8 eV."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

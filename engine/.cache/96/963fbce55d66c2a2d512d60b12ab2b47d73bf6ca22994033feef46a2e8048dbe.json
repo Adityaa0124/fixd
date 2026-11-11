@@ -1,0 +1,52 @@
+{
+ "key": "963fbce55d66c2a2d512d60b12ab2b47d73bf6ca22994033feef46a2e8048dbe",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:30.949Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "riceis",
+    "replace": "rice is",
+    "note": "Words run together: 'riceis' should be 'rice is'.",
+    "confidence": 0.99
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "producebeta-carotene",
+    "replace": "produce beta-carotene",
+    "note": "Words run together: 'producebeta-carotene' should be 'produce beta-carotene'.",
+    "confidence": 0.99
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "ofvitamin",
+    "replace": "of vitamin",
+    "note": "Words run together: 'ofvitamin' should be 'of vitamin'.",
+    "confidence": 0.99
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "helpprevent",
+    "replace": "help prevent",
+    "note": "Words run together: 'helpprevent' should be 'help prevent'.",
+    "confidence": 0.99
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "tonight blindness",
+    "replace": "to night blindness",
+    "note": "Words run together: 'tonight blindness' should be 'to night blindness'.",
+    "confidence": 0.98
+   }
+  ]
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "key": "caee936c19f12df643bf29701d5974ef6acfbc6e8dbbc15961551032a0cb9c3a",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:15:29.099Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "answer_key",
+  "edit": {
+   "field": "answer",
+   "find": "[\"A, B, D\"]",
+   "replace": "[\"A\",\"B\",\"D\"]"
+  },
+  "extra_edits": [],
+  "evidence": "The stored MCQ answer key is malformed as a single comma-joined string [\"A, B, D\"] instead of [\"A\",\"B\",\"D\"], causing correct student selections to be marked wrong. Both blind solves confirm statements A, B, and D are correct.",
+  "confidence": 1,
+  "solution_final_answer": null,
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R020",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Student selected A, B, and D but was marked incorrect due to the malformed answer key.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

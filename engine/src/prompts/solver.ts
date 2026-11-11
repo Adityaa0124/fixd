@@ -4,7 +4,7 @@ import type { ParsedQuestion } from '../parse';
 import { optionsText } from '../parse';
 import { fill } from './render';
 
-export const SOLVER_VERSION = 'solver-v1.1';
+export const SOLVER_VERSION = 'solver-v2';
 
 export const SOLVER_SYSTEM = `You are a senior JEE and NEET faculty member solving a question from first principles.
 
@@ -25,7 +25,24 @@ Rules
 Output note: "answer" is always a JSON array of strings. Use one element for single
 correct and integer type.`;
 
-const SOLVER_USER = `Subject: {{subject}} · Chapter: {{chapter}} · Type: {{questionType}}
+/**
+ * Two genuinely different routes to the answer. Same model, different method and temperature,
+ * so agreement between them is evidence rather than an echo.
+ */
+export const SOLVER_METHODS = {
+  direct: `Method: solve it the standard way, from the governing principle to a final value,
+then match that value to an option.`,
+  elimination: `Method: do NOT solve it the textbook way. Test each option on its own merits
+(substitute it back, check units, limiting cases, sign, order of magnitude, or the fact it
+claims) and eliminate options until the answer is forced. For integer type, reach the number
+by a different route than the obvious one (energy instead of force, a different reference
+frame, a dimensional or limiting case check) and state it.`,
+} as const;
+export type SolverMethod = keyof typeof SOLVER_METHODS;
+
+const SOLVER_USER = `{{method}}
+
+Subject: {{subject}} · Chapter: {{chapter}} · Type: {{questionType}}
 
 <question>
 {{stem_text}}
@@ -37,8 +54,9 @@ const SOLVER_USER = `Subject: {{subject}} · Chapter: {{chapter}} · Type: {{que
 
 Return JSON only.`;
 
-export function solverUser(p: ParsedQuestion): string {
+export function solverUser(p: ParsedQuestion, method: SolverMethod = 'direct'): string {
   return fill(SOLVER_USER, {
+    method: SOLVER_METHODS[method],
     subject: p.subject, chapter: p.chapter, questionType: p.type,
     stem_text: p.stemText, options: optionsText(p),
   });

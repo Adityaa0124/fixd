@@ -107,7 +107,7 @@ export type CommentFlag =
 export type Lang = 'english' | 'hinglish';
 
 export interface Gate {
-  name: 'verdict' | 'taxonomy' | 'guard' | 'confidence' | 'agreement' | 'subject' | 'provenance' | 'option_source';
+  name: 'verdict' | 'taxonomy' | 'guard' | 'confidence' | 'agreement' | 'subject' | 'provenance' | 'option_source' | 'verification';
   pass: boolean;
   detail: string;
 }

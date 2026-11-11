@@ -1,0 +1,11 @@
+{
+ "key": "1772cbe2dae9dd975ad4eb0573e054bda1d43e0915d065a3b4627dad9809b71b",
+ "purpose": "reply",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "reply-v2",
+ "variant": null,
+ "at": "2026-11-11T12:13:04.583Z",
+ "response": {
+  "reply": "Question me shift cm me pucha gaya hai. Answer 0.08 m aata hai, jise cm me convert karne par 8 cm banta hai, isliye correct answer 8 hai."
+ }
+}

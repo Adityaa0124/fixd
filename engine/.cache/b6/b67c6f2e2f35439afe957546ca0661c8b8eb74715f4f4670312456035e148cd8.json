@@ -1,0 +1,28 @@
+{
+ "key": "b67c6f2e2f35439afe957546ca0661c8b8eb74715f4f4670312456035e148cd8",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:15:12.980Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "diagram",
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "The stem refers to 'as shown in figure', but no diagram/image is present in the record. The student correctly reported that the figure is missing.",
+  "confidence": 0.95,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R025",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The referenced figure is missing.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

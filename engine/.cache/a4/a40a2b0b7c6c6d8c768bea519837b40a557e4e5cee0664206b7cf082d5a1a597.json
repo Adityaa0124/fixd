@@ -1,0 +1,35 @@
+{
+ "key": "a40a2b0b7c6c6d8c768bea519837b40a557e4e5cee0664206b7cf082d5a1a597",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:14:00.140Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "solution_fix",
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Both blind solves confirm option B (16.8 eV) using K = h² / (2mλ²). The stored answer key B is correct, but the solution text is mangled, conflating unrelated values (5.47 Å) and equating wavelength directly to energy in Joules and eV.",
+  "confidence": 0.98,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R018",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The solution belongs to another question.",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R019",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The solution contains 5.47 Å which does not match what the question asks.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

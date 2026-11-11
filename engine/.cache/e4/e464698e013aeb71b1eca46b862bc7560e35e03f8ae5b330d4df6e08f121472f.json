@@ -1,0 +1,46 @@
+{
+ "key": "e464698e013aeb71b1eca46b862bc7560e35e03f8ae5b330d4df6e08f121472f",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:12:28.082Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "answer_key",
+  "edit": {
+   "field": "answer",
+   "find": "C",
+   "replace": "A"
+  },
+  "extra_edits": [],
+  "evidence": "Both blind solves and the stored solution calculate V = sqrt(40^2 + (60 - 30)^2) = 50 V (option A); stored key incorrectly gives C (130 V).",
+  "confidence": 1,
+  "solution_final_answer": "A",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R002",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "wrong ans",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R003",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The correct calculation yields 50 V, but the key is marked as 130 V (C).",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R001",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Answer should be 50 V (A), which matches the stored solution, but key is C.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

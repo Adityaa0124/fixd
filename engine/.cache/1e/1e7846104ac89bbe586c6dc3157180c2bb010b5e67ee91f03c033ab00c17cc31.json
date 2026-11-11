@@ -1,0 +1,11 @@
+{
+ "key": "1e7846104ac89bbe586c6dc3157180c2bb010b5e67ee91f03c033ab00c17cc31",
+ "purpose": "reply",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "reply-v2",
+ "variant": null,
+ "at": "2026-11-11T12:13:20.075Z",
+ "response": {
+  "reply": "The question itself is completely fine, so this is an issue within the app. Your report has been passed to the app team to investigate."
+ }
+}

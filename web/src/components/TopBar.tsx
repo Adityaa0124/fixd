@@ -1,160 +1,103 @@
-import { useState, useRef, useEffect } from 'react';
+import { forwardRef } from 'react';
+import clsx from 'clsx';
+import { Compass, History, Keyboard, Menu, Moon, RotateCcw, Search, Sun } from 'lucide-react';
 import type { Lane } from '../lib/types';
-import { reviewer, setReviewer } from '../lib/api';
+import { LANE_HINT, LANE_LABEL } from '../lib/labels';
 
-interface TopBarProps {
+const LANES: Lane[] = ['needs_review', 'spot_check', 'no_change', 'done', 'sweep'];
+
+interface Props {
   lane: Lane;
-  counts: Record<string, number>;
-  onSelectLane: (lane: Lane) => void;
+  counts: Partial<Record<Lane, number>>;
+  onLane: (l: Lane) => void;
   search: string;
-  onSearchChange: (q: string) => void;
+  onSearch: (s: string) => void;
   theme: 'light' | 'dark';
-  onToggleTheme: () => void;
-  onOpenAudit: () => void;
-  onOpenShortcuts: () => void;
+  onTheme: () => void;
+  onAudit: () => void;
+  onHelp: () => void;
+  onReset: (() => void) | null;
+  onMenu: () => void;
+  onTour: () => void;
 }
 
-export function TopBar({
-  lane,
-  counts,
-  onSelectLane,
-  search,
-  onSearchChange,
-  theme,
-  onToggleTheme,
-  onOpenAudit,
-  onOpenShortcuts,
-}: TopBarProps) {
-  const [editingReviewer, setEditingReviewer] = useState(false);
-  const [currentReviewer, setCurrentReviewer] = useState(reviewer());
-  const searchInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const handleSlash = (e: KeyboardEvent) => {
-      if (e.key === '/' && document.activeElement !== searchInputRef.current) {
-        const target = e.target as HTMLElement;
-        if (!target.closest('input, textarea')) {
-          e.preventDefault();
-          searchInputRef.current?.focus();
-        }
-      }
-    };
-    window.addEventListener('keydown', handleSlash);
-    return () => window.removeEventListener('keydown', handleSlash);
-  }, []);
-
-  const handleReviewerSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setReviewer(currentReviewer.trim() || 'faculty');
-    setEditingReviewer(false);
-  };
-
-  const lanes: Array<{ key: Lane; label: string }> = [
-    { key: 'needs_review', label: 'Needs you' },
-    { key: 'spot_check', label: 'Spot check' },
-    { key: 'no_change', label: 'No change' },
-    { key: 'done', label: 'Done' },
-    { key: 'sweep', label: 'Sweep' },
-  ];
-
+export const TopBar = forwardRef<HTMLInputElement, Props>(function TopBar(p, searchRef) {
   return (
-    <header className="h-14 border-b border-line bg-surface px-4 flex items-center justify-between gap-4 select-none shrink-0">
-      <div className="flex items-center gap-6">
-        <div className="flex items-center gap-1.5 font-sans font-bold text-xl tracking-tight text-ink">
-          <span>fixd</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-pine-600 inline-block mb-1" />
-        </div>
-
-        <nav className="flex items-center gap-1">
-          {lanes.map((l) => {
-            const count = counts[l.key] ?? 0;
-            const active = lane === l.key;
-            return (
-              <button
-                key={l.key}
-                type="button"
-                onClick={() => onSelectLane(l.key)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors flex items-center gap-1.5 ${
-                  active
-                    ? 'bg-pine-50 text-pine-700 font-semibold'
-                    : 'text-tx-3 hover:bg-sunken hover:text-tx'
-                }`}
-              >
-                <span>{l.label}</span>
-                <span
-                  className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                    active ? 'bg-pine-100 text-pine-700' : 'bg-sunken text-tx-muted'
-                  }`}
-                >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
+    <header className="z-20 shrink-0 border-b border-line bg-surface">
+      <div className="flex h-14 items-center gap-3 px-3 sm:px-5">
+        <button type="button" onClick={p.onMenu} className="rounded-full p-2 text-tx-2 hover:bg-sunken lg:hidden" aria-label="Show queue">
+          <Menu size={18} />
+        </button>
+        <span className="flex items-baseline gap-1 pr-2 text-[21px] font-bold tracking-[-0.03em] text-tx">
+          fixd<span className="h-1.5 w-1.5 rounded-full bg-pine-600" />
+        </span>
+        <nav className="fx-scroll hidden min-w-0 items-center gap-1 overflow-x-auto md:flex" aria-label="Lanes" data-tour="lanes">
+          {LANES.map((l, i) => (
+            <button
+              key={l}
+              type="button"
+              title={`${LANE_HINT[l]} (${i + 1})`}
+              onClick={() => p.onLane(l)}
+              aria-current={p.lane === l ? 'page' : undefined}
+              className={clsx(
+                'flex h-8 shrink-0 items-center gap-2 rounded-full px-3 text-sm transition-colors',
+                p.lane === l ? 'bg-tx text-bg' : 'text-tx-2 hover:bg-sunken hover:text-tx'
+              )}
+            >
+              {LANE_LABEL[l]}
+              <span className={clsx('min-w-[1.25rem] rounded-full px-1.5 text-center text-xs tabular-nums', p.lane === l ? 'bg-bg/20' : 'bg-sunken text-tx-3')}>
+                {p.counts[l] ?? 0}
+              </span>
+            </button>
+          ))}
         </nav>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <div className="relative">
-          <input
-            ref={searchInputRef}
-            type="text"
-            value={search}
-            onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Search (/)"
-            className="w-44 focus:w-60 transition-all text-xs bg-sunken border border-line rounded-full px-3 py-1.5 text-tx placeholder:text-tx-muted focus:outline-none focus:ring-1 focus:ring-pine-500"
-          />
-        </div>
-
-        {editingReviewer ? (
-          <form onSubmit={handleReviewerSubmit} className="flex items-center gap-1">
+        <div className="ml-auto flex items-center gap-1">
+          <label className="relative hidden sm:block">
+            <span className="sr-only">Search cases</span>
+            <Search size={14} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-tx-3" />
             <input
-              type="text"
-              value={currentReviewer}
-              onChange={(e) => setCurrentReviewer(e.target.value)}
-              className="text-xs bg-sunken border border-line rounded px-2 py-1 text-tx w-24 focus:outline-none focus:ring-1 focus:ring-pine-500"
-              autoFocus
-              onBlur={() => setEditingReviewer(false)}
+              ref={searchRef}
+              value={p.search}
+              onChange={(e) => p.onSearch(e.target.value)}
+              onKeyDown={(e) => e.key === 'Escape' && (e.currentTarget as HTMLInputElement).blur()}
+              placeholder="Search  /"
+              className="h-8 w-44 rounded-full border border-line bg-sunken pl-8 pr-3 text-sm text-tx outline-none placeholder:text-tx-3 focus:border-pine-500 focus:bg-surface xl:w-56"
             />
-          </form>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setEditingReviewer(true)}
-            className="text-xs text-tx-3 px-2 py-1 rounded hover:bg-sunken flex items-center gap-1"
-            title="Click to edit reviewer identity"
-          >
-            <span>actor:</span>
-            <span className="font-medium text-tx">{currentReviewer}</span>
+          </label>
+          <button type="button" onClick={p.onTour} className="flex h-8 items-center gap-1.5 rounded-full px-3 text-sm text-tx-2 hover:bg-sunken hover:text-tx" title="Take the 40 second tour">
+            <Compass size={15} />
+            <span className="hidden xl:inline">Tour</span>
           </button>
-        )}
-
-        <button
-          type="button"
-          onClick={onToggleTheme}
-          className="p-1.5 rounded-full hover:bg-sunken text-tx-3 hover:text-tx transition-colors"
-          title="Toggle light and dark theme (t)"
-        >
-          {theme === 'dark' ? '☀️' : '🌙'}
-        </button>
-
-        <button
-          type="button"
-          onClick={onOpenAudit}
-          className="text-xs font-medium px-2.5 py-1 rounded-full border border-line hover:bg-sunken text-tx-2 transition-colors"
-        >
-          Audit
-        </button>
-
-        <button
-          type="button"
-          onClick={onOpenShortcuts}
-          className="text-xs font-medium w-6 h-6 rounded-full border border-line hover:bg-sunken text-tx-3 hover:text-tx flex items-center justify-center transition-colors"
-          title="Keyboard shortcuts (?)"
-        >
-          ?
-        </button>
+          {p.onReset && (
+            <button type="button" onClick={p.onReset} data-tour="reset" className="flex h-8 items-center gap-1.5 rounded-full px-3 text-sm text-tx-2 hover:bg-sunken hover:text-tx" title="Restore the demo to its starting state">
+              <RotateCcw size={14} />
+              <span className="hidden xl:inline">Reset demo</span>
+            </button>
+          )}
+          <button type="button" onClick={p.onAudit} className="flex h-8 items-center gap-1.5 rounded-full px-3 text-sm text-tx-2 hover:bg-sunken hover:text-tx" title="Audit log (L)">
+            <History size={15} />
+            <span className="hidden xl:inline">Audit log</span>
+          </button>
+          <button type="button" onClick={p.onHelp} className="rounded-full p-2 text-tx-2 hover:bg-sunken hover:text-tx" aria-label="Keyboard shortcuts" title="Keyboard (?)">
+            <Keyboard size={16} />
+          </button>
+          <button type="button" onClick={p.onTheme} className="rounded-full p-2 text-tx-2 hover:bg-sunken hover:text-tx" aria-label={p.theme === 'light' ? 'Dark theme' : 'Light theme'}>
+            {p.theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+          </button>
+        </div>
       </div>
+      <nav className="fx-scroll flex gap-1 overflow-x-auto px-3 pb-2 md:hidden" aria-label="Lanes">
+        {LANES.map((l) => (
+          <button
+            key={l}
+            type="button"
+            onClick={() => p.onLane(l)}
+            className={clsx('flex h-8 shrink-0 items-center gap-1.5 rounded-full px-3 text-sm', p.lane === l ? 'bg-tx text-bg' : 'bg-sunken text-tx-2')}
+          >
+            {LANE_LABEL[l]} <span className="text-xs opacity-70">{p.counts[l] ?? 0}</span>
+          </button>
+        ))}
+      </nav>
     </header>
   );
-}
+});

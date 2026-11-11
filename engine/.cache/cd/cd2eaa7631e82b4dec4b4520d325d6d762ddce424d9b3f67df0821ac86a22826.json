@@ -1,0 +1,28 @@
+{
+ "key": "cd2eaa7631e82b4dec4b4520d325d6d762ddce424d9b3f67df0821ac86a22826",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:13:27.592Z",
+ "response": {
+  "question_verdict": "no_error",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Both blind solves and the stored solution show that equating R = (2u^2 sin θ cos θ)/g and H = (u^2 sin^2 θ)/(2g) yields tan θ = 4, so θ = tan^(-1)(4). Stored key B is correct; the student made an algebraic factor-of-two error.",
+  "confidence": 1,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R028",
+    "verdict": "no_error",
+    "comment_flag": "none",
+    "student_claim": "Student claims the answer should be tan^(-1)(2).",
+    "student_was_right": false
+   }
+  ],
+  "other_issues": []
+ }
+}

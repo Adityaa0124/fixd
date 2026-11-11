@@ -3,11 +3,14 @@ services:
     name: fixd-api
     runtime: node
     plan: free
-    region: singapore
+    # Same region as the Neon database (aws us-east-2). Each request runs several queries,
+    # so API to DB latency dominates; a cross Pacific hop made every action take seconds.
+    region: ohio
     rootDir: .
     buildCommand: npm ci && npm run db:generate -w @fixd/server
     startCommand: npm run start -w @fixd/server
-    healthCheckPath: /api/health
+    # No database access: a sleeping Neon compute must not fail the health check.
+    healthCheckPath: /api/ping
     autoDeploy: true
     envVars:
       - key: NODE_VERSION
@@ -16,8 +19,8 @@ services:
         value: "false"
       - key: FIXD_OFFLINE
         value: "1"
-      - key: RERUN_PER_HOUR
-        value: "10"
+      - key: DEMO_RESET_PER_HOUR
+        value: "5"
       - key: DATABASE_URL
         sync: false
       - key: DIRECT_URL
@@ -26,4 +29,3 @@ services:
         sync: false
       - key: ADMIN_TOKEN
         generateValue: true
-

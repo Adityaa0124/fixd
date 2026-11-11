@@ -1,0 +1,32 @@
+{
+ "key": "6cf667eeabd0a5e3457da3ac17a95b2ec0b32623541212fddcadb35d76cbaa75",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:14:56.016Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "stem_data",
+  "edit": {
+   "field": "question",
+   "find": "The volume contraction of a solid copper cube, when subjected to",
+   "replace": "The volume contraction of a solid copper cube of edge length 10 cm, when subjected to"
+  },
+  "extra_edits": [],
+  "evidence": "Both blind solves note that the side length or volume of the cube is missing from the stem; the stored solution explicitly uses an edge length of 10 cm (10 × 10^-2 m) to calculate 50 mm^3.",
+  "confidence": 1,
+  "solution_final_answer": "50",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R006",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The edge length of the copper cube is missing from the question stem.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

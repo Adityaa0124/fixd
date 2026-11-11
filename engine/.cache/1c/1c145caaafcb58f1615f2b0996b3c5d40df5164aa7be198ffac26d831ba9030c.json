@@ -1,0 +1,28 @@
+{
+ "key": "1c145caaafcb58f1615f2b0996b3c5d40df5164aa7be198ffac26d831ba9030c",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:14:19.179Z",
+ "response": {
+  "question_verdict": "display_issue",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "The question, options, answer key (C), and solution are completely correct. The student report is about client-side screen layout/rendering on their phone.",
+  "confidence": 1,
+  "solution_final_answer": "C",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R036",
+    "verdict": "display_issue",
+    "comment_flag": "none",
+    "student_claim": "Options are cut off on the mobile screen",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

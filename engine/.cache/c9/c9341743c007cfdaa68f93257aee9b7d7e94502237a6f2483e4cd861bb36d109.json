@@ -1,0 +1,25 @@
+{
+ "key": "c9341743c007cfdaa68f93257aee9b7d7e94502237a6f2483e4cd861bb36d109",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:07:03.414Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "C"
+  ],
+  "value": "10 m/s",
+  "steps": [
+   "Identify the masses of the blocks: m1 = 10 kg, m2 = 4 kg.",
+   "Identify their initial velocities after the impulse: v1 = 14 m/s, v2 = 0 m/s.",
+   "Apply the formula for the velocity of the centre of mass: v_cm = (m1*v1 + m2*v2) / (m1 + m2).",
+   "Substitute the given values: v_cm = (10 * 14 + 4 * 0) / (10 + 4).",
+   "Calculate the result: v_cm = 140 / 14 = 10 m/s."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

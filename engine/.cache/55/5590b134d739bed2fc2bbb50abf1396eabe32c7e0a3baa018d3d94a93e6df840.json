@@ -1,0 +1,28 @@
+{
+ "key": "5590b134d739bed2fc2bbb50abf1396eabe32c7e0a3baa018d3d94a93e6df840",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:13.431Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "markup_leak",
+    "field": "solution",
+    "find": "<mi>&amp;</mi><mi>P</mi>",
+    "replace": "<mi>P</mi>",
+    "note": "Remove stray LaTeX alignment marker '&' leaked into MathML",
+    "confidence": 0.95
+   },
+   {
+    "repair": "markup_leak",
+    "field": "solution",
+    "find": "<mi>&amp;</mi><mi>ϕ</mi>",
+    "replace": "<mi>ϕ</mi>",
+    "note": "Remove stray LaTeX alignment marker '&' leaked into MathML",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

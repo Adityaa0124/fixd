@@ -1,151 +1,180 @@
-import { useState, useMemo } from 'react';
-import { countOccurrences, applyEdit, type Edit, type Snapshot } from '@fixd/shared';
-import type { CaseDetail } from '../lib/types';
-import { markEdit } from '../lib/markEdit';
+import { useMemo, useState } from 'react';
+import { Plus, Trash2 } from 'lucide-react';
+import { applyEdits, countOccurrences, type Edit } from '@fixd/shared';
+import type { CaseView } from '../lib/adapt';
+import { allowedFields, repairLabel } from '../lib/labels';
+import { diffHtml } from '../lib/diff';
+import { Modal } from './Modal';
+import { Button } from './Button';
 import { MathHtml } from './MathHtml';
 
-interface EditDialogProps {
-  c: CaseDetail;
-  isOpen: boolean;
-  onClose: () => void;
-  onSave: (edits: Edit[]) => void;
-}
+const answerText = (a: string | string[]) => (Array.isArray(a) ? JSON.stringify(a) : a);
 
-export function EditDialog({ c, isOpen, onClose, onSave }: EditDialogProps) {
-  const existingEdit = c.edits?.[0];
-  const [field, setField] = useState<Edit['field']>(existingEdit?.field || 'solution');
-  const [find, setFind] = useState(existingEdit?.find || '');
-  const [replace, setReplace] = useState(existingEdit?.replace || '');
+const FIELD_LABEL: Record<Edit['field'], string> = {
+  question: 'Question text',
+  solution: 'Solution text',
+  answer: 'Answer key',
+  questionType: 'Question type',
+};
 
-  // Validation
-  const validation = useMemo(() => {
-    if (!find && field !== 'answer') {
-      return { ok: false, error: 'Find string cannot be empty' };
-    }
-    const currentHtml = c.current[field as keyof Snapshot];
-    if (typeof currentHtml === 'string' && (field === 'question' || field === 'solution')) {
-      const count = countOccurrences(currentHtml, find);
-      if (count === 0) return { ok: false, error: 'Find string was not found in ' + field };
-      if (count > 1) return { ok: false, error: `Find string occurs ${count} times; must be unique` };
+/**
+ * Faculty correction of the AI's proposal. Starts from the proposed edits, limited to the
+ * fields the repair type may touch, and previews the result with the same diff as the case view.
+ */
+export function EditDialog({ c, open, onClose, onSave }: { c: CaseView; open: boolean; onClose: () => void; onSave: (e: Edit[]) => void }) {
+  const fields = useMemo(() => {
+    const allowed = allowedFields(c.repair);
+    return allowed.length ? allowed : (['question', 'solution', 'answer'] as Edit['field'][]);
+  }, [c.repair]);
+
+  const seed = (): Edit[] => {
+    const usable = c.edits.filter((e) => fields.includes(e.field));
+    if (usable.length) return usable.map((e) => ({ ...e }));
+    const f = fields[0]!;
+    return [{ field: f, find: f === 'answer' ? answerText(c.current.answer) : f === 'questionType' ? c.current.questionType : '', replace: '' }];
+  };
+  const [edits, setEdits] = useState<Edit[]>(seed);
+
+  const set = (i: number, patch: Partial<Edit>) =>
+    setEdits((xs) =>
+      xs.map((e, j) => {
+        if (j !== i) return e;
+        const next = { ...e, ...patch };
+        if (patch.field === 'answer') next.find = answerText(c.current.answer);
+        if (patch.field === 'questionType') next.find = c.current.questionType;
+        return next;
+      })
+    );
+
+  const check = useMemo(() => {
+    for (const e of edits) {
+      if (e.find === e.replace) return { error: 'An edit changes nothing yet.' };
+      if ((e.field === 'question' || e.field === 'solution') && e.find) {
+        const n = countOccurrences(c.current[e.field], e.find);
+        if (n !== 1) return { error: `The text to replace appears ${n} times in the ${e.field}. Copy a longer, unique piece.` };
+      }
     }
     try {
-      const candidate: Edit = { field, find, replace };
-      applyEdit(c.current, candidate);
-      return { ok: true, error: null };
-    } catch (e: any) {
-      return { ok: false, error: e.message || 'Cannot apply edit cleanly' };
+      return { after: applyEdits(c.current, edits) };
+    } catch (err) {
+      return { error: (err as Error).message };
     }
-  }, [c.current, field, find, replace]);
+  }, [edits, c.current]);
 
-  if (!isOpen) return null;
-
-  const previewEdit: Edit = { field, find, replace };
-  const currentText = c.current[field as keyof Snapshot];
-  const marked =
-    typeof currentText === 'string' && (field === 'question' || field === 'solution')
-      ? markEdit(currentText, previewEdit)
-      : null;
-
-  const handleSave = () => {
-    if (!validation.ok) return;
-    onSave([previewEdit]);
-    onClose();
+  const submit = () => {
+    if (!('error' in check)) onSave(edits);
   };
 
   return (
-    <div className="fixed inset-0 bg-tx/30 backdrop-blur-xs flex items-center justify-center p-4 z-50 select-none">
-      <div className="bg-surface border border-line rounded-card max-w-2xl w-full p-6 shadow-xl flex flex-col max-h-[90vh]">
-        <div className="flex items-center justify-between pb-3 border-b border-line mb-4">
-          <h3 className="font-semibold text-base text-tx">Edit Proposed Change</h3>
-          <button
-            type="button"
-            onClick={onClose}
-            className="text-xs text-tx-muted hover:text-tx px-2 py-1 rounded"
-          >
-            Cancel (Esc)
-          </button>
-        </div>
-
-        <div className="space-y-4 overflow-y-auto flex-1 pr-1">
-          <div>
-            <label className="block text-xs font-semibold text-tx-3 uppercase font-mono mb-1">
-              Target Field
-            </label>
-            <select
-              value={field}
-              onChange={(e) => setField(e.target.value as Edit['field'])}
-              className="w-full bg-sunken border border-line rounded p-2 text-xs text-tx font-mono focus:outline-none focus:ring-1 focus:ring-pine-500"
-            >
-              <option value="question">question</option>
-              <option value="solution">solution</option>
-              <option value="answer">answer</option>
-              <option value="questionType">questionType</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-tx-3 uppercase font-mono mb-1">
-              Find Exact Substring
-            </label>
-            <input
-              type="text"
-              value={find}
-              onChange={(e) => setFind(e.target.value)}
-              placeholder="Exact target text in original field"
-              className="w-full bg-sunken border border-line rounded p-2 text-xs text-tx font-mono focus:outline-none focus:ring-1 focus:ring-pine-500"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-tx-3 uppercase font-mono mb-1">
-              Replacement
-            </label>
-            <input
-              type="text"
-              value={replace}
-              onChange={(e) => setReplace(e.target.value)}
-              placeholder="Replacement text"
-              className="w-full bg-sunken border border-line rounded p-2 text-xs text-tx font-mono focus:outline-none focus:ring-1 focus:ring-pine-500"
-            />
-          </div>
-
-          {validation.error && (
-            <div className="p-2.5 rounded bg-bad-50 text-red-700 text-xs font-medium">
-              * {validation.error}
-            </div>
-          )}
-
-          {marked && (
-            <div>
-              <div className="text-[11px] font-semibold text-tx-muted uppercase font-mono mb-1">
-                Live Preview
-              </div>
-              <div className="bg-sunken/40 p-3 rounded border border-line max-h-48 overflow-y-auto text-xs">
-                <MathHtml html={marked.after} />
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="pt-4 border-t border-line mt-4 flex items-center justify-end gap-2">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-2 rounded-full border border-line text-xs font-medium text-tx-3 hover:bg-sunken"
-          >
+    <Modal
+      open={open}
+      wide
+      title={`Edit fix${c.repair ? `: ${repairLabel(c.repair)}` : ''}`}
+      onClose={onClose}
+      onSubmit={submit}
+      footer={
+        <>
+          {'error' in check && <span className="mr-auto text-xs text-bad-600">{check.error}</span>}
+          <Button variant="ghost" onClick={onClose}>
             Cancel
-          </button>
+          </Button>
+          <Button variant="primary" disabled={'error' in check} onClick={submit}>
+            Apply edit
+          </Button>
+        </>
+      }
+    >
+      <div className="space-y-4">
+        <p className="text-xs text-tx-3">
+          This repair may change: {fields.map((f) => FIELD_LABEL[f]).join(', ')}. Text fields take the stored HTML; copy the exact piece to replace.
+        </p>
+        {edits.map((e, i) => (
+          <div key={i} className="space-y-2 rounded-lg border border-line p-3">
+            <div className="flex items-center gap-2">
+              <select
+                value={e.field}
+                onChange={(ev) => set(i, { field: ev.target.value as Edit['field'] })}
+                className="h-8 rounded-full border border-line-strong bg-surface px-3 text-sm text-tx"
+                aria-label="Field"
+              >
+                {fields.map((f) => (
+                  <option key={f} value={f}>
+                    {FIELD_LABEL[f]}
+                  </option>
+                ))}
+              </select>
+              {edits.length > 1 && (
+                <button type="button" onClick={() => setEdits((xs) => xs.filter((_, j) => j !== i))} className="ml-auto rounded-full p-1.5 text-tx-3 hover:bg-sunken" aria-label="Remove edit">
+                  <Trash2 size={15} />
+                </button>
+              )}
+            </div>
+            {e.field === 'answer' || e.field === 'questionType' ? (
+              <div className="grid gap-2 sm:grid-cols-2">
+                <label className="text-xs text-tx-3">
+                  Now
+                  <input readOnly value={e.find} className="mt-1 h-9 w-full rounded-lg border border-line bg-sunken px-3 font-mono text-sm text-tx-2" />
+                </label>
+                <label className="text-xs text-tx-3">
+                  {e.field === 'answer' ? 'New key: a letter, ["A","C"] for multiple, or a number' : 'New type: scq, mcq or integerQuestion'}
+                  <input
+                    value={e.replace}
+                    onChange={(ev) => set(i, { replace: ev.target.value })}
+                    className="mt-1 h-9 w-full rounded-lg border border-line-strong bg-surface px-3 font-mono text-sm text-tx outline-none focus:border-pine-500"
+                  />
+                </label>
+              </div>
+            ) : (
+              <div className="grid gap-2 sm:grid-cols-2">
+                <label className="text-xs text-tx-3">
+                  Replace this stored text
+                  <textarea
+                    value={e.find}
+                    onChange={(ev) => set(i, { find: ev.target.value })}
+                    rows={4}
+                    className="mt-1 w-full rounded-lg border border-line-strong bg-surface p-2 font-mono text-xs text-tx outline-none focus:border-pine-500"
+                  />
+                </label>
+                <label className="text-xs text-tx-3">
+                  With
+                  <textarea
+                    value={e.replace}
+                    onChange={(ev) => set(i, { replace: ev.target.value })}
+                    rows={4}
+                    className="mt-1 w-full rounded-lg border border-line-strong bg-surface p-2 font-mono text-xs text-tx outline-none focus:border-pine-500"
+                  />
+                </label>
+              </div>
+            )}
+          </div>
+        ))}
+        {edits.length < 5 && (
           <button
             type="button"
-            disabled={!validation.ok}
-            onClick={handleSave}
-            className="px-5 py-2 rounded-full bg-pine-600 text-white text-xs font-semibold shadow-sm hover:bg-pine-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            onClick={() => setEdits((xs) => [...xs, { field: fields[0]!, find: fields[0] === 'answer' ? answerText(c.current.answer) : '', replace: '' }])}
+            className="flex items-center gap-1.5 text-sm text-pine-600 hover:underline"
           >
-            Apply & Save
+            <Plus size={15} /> Add another edit
           </button>
-        </div>
+        )}
+
+        {'after' in check && check.after && (
+          <div className="space-y-3 border-t border-line pt-4">
+            <p className="text-xs text-tx-3">Preview</p>
+            {(['question', 'solution'] as const).map((f) => {
+              const d = diffHtml(c.current[f], check.after![f]);
+              if (d.kind === 'same') return null;
+              return <MathHtml key={f} small html={d.kind === 'inline' ? d.html : d.after} />;
+            })}
+            {JSON.stringify(c.current.answer) !== JSON.stringify(check.after.answer) && (
+              <p className="text-sm">
+                Answer key <del className="rounded bg-bad-50 px-1.5 text-bad-600">{answerText(c.current.answer)}</del>{' '}
+                <ins className="rounded bg-ok-50 px-1.5 text-ok-600 no-underline">{answerText(check.after.answer)}</ins>
+              </p>
+            )}
+          </div>
+        )}
       </div>
-    </div>
+    </Modal>
   );
 }
-

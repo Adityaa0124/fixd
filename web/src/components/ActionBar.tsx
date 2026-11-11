@@ -1,145 +1,80 @@
-import type { Lane, CaseDetail } from '../lib/types';
+import { Check, Loader2, PencilLine, RotateCcw, Undo2, X, Lock } from 'lucide-react';
+import type { CaseView } from '../lib/adapt';
+import { Button } from './Button';
 
-interface ActionBarProps {
-  lane: Lane;
-  c: CaseDetail;
-  isPending: boolean;
+interface Props {
+  c: CaseView;
+  readOnly: boolean;
+  pending: boolean;
+  canUndo: boolean;
   onApprove: () => void;
-  onOpenEdit: () => void;
-  onOpenReject: () => void;
+  onEdit: () => void;
+  onReject: () => void;
   onConfirm: () => void;
-  onOpenRevert: () => void;
+  onRevert: () => void;
   onAcknowledge: () => void;
   onUndo: () => void;
 }
 
-export function ActionBar({
-  lane,
-  c,
-  isPending,
-  onApprove,
-  onOpenEdit,
-  onOpenReject,
-  onConfirm,
-  onOpenRevert,
-  onAcknowledge,
-  onUndo,
-}: ActionBarProps) {
-  const isDone = lane === 'done';
+/** Pinned to the bottom of the case: one decision, one key. */
+export function ActionBar(p: Props) {
+  const { c, readOnly, pending } = p;
+  const off = readOnly || pending;
+  let note: string | null = null;
+  if (readOnly) note = 'Read only. Actions need the live server.';
+  else if (c.lane === 'needs_review' && !c.approvable) note = c.blockedReason ?? 'This proposal cannot be approved as is. Edit or reject it.';
+  else if (c.lane === 'spot_check') note = 'Already live for students. Keep it, or revert to the previous version.';
 
   return (
-    <div className="sticky bottom-0 bg-surface/95 backdrop-blur-xs border-t border-line px-6 py-3 flex items-center justify-between gap-4 z-20 select-none shadow-md">
-      <div className="flex items-center gap-2">
-        {lane === 'needs_review' && (
+    <div className="sticky bottom-0 z-10 border-t border-line bg-surface/95 px-4 py-3 backdrop-blur sm:px-6" data-tour="actions">
+      <div className="mx-auto flex max-w-[860px] flex-wrap items-center gap-2">
+        {c.lane === 'needs_review' && (
           <>
-            <button
-              type="button"
-              disabled={isPending}
-              onClick={onApprove}
-              className="h-10 px-5 rounded-full bg-pine-600 hover:bg-pine-700 text-white font-semibold text-xs transition-colors flex items-center gap-2 disabled:opacity-50 shadow-sm"
-              title="Approve proposed fix (a)"
-            >
-              <span>Approve</span>
-              <kbd className="bg-pine-700/60 text-white text-[10px] px-1.5 py-0.5 rounded font-mono">
-                A
-              </kbd>
-            </button>
-
-            <button
-              type="button"
-              disabled={isPending}
-              onClick={onOpenEdit}
-              className="h-10 px-4 rounded-full border border-line bg-sunken hover:bg-line-strong text-tx font-semibold text-xs transition-colors flex items-center gap-2 disabled:opacity-50"
-              title="Edit proposed change (e)"
-            >
-              <span>Edit</span>
-              <kbd className="bg-surface text-tx-muted text-[10px] px-1.5 py-0.5 rounded font-mono border border-line">
-                E
-              </kbd>
-            </button>
-
-            <button
-              type="button"
-              disabled={isPending}
-              onClick={onOpenReject}
-              className="h-10 px-4 rounded-full border border-line text-red-700 hover:bg-bad-50 font-semibold text-xs transition-colors flex items-center gap-2 disabled:opacity-50"
-              title="Reject proposal (r)"
-            >
-              <span>Reject</span>
-              <kbd className="bg-bad-50 text-red-700 text-[10px] px-1.5 py-0.5 rounded font-mono border border-red-200">
-                R
-              </kbd>
-            </button>
+            <Button variant="primary" kbd="A" icon={<Check size={16} />} disabled={off || !c.approvable} onClick={p.onApprove}>
+              {c.edits.length ? 'Approve fix' : 'Accept diagnosis'}
+            </Button>
+            <Button kbd="E" icon={<PencilLine size={15} />} disabled={off} onClick={p.onEdit}>
+              Edit
+            </Button>
+            <Button kbd="R" icon={<X size={15} />} disabled={off} onClick={p.onReject}>
+              Reject
+            </Button>
           </>
         )}
-
-        {lane === 'spot_check' && (
+        {c.lane === 'spot_check' && (
           <>
-            <button
-              type="button"
-              disabled={isPending}
-              onClick={onConfirm}
-              className="h-10 px-5 rounded-full bg-pine-600 hover:bg-pine-700 text-white font-semibold text-xs transition-colors flex items-center gap-2 disabled:opacity-50 shadow-sm"
-              title="Confirm auto applied change is correct (a)"
-            >
-              <span>Confirm</span>
-              <kbd className="bg-pine-700/60 text-white text-[10px] px-1.5 py-0.5 rounded font-mono">
-                A
-              </kbd>
-            </button>
-
-            <button
-              type="button"
-              disabled={isPending}
-              onClick={onOpenRevert}
-              className="h-10 px-4 rounded-full border border-line text-red-700 hover:bg-bad-50 font-semibold text-xs transition-colors flex items-center gap-2 disabled:opacity-50"
-              title="Revert auto applied change (r)"
-            >
-              <span>Revert</span>
-              <kbd className="bg-bad-50 text-red-700 text-[10px] px-1.5 py-0.5 rounded font-mono border border-red-200">
-                R
-              </kbd>
-            </button>
+            <Button variant="primary" kbd="A" icon={<Check size={16} />} disabled={off} onClick={p.onConfirm}>
+              Keep fix
+            </Button>
+            <Button variant="danger" kbd="R" icon={<RotateCcw size={15} />} disabled={off} onClick={p.onRevert}>
+              Revert
+            </Button>
           </>
         )}
-
-        {lane === 'no_change' && (
-          <button
-            type="button"
-            disabled={isPending}
-            onClick={onAcknowledge}
-            className="h-10 px-5 rounded-full bg-pine-600 hover:bg-pine-700 text-white font-semibold text-xs transition-colors flex items-center gap-2 disabled:opacity-50 shadow-sm"
-            title="Acknowledge no change verdict (a)"
-          >
-            <span>Acknowledge</span>
-            <kbd className="bg-pine-700/60 text-white text-[10px] px-1.5 py-0.5 rounded font-mono">
-              A
-            </kbd>
-          </button>
+        {c.lane === 'no_change' && (
+          <Button variant="primary" kbd="A" icon={<Check size={16} />} disabled={off} onClick={p.onAcknowledge}>
+            Send reply and close
+          </Button>
         )}
-
-        {isDone && (
-          <div className="text-xs text-tx-muted font-medium py-2">
-            Status: <span className="font-semibold text-tx">{c.status}</span>
-          </div>
+        {pending && (
+          <span className="flex items-center gap-1.5 text-xs text-tx-3">
+            <Loader2 size={13} className="animate-spin" />
+            Saving
+          </span>
         )}
-      </div>
-
-      <div className="flex items-center gap-2">
-        <button
-          type="button"
-          disabled={isPending || c.actions?.length === 0}
-          onClick={onUndo}
-          className="h-9 px-3.5 rounded-full border border-line hover:bg-sunken text-tx-3 hover:text-tx text-xs font-medium transition-colors flex items-center gap-1.5 disabled:opacity-40"
-          title="Undo last action on this case (u)"
-        >
-          <span>Undo</span>
-          <kbd className="bg-sunken text-tx-muted text-[10px] px-1 py-0.2 rounded font-mono border border-line">
-            U
-          </kbd>
-        </button>
+        {!pending && note && (
+          <span className="flex min-w-0 items-center gap-1.5 text-xs text-tx-3">
+            {readOnly && <Lock size={13} />}
+            {note}
+          </span>
+        )}
+        <span className="ml-auto" />
+        {p.canUndo && (
+          <Button variant="ghost" kbd="U" icon={<Undo2 size={15} />} disabled={off} onClick={p.onUndo}>
+            Undo last action
+          </Button>
+        )}
       </div>
     </div>
   );
 }
-

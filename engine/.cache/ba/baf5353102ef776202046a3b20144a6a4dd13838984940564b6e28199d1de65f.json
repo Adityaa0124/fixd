@@ -1,0 +1,32 @@
+{
+ "key": "baf5353102ef776202046a3b20144a6a4dd13838984940564b6e28199d1de65f",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:12:19.449Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "answer_key",
+  "edit": {
+   "field": "answer",
+   "find": "2",
+   "replace": "1"
+  },
+  "extra_edits": [],
+  "evidence": "Both blind solves and the stored solution calculate total flux as q/(2ε₀), which yields n = 1; stored answer key incorrectly says 2.",
+  "confidence": 1,
+  "solution_final_answer": "1",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R005",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The answer key is wrong and n should be 1.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "key": "95f16642db653f09d72e0f5cd5f4298b641e27a77922f1b01bcd5075a67cd221",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:08:21.572Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "14"
+  ],
+  "value": "14",
+  "steps": [
+   "The potential at the surface of the sphere is V(R) = kQ/R = 16 V.",
+   "The potential inside a uniformly charged sphere at distance r is V(r) = (kQ / 2R^3) * (3R^2 - r^2).",
+   "For point P at r = R/2, V(P) = (kQ / 2R^3) * (3R^2 - R^2/4) = 11kQ / 8R.",
+   "The potential outside the sphere at distance r is V(r) = kQ/r.",
+   "For point S at r = 2R, V(S) = kQ / 2R.",
+   "The potential difference is V(P) - V(S) = (11kQ / 8R) - (4kQ / 8R) = 7kQ / 8R = (7/8) * 16 = 14 V."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

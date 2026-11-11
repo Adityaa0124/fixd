@@ -4,45 +4,50 @@ import { ROOT } from '../data';
 import type { SweepFinding } from '../pipeline/sweep';
 
 const sweepPath = path.join(ROOT, 'engine/out/sweep.json');
-if (!fs.existsSync(sweepPath)) {
-  console.warn('sweep.json not found; please run sweep first');
-  process.exit(1);
-}
+if (!fs.existsSync(sweepPath)) { console.warn('sweep.json not found; run `npm run sweep` first'); process.exit(1); }
 
-const f: SweepFinding[] = JSON.parse(fs.readFileSync(sweepPath, 'utf8'));
-const esc = (s: string) => s.replace(/\|/g, '\\|').replace(/\n/g, ' ').slice(0, 140);
+const all: SweepFinding[] = JSON.parse(fs.readFileSync(sweepPath, 'utf8'));
+const esc = (s: string) => s.replace(/\|/g, '\\|').replace(/\n/g, ' ').replace(/[—–]/g, ',').trim();
+const cut = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1) + '…' : s);
+const where = (x: SweepFinding) => (x.questionReported ? 'reported question, different defect' : 'nobody reported this question');
+const edit = (x: SweepFinding) => (x.edit ? `\`${cut(esc(x.edit.find), 50)}\` → \`${cut(esc(x.edit.replace), 50) || '(removed)'}\`` : 'faculty decision');
 const row = (x: SweepFinding) =>
-  `| \`${x.qid ?? x.questionId.slice(-6)}\` | ${x.subject} · ${x.chapter} | \`${x.repair ?? 'n/a'}\` | ${x.edit ? `\`${esc(x.edit.find)}\` → \`${esc(x.edit.replace)}\`` : 'n/a'} | ${esc(x.note)} |`;
-const table = (xs: SweepFinding[]) =>
-  xs.length
-    ? ['| Question | Where | Repair | Edit | Evidence |', '|:---|:---|:---|:---|:---|', ...xs.map(row)].join('\n')
-    : '_None._';
+  `| \`${x.qid ?? x.questionId.slice(-6)}\` | ${x.subject} · ${esc(x.chapter)} | ${where(x)} | \`${x.repair ?? 'n/a'}\` | ${edit(x)} | ${cut(esc(x.note), 160)} |`;
+const table = (xs: SweepFinding[]) => (xs.length
+  ? ['| Question | Topic | Where | Repair | Edit | Evidence |',
+     '|:---|:---|:---|:---|:---|:---|', ...xs.map(row)].join('\n')
+  : '_None._');
 
-const confirmed = f.filter((x) => x.status === 'confirmed');
-const candidates = f.filter((x) => x.status === 'candidate' && x.guardOk);
+const verified = all.filter((x) => x.status === 'verified');
+const candidates = all.filter((x) => x.status === 'candidate');
+const rejected = all.filter((x) => x.status === 'rejected');
 
 const md = `# BONUS.md
 
-Defects in the question bank that were not reported by students, discovered through the Fixd sweep.
+Defects in the data that **no student reported**, found by \`npm run sweep\` and written by \`npm run bonus\`. Nothing here is hand edited.
 
 ## How they were found
 
-* Static checks across all 43 questions: literal facts about stored content including leaked markup, exam reference tags, and empty option labels.
-* Secondary issues noticed by the triage engine during analysis of reported questions.
-* Comprehensive sweep of unreported questions with dual blind solves and report free triage.
-* Every finding must pass the scope guard and verified by faculty review.
+* **Static checks** over all 43 questions: leaked LaTeX, stray MathML alignment markers, exam tags, blank or duplicate options, malformed keys.
+* **Noticed while triaging**: defects the triage model saw on a reported question that the report itself was not about.
+* **Sweep** of the ${new Set(all.filter((x) => !x.questionReported).map((x) => x.questionId)).size || 4} questions nobody reported: two blind solves plus report free triage.
 
-## Confirmed (${confirmed.length})
+Every edit went through the same scope guard as the main pipeline. **Verified** means the guard passed and confidence is at least 0.85, or it is a certain static fact. **Candidates** need a faculty decision (editorial calls such as chapter, or edits the guard could not confirm).
 
-${table(confirmed)}
+## Verified (${verified.length})
 
-## Candidates for faculty review (${candidates.length})
+${table(verified)}
 
-Passed the scope guard, awaiting faculty confirmation:
+## Candidates for faculty (${candidates.length})
 
 ${table(candidates)}
+
+## Refused by the guard (${rejected.length})
+
+Proposed by the model, blocked by code. Listed for transparency; none of these would be applied.
+
+${table(rejected)}
 `;
 
 fs.writeFileSync(path.join(ROOT, 'BONUS.md'), md);
-console.log(`BONUS.md: ${confirmed.length} confirmed, ${candidates.length} candidates`);
-
+console.log(`BONUS.md: ${verified.length} verified, ${candidates.length} candidates, ${rejected.length} refused`);

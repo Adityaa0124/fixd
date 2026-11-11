@@ -1,0 +1,20 @@
+{
+ "key": "ce3a6711988fba41f4e96fb625df64e7b94e98ecbce6cde1945b80f0881b5ca0",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:18:05.039Z",
+ "response": {
+  "question_verdict": "no_error",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Both blind solves and the stored solution agree that Statement-I is correct and Statement-II is incorrect, matching the stored key (D).",
+  "confidence": 0.95,
+  "solution_final_answer": "D",
+  "option_text_source": null,
+  "per_report": [],
+  "other_issues": []
+ }
+}

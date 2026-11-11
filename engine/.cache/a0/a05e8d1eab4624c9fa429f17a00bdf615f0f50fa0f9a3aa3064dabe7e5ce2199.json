@@ -1,0 +1,20 @@
+{
+ "key": "a05e8d1eab4624c9fa429f17a00bdf615f0f50fa0f9a3aa3064dabe7e5ce2199",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:21:23.273Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "notation",
+    "field": "solution",
+    "find": "<mo>&minus;</mo><mfrac><mrow><mi> d </mi><mi> x </mi></mrow><mrow><mi> d </mi><mi> t </mi></mrow></mfrac><mo>&minus;</mo>",
+    "replace": "<mo>=</mo><mfrac><mrow><mi> d </mi><mi> x </mi></mrow><mrow><mi> d </mi><mi> t </mi></mrow></mfrac><mo>=</mo>",
+    "note": "Equals signs were replaced by minus signs in the expression for velocity.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

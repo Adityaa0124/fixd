@@ -1,6 +1,7 @@
 import type { Edit, Gate, Snapshot } from '@fixd/shared';
 export type { Edit, Gate, Snapshot };
 
+/** Mirrors server/API.md. Everything optional that older payloads may lack. */
 export interface CaseSummary {
   id: string;
   questionId: string;
@@ -9,7 +10,7 @@ export interface CaseSummary {
   chapter: string;
   verdict: string;
   repair: string | null;
-  route: string;
+  route: 'auto_apply' | 'faculty_review' | 'no_change' | string;
   status: string;
   confidence: number;
   urgency: number;
@@ -18,6 +19,8 @@ export interface CaseSummary {
   firstReportedAt: string | null;
   preview: string;
   flags: string[];
+  approvable?: boolean;
+  blockedReason?: string | null;
 }
 
 export interface ReportItem {
@@ -34,7 +37,7 @@ export interface ReportItem {
   studentWasRight: boolean;
   aiReply: string;
   finalReply: string | null;
-  replyStatus: string;
+  replyStatus: 'draft' | 'sent' | string;
 }
 
 export interface ActionItem {
@@ -47,6 +50,7 @@ export interface ActionItem {
   statusAfter: string;
   versionFrom: number | null;
   versionTo: number | null;
+  undone?: boolean;
   createdAt: string;
 }
 
@@ -55,29 +59,20 @@ export interface VersionItem {
   createdBy: string;
   reason: string;
   createdAt: string;
+  actionId?: number | null;
 }
 
-export interface CaseDetail extends Omit<CaseSummary, 'reports'> {
+export interface CaseDetailRaw extends Omit<CaseSummary, 'reports'> {
   evidence: string;
-  gates: Record<string, Gate>;
-  agreement: {
-    solvesAgree?: boolean;
-    solutionAgreesWithKey?: boolean;
-    solutionAgreesWithSolver?: boolean;
-    studentAgreesWithSolver?: boolean;
-  };
-  solves: Array<{ answer: unknown; text?: string; reasoning?: string }>;
-  findings: string[];
-  otherIssues: Array<{ field: string; claim: string; edit?: Edit }>;
-  guardErrors: string[];
+  gates: unknown;
+  agreement: unknown;
+  solves: unknown;
+  findings: unknown;
+  otherIssues: unknown;
+  guardErrors: unknown;
+  editsRejected?: unknown;
   edits: Edit[];
-  urgencyBreakdown: {
-    score: number;
-    students: number;
-    severity: number;
-    ageDays: number;
-    uncertainty: number;
-  };
+  urgencyBreakdown: unknown;
   engineMeta: unknown;
   reports: ReportItem[];
   actions: ActionItem[];
@@ -86,7 +81,9 @@ export interface CaseDetail extends Omit<CaseSummary, 'reports'> {
   current: Snapshot;
   original: Snapshot;
   proposed: Snapshot | null;
+  previous?: Snapshot | null;
   answerOptions: Array<{ label: string; text: string; blank?: boolean }>;
+  lastActionId?: number;
 }
 
 export interface AuditEntry {
@@ -96,24 +93,46 @@ export interface AuditEntry {
   action: string;
   caseId: string | null;
   questionId: string | null;
+  qid?: string | null;
   summary: string;
-  before: unknown;
-  after: unknown;
+  before: Snapshot | null | unknown;
+  after: Snapshot | null | unknown;
+}
+
+export interface Stats {
+  cases: number;
+  open: number;
+  autoApplied: number;
+  defects: number;
+  resolved: number;
+  autoApplyActions?: number;
+  reverts?: number;
+  autoFixRevertRate?: number | null;
 }
 
 export type Lane = 'needs_review' | 'spot_check' | 'no_change' | 'done' | 'sweep';
+export type CaseLane = Exclude<Lane, 'sweep'>;
 
-export interface SweepFinding {
-  questionId: string;
-  qid: string | null;
-  subject: string;
-  chapter: string;
-  source: 'static' | 'triage_other_issue' | 'sweep_triage' | 'key_check';
-  repair: string | null;
-  edit: Edit | null;
-  note: string;
-  confidence: number;
-  guardOk: boolean;
-  guardErrors: string[];
-  status: 'candidate' | 'confirmed' | 'rejected';
+export interface SweepFindingRaw {
+  questionId?: string;
+  qid?: string | null;
+  subject?: string;
+  chapter?: string;
+  source?: string;
+  repair?: string | null;
+  edit?: Edit | null;
+  note?: string;
+  confidence?: number;
+  guardOk?: boolean;
+  guardErrors?: string[];
+  status?: string;
+  reported?: boolean;
+}
+
+export interface SnapshotFile {
+  generatedAt: string;
+  engine: unknown;
+  items: CaseSummary[];
+  details: Record<string, CaseDetailRaw>;
+  sweep: SweepFindingRaw[];
 }

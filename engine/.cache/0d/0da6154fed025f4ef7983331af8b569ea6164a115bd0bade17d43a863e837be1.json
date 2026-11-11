@@ -1,0 +1,20 @@
+{
+ "key": "0da6154fed025f4ef7983331af8b569ea6164a115bd0bade17d43a863e837be1",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:28.900Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "markup_leak",
+    "field": "solution",
+    "find": "<mi>\\AA</mi>",
+    "replace": "<mi>&#x212B;</mi>",
+    "note": "Raw LaTeX command \\AA leaked inside MathML identifier.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

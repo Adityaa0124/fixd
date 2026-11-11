@@ -1,0 +1,25 @@
+{
+ "key": "702719006c85baedc501fb77bb3c8ae830ccb0b031d7ce46a37d1a26b8c280dd",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:10:23.562Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "D"
+  ],
+  "value": "1.1 V",
+  "steps": [
+   "Calculate the energy of the incident photon using E = hc / λ.",
+   "Using hc ≈ 12400 eV·Å, E = 12400 / 4000 = 3.1 eV.",
+   "Use Einstein's photoelectric equation: K_max = E - Φ.",
+   "Substitute the given values: K_max = 3.1 eV - 2.0 eV = 1.1 eV.",
+   "The stopping potential V_s is related to maximum kinetic energy by eV_s = K_max, so V_s = 1.1 V."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

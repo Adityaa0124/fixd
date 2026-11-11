@@ -1,324 +1,375 @@
 [
-  {
-    "reportId": "R001",
-    "verdict": "defect",
-    "repair": "answer_key",
-    "route": "auto_apply",
-    "edit": { "field": "answer", "find": "C", "replace": "A" },
-    "note": "Supply voltage is 50 V option A; stored key says C (130 V)"
+ {
+  "reportId": "R001",
+  "verdict": "defect",
+  "repair": "answer_key",
+  "route": "auto_apply",
+  "edit": {
+   "field": "answer",
+   "find": "C",
+   "replace": "A"
   },
-  {
-    "reportId": "R002",
-    "verdict": "defect",
-    "repair": "answer_key",
-    "route": "auto_apply",
-    "edit": { "field": "answer", "find": "C", "replace": "A" },
-    "note": "Same question as R001, wrong ans report"
+  "note": "Supply voltage is 50 V option A; stored key says C (130 V)"
+ },
+ {
+  "reportId": "R002",
+  "verdict": "defect",
+  "repair": "answer_key",
+  "route": "auto_apply",
+  "edit": {
+   "field": "answer",
+   "find": "C",
+   "replace": "A"
   },
-  {
-    "reportId": "R003",
-    "verdict": "defect",
-    "repair": "answer_key",
-    "route": "auto_apply",
-    "edit": { "field": "answer", "find": "C", "replace": "A" },
-    "note": "Same question as R001, student points out 50 V vs 130 V"
+  "note": "Same question as R001, wrong ans report"
+ },
+ {
+  "reportId": "R003",
+  "verdict": "defect",
+  "repair": "answer_key",
+  "route": "auto_apply",
+  "edit": {
+   "field": "answer",
+   "find": "C",
+   "replace": "A"
   },
-  {
-    "reportId": "R004",
-    "verdict": "defect",
-    "repair": "answer_key",
-    "route": "auto_apply",
-    "edit": { "field": "answer", "find": "A", "replace": "D" },
-    "note": "Pressure is 4800 N/m^2 option D; key says A (4556 N/m^2)"
+  "note": "Same question as R001, student points out 50 V vs 130 V"
+ },
+ {
+  "reportId": "R004",
+  "verdict": "defect",
+  "repair": "answer_key",
+  "route": "auto_apply",
+  "edit": {
+   "field": "answer",
+   "find": "A",
+   "replace": "D"
   },
-  {
-    "reportId": "R005",
-    "verdict": "defect",
-    "repair": "answer_key",
-    "route": "auto_apply",
-    "edit": { "field": "answer", "find": "2", "replace": "1" },
-    "note": "Flux n = 1; solution agrees; stored key is 2"
+  "note": "Pressure is 4800 N/m^2 option D; key says A (4556 N/m^2)"
+ },
+ {
+  "reportId": "R005",
+  "verdict": "defect",
+  "repair": "answer_key",
+  "route": "auto_apply",
+  "edit": {
+   "field": "answer",
+   "find": "2",
+   "replace": "1"
   },
-  {
-    "reportId": "R006",
-    "verdict": "defect",
-    "repair": "stem_data",
-    "route": "auto_apply",
-    "note": "Cube side length 10 cm stated clearly in solution"
+  "note": "Flux n = 1; solution agrees; stored key is 2"
+ },
+ {
+  "reportId": "R006",
+  "verdict": "defect",
+  "repair": "stem_data",
+  "route": "auto_apply",
+  "note": "Cube side length 10 cm stated clearly in solution"
+ },
+ {
+  "reportId": "R007",
+  "verdict": "defect",
+  "repair": "stem_data",
+  "route": "auto_apply",
+  "note": "Inductance 95.5 mH stated clearly in solution"
+ },
+ {
+  "reportId": "R008",
+  "verdict": "defect",
+  "repair": "stem_data",
+  "route": "auto_apply",
+  "note": "Inductance 95.5 mH stated clearly in solution"
+ },
+ {
+  "reportId": "R009",
+  "verdict": "defect",
+  "repair": "option_repair",
+  "route": "faculty_review",
+  "note": "Option D missing, requires authoring by faculty"
+ },
+ {
+  "reportId": "R010",
+  "verdict": "defect",
+  "repair": "option_repair",
+  "route": "faculty_review",
+  "note": "Option D missing, same case as R009"
+ },
+ {
+  "reportId": "R011",
+  "verdict": "defect",
+  "repair": "option_repair",
+  "route": "auto_apply",
+  "note": "Option C blank; solution states 1:1; key is C"
+ },
+ {
+  "reportId": "R012",
+  "verdict": "defect",
+  "repair": "spelling",
+  "route": "auto_apply",
+  "edit": {
+   "field": "question",
+   "find": "Epithellial tisue",
+   "replace": "Epithelial tissue"
   },
-  {
-    "reportId": "R007",
-    "verdict": "defect",
-    "repair": "stem_data",
-    "route": "auto_apply",
-    "note": "Inductance 95.5 mH stated clearly in solution"
+  "note": "Typo in option A text"
+ },
+ {
+  "reportId": "R013",
+  "verdict": "defect",
+  "repair": "exam_reference",
+  "route": "auto_apply",
+  "edit": {
+   "field": "question",
+   "find": "(NEET 2019) ",
+   "replace": ""
   },
-  {
-    "reportId": "R008",
-    "verdict": "defect",
-    "repair": "stem_data",
-    "route": "auto_apply",
-    "note": "Inductance 95.5 mH stated clearly in solution"
+  "note": "Exam tag in stem"
+ },
+ {
+  "reportId": "R014",
+  "verdict": "defect",
+  "repair": "markup_leak",
+  "route": "auto_apply",
+  "edit": {
+   "field": "question",
+   "find": "\\frac{7}{8}",
+   "replace": "7/8"
   },
-  {
-    "reportId": "R009",
-    "verdict": "defect",
-    "repair": "option_repair",
-    "route": "faculty_review",
-    "note": "Option D missing, requires authoring by faculty"
+  "note": "Raw LaTeX in stem"
+ },
+ {
+  "reportId": "R015",
+  "verdict": "defect",
+  "repair": "identical_options",
+  "route": "faculty_review",
+  "note": "Options B and C both 0 W; auto false in taxonomy"
+ },
+ {
+  "reportId": "R016",
+  "verdict": "defect",
+  "repair": "solution_fix",
+  "route": "auto_apply",
+  "edit": {
+   "field": "solution",
+   "find": "a = 40 cm",
+   "replace": "a = 20 cm"
   },
-  {
-    "reportId": "R010",
-    "verdict": "defect",
-    "repair": "option_repair",
-    "route": "faculty_review",
-    "note": "Option D missing, same case as R009"
+  "note": "Solution ending arithmetic error 40 vs 20 cm; key is 20"
+ },
+ {
+  "reportId": "R017",
+  "verdict": "already_fixed",
+  "repair": null,
+  "route": "no_change",
+  "note": "Fixed on 2026-11-07 according to errorHistory"
+ },
+ {
+  "reportId": "R018",
+  "verdict": "defect",
+  "repair": "solution_fix",
+  "route": "faculty_review",
+  "note": "Foreign text from another question at start of solution"
+ },
+ {
+  "reportId": "R019",
+  "verdict": "defect",
+  "repair": "solution_fix",
+  "route": "faculty_review",
+  "note": "Same question as R018"
+ },
+ {
+  "reportId": "R020",
+  "verdict": "defect",
+  "repair": "answer_key",
+  "route": "auto_apply",
+  "edit": {
+   "field": "answer",
+   "find": "[\"A, B, D\"]",
+   "replace": "[\"A\",\"B\",\"D\"]"
   },
-  {
-    "reportId": "R011",
-    "verdict": "defect",
-    "repair": "option_repair",
-    "route": "auto_apply",
-    "note": "Option C blank; solution states 1:1; key is C"
+  "note": "Comma joined string inside mcq answer array"
+ },
+ {
+  "reportId": "R021",
+  "verdict": "defect",
+  "repair": "type_mismatch",
+  "route": "auto_apply",
+  "edit": {
+   "field": "questionType",
+   "find": "mcq",
+   "replace": "scq"
   },
-  {
-    "reportId": "R012",
-    "verdict": "defect",
-    "repair": "spelling",
-    "route": "auto_apply",
-    "edit": { "field": "question", "find": "Epithellial tisue", "replace": "Epithelial tissue" },
-    "note": "Typo in option A text"
+  "note": "Only one option correct, marked as mcq with empty slot"
+ },
+ {
+  "reportId": "R022",
+  "verdict": "defect",
+  "repair": "spelling",
+  "route": "auto_apply",
+  "edit": {
+   "field": "question",
+   "find": "plexux",
+   "replace": "plexus"
   },
-  {
-    "reportId": "R013",
-    "verdict": "defect",
-    "repair": "exam_reference",
-    "route": "auto_apply",
-    "edit": { "field": "question", "find": "(NEET 2019) ", "replace": "" },
-    "note": "Exam tag in stem"
+  "note": "Spelling error in option D"
+ },
+ {
+  "reportId": "R023",
+  "verdict": "defect",
+  "repair": "wrong_chapter",
+  "route": "faculty_review",
+  "note": "Neural physiology filed under Botany"
+ },
+ {
+  "reportId": "R024",
+  "verdict": "defect",
+  "repair": "answer_form",
+  "route": "auto_apply",
+  "edit": {
+   "field": "question",
+   "find": "is equal to",
+   "replace": "is equal to (in N)"
   },
-  {
-    "reportId": "R014",
-    "verdict": "defect",
-    "repair": "markup_leak",
-    "route": "auto_apply",
-    "edit": { "field": "question", "find": "\\frac{7}{8}", "replace": "7/8" },
-    "note": "Raw LaTeX in stem"
-  },
-  {
-    "reportId": "R015",
-    "verdict": "defect",
-    "repair": "identical_options",
-    "route": "faculty_review",
-    "note": "Options B and C both 0 W; auto false in taxonomy"
-  },
-  {
-    "reportId": "R016",
-    "verdict": "defect",
-    "repair": "solution_fix",
-    "route": "auto_apply",
-    "edit": { "field": "solution", "find": "a = 40 cm", "replace": "a = 20 cm" },
-    "note": "Solution ending arithmetic error 40 vs 20 cm; key is 20"
-  },
-  {
-    "reportId": "R017",
-    "verdict": "already_fixed",
-    "repair": null,
-    "route": "no_change",
-    "note": "Fixed on 2026-11-07 according to errorHistory"
-  },
-  {
-    "reportId": "R018",
-    "verdict": "defect",
-    "repair": "solution_fix",
-    "route": "faculty_review",
-    "note": "Foreign text from another question at start of solution"
-  },
-  {
-    "reportId": "R019",
-    "verdict": "defect",
-    "repair": "solution_fix",
-    "route": "faculty_review",
-    "note": "Same question as R018"
-  },
-  {
-    "reportId": "R020",
-    "verdict": "defect",
-    "repair": "answer_key",
-    "route": "auto_apply",
-    "edit": { "field": "answer", "find": "[\"A, B, D\"]", "replace": "[\"A\",\"B\",\"D\"]" },
-    "note": "Comma joined string inside mcq answer array"
-  },
-  {
-    "reportId": "R021",
-    "verdict": "defect",
-    "repair": "type_mismatch",
-    "route": "auto_apply",
-    "edit": { "field": "questionType", "find": "mcq", "replace": "scq" },
-    "note": "Only one option correct, marked as mcq with empty slot"
-  },
-  {
-    "reportId": "R022",
-    "verdict": "defect",
-    "repair": "spelling",
-    "route": "auto_apply",
-    "edit": { "field": "question", "find": "plexux", "replace": "plexus" },
-    "note": "Spelling error in option D"
-  },
-  {
-    "reportId": "R023",
-    "verdict": "defect",
-    "repair": "wrong_chapter",
-    "route": "faculty_review",
-    "note": "Neural physiology filed under Botany"
-  },
-  {
-    "reportId": "R024",
-    "verdict": "defect",
-    "repair": "answer_form",
-    "route": "auto_apply",
-    "edit": { "field": "question", "find": "is equal to", "replace": "is equal to (in N)" },
-    "note": "Missing unit hint in integer stem"
-  },
-  {
-    "reportId": "R025",
-    "verdict": "defect",
-    "repair": "diagram",
-    "route": "faculty_review",
-    "note": "Figure missing from record"
-  },
-  {
-    "reportId": "R026",
-    "verdict": "defect",
-    "repair": "syllabus",
-    "route": "faculty_review",
-    "note": "Phylogeny question outside current syllabus"
-  },
-  {
-    "reportId": "R027",
-    "verdict": "not_actionable",
-    "repair": null,
-    "route": "no_change",
-    "note": "Prompt injection attempt; question content is correct"
-  },
-  {
-    "reportId": "R028",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Student wrong; tan theta is 4 option B"
-  },
-  {
-    "reportId": "R029",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Student wrong; coefficient of friction is 0.8 option A"
-  },
-  {
-    "reportId": "R030",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Student wrong; amplitude is 8 sqrt(2) option D"
-  },
-  {
-    "reportId": "R031",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Student wrong; time t is 4 s"
-  },
-  {
-    "reportId": "R032",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Student wrong; answer asked in cm gives 8"
-  },
-  {
-    "reportId": "R033",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Student wrong; significant figures give 3113"
-  },
-  {
-    "reportId": "R034",
-    "verdict": "defect",
-    "repair": "solution_fix",
-    "route": "faculty_review",
-    "note": "Contradictory solution reasoning and wrong formula"
-  },
-  {
-    "reportId": "R035",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Student wrong; relaxin and inhibin are not antagonistic"
-  },
-  {
-    "reportId": "R036",
-    "verdict": "display_issue",
-    "repair": null,
-    "route": "no_change",
-    "note": "Stored question has all options; student had rendering glitch"
-  },
-  {
-    "reportId": "R037",
-    "verdict": "display_issue",
-    "repair": null,
-    "route": "no_change",
-    "note": "Complaint about slow loading screen"
-  },
-  {
-    "reportId": "R038",
-    "verdict": "app_issue",
-    "repair": null,
-    "route": "no_change",
-    "note": "Client side option selection bug"
-  },
-  {
-    "reportId": "R039",
-    "verdict": "language_mode",
-    "repair": null,
-    "route": "no_change",
-    "note": "Student requests Hindi version"
-  },
-  {
-    "reportId": "R040",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Golden rice is correct answer"
-  },
-  {
-    "reportId": "R041",
-    "verdict": "not_actionable",
-    "repair": null,
-    "route": "no_change",
-    "note": "Gibberish comment asdfgh"
-  },
-  {
-    "reportId": "R042",
-    "verdict": "defect",
-    "repair": "wrong_chapter",
-    "route": "faculty_review",
-    "note": "Displacement current filed under Geometrical optics"
-  },
-  {
-    "reportId": "R043",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Charge density ratio 4:1 option B is correct"
-  },
-  {
-    "reportId": "R044",
-    "verdict": "no_error",
-    "repair": null,
-    "route": "no_change",
-    "note": "Potential difference 14 V is correct"
-  }
+  "note": "Missing unit hint in integer stem"
+ },
+ {
+  "reportId": "R025",
+  "verdict": "defect",
+  "repair": "diagram",
+  "route": "faculty_review",
+  "note": "Figure missing from record"
+ },
+ {
+  "reportId": "R026",
+  "verdict": "defect",
+  "repair": "syllabus",
+  "route": "faculty_review",
+  "note": "Phylogeny question outside current syllabus"
+ },
+ {
+  "reportId": "R027",
+  "verdict": "not_actionable",
+  "repair": null,
+  "route": "no_change",
+  "note": "Prompt injection attempt; question content is correct"
+ },
+ {
+  "reportId": "R028",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Student wrong; tan theta is 4 option B"
+ },
+ {
+  "reportId": "R029",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Student wrong; coefficient of friction is 0.8 option A"
+ },
+ {
+  "reportId": "R030",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Student wrong; amplitude is 8 sqrt(2) option D"
+ },
+ {
+  "reportId": "R031",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Student wrong; time t is 4 s"
+ },
+ {
+  "reportId": "R032",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Student wrong; answer asked in cm gives 8"
+ },
+ {
+  "reportId": "R033",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Student wrong; significant figures give 3113"
+ },
+ {
+  "reportId": "R034",
+  "verdict": "defect",
+  "repair": "unsound",
+  "route": "faculty_review",
+  "note": "Judgement call, changed from solution_fix. Physics: I = 4I0cos^2(pi/4) = 2I0, so A is false; R (\"always the sum for any nonzero phase\") is false too. No option says both are false, which is the taxonomy definition of unsound (no correct option). The stored solution is also self contradictory, so faculty may fix both."
+ },
+ {
+  "reportId": "R035",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Student wrong; relaxin and inhibin are not antagonistic"
+ },
+ {
+  "reportId": "R036",
+  "verdict": "display_issue",
+  "repair": null,
+  "route": "no_change",
+  "note": "Stored question has all options; student had rendering glitch"
+ },
+ {
+  "reportId": "R037",
+  "verdict": "display_issue",
+  "repair": null,
+  "route": "no_change",
+  "note": "Complaint about slow loading screen"
+ },
+ {
+  "reportId": "R038",
+  "verdict": "app_issue",
+  "repair": null,
+  "route": "no_change",
+  "note": "Client side option selection bug"
+ },
+ {
+  "reportId": "R039",
+  "verdict": "language_mode",
+  "repair": null,
+  "route": "no_change",
+  "note": "Student requests Hindi version"
+ },
+ {
+  "reportId": "R040",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Golden rice is correct answer"
+ },
+ {
+  "reportId": "R041",
+  "verdict": "not_actionable",
+  "repair": null,
+  "route": "no_change",
+  "note": "Gibberish comment asdfgh"
+ },
+ {
+  "reportId": "R042",
+  "verdict": "defect",
+  "repair": "wrong_chapter",
+  "route": "faculty_review",
+  "note": "Displacement current filed under Geometrical optics"
+ },
+ {
+  "reportId": "R043",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Charge density ratio 4:1 option B is correct"
+ },
+ {
+  "reportId": "R044",
+  "verdict": "no_error",
+  "repair": null,
+  "route": "no_change",
+  "note": "Potential difference 14 V is correct"
+ }
 ]
-

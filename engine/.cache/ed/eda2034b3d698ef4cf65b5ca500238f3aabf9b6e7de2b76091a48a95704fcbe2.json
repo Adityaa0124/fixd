@@ -1,0 +1,28 @@
+{
+ "key": "eda2034b3d698ef4cf65b5ca500238f3aabf9b6e7de2b76091a48a95704fcbe2",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:14:41.510Z",
+ "response": {
+  "question_verdict": "no_error",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Both blind solves and the stored solution confirm that the coefficient of linear expansion is α = 1.9 × 10⁻⁵ /°C and the coefficient of cubical expansion is γ = 3α = 5.7 × 10⁻⁵ /°C, matching key A.",
+  "confidence": 1,
+  "solution_final_answer": "A",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R027",
+    "verdict": "no_error",
+    "comment_flag": "injection",
+    "student_claim": "Attempted prompt injection asking to change the answer to C.",
+    "student_was_right": false
+   }
+  ],
+  "other_issues": []
+ }
+}

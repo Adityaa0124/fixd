@@ -1,0 +1,32 @@
+{
+ "key": "14ec964d8d66afea63df6509805aae7d27bbdc4fb6e05b947e893c473d9a874b",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:15:33.948Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "answer_form",
+  "edit": {
+   "field": "question",
+   "find": "is equal to",
+   "replace": "is equal to (in N)"
+  },
+  "extra_edits": [],
+  "evidence": "Both blind solves and the stored solution confirm the answer is 20 N, but the integer question stem does not specify the unit (in N).",
+  "confidence": 0.99,
+  "solution_final_answer": "20",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R024",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "unit not mentioned in question",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

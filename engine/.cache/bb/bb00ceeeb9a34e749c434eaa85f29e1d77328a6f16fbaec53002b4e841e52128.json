@@ -1,0 +1,26 @@
+{
+ "key": "bb00ceeeb9a34e749c434eaa85f29e1d77328a6f16fbaec53002b4e841e52128",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:08:05.091Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "C"
+  ],
+  "value": "Golden rice",
+  "steps": [
+   "Identify the cause of the blindness mentioned: Vitamin 'A' deficiency.",
+   "Evaluate the options for their nutritional enhancements.",
+   "'Flavr Savr' tomato is modified for delayed ripening.",
+   "Canola is modified for oil quality.",
+   "Golden rice is genetically engineered to produce beta-carotene, a precursor to Vitamin A.",
+   "Bt-Brinjal is modified for insect resistance. Therefore, Golden rice prevents Vitamin A deficiency."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

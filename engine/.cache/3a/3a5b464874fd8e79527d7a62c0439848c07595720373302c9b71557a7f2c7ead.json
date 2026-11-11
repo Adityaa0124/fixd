@@ -1,0 +1,32 @@
+{
+ "key": "3a5b464874fd8e79527d7a62c0439848c07595720373302c9b71557a7f2c7ead",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:12:24.188Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "spelling",
+  "edit": {
+   "field": "question",
+   "find": "Epithellial tisue",
+   "replace": "Epithelial tissue"
+  },
+  "extra_edits": [],
+  "evidence": "Option (A) misspells 'Epithelial tissue' as 'Epithellial tisue'. Both blind solves identify Option (A) as the correct answer.",
+  "confidence": 1,
+  "solution_final_answer": "A",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R012",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Option A contains spelling mistakes ('Epithellial tisue').",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

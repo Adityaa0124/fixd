@@ -1,0 +1,36 @@
+{
+ "key": "d2106d29bce10dc414f639b7f0a525bec0b86af1b1c5269d018d3591abd3cc21",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:19:42.883Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "spelling",
+    "field": "question",
+    "find": "Choroid plexux",
+    "replace": "Choroid plexus",
+    "note": "Spelling error in option (D): 'plexux' instead of 'plexus'.",
+    "confidence": 0.95
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "prominant",
+    "replace": "prominent",
+    "note": "Misspelling of 'prominent'.",
+    "confidence": 0.95
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "Maceus",
+    "replace": "Mucous",
+    "note": "Misspelling of 'Mucous'.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

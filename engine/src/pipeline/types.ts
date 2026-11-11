@@ -15,7 +15,8 @@ export interface CaseOut {
   verdict: Verdict;
   repair: RepairKey | null;
   edit: Edit | null;
-  edits: Edit[];                     // edit + extra_edits after guard normalization
+  edits: Edit[];                     // edit + extra_edits after guard normalization (guard passed only)
+  editsRejected?: Edit[];            // proposed by the model, refused by the scope guard; never applied
   route: Route;
   gates: Gate[];
   confidence: number;

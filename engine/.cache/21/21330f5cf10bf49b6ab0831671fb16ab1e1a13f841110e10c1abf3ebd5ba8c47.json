@@ -1,0 +1,46 @@
+{
+ "key": "21330f5cf10bf49b6ab0831671fb16ab1e1a13f841110e10c1abf3ebd5ba8c47",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": "retry",
+ "at": "2026-11-11T12:14:51.484Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "type_mismatch",
+  "edit": {
+   "field": "questionType",
+   "find": "mcq",
+   "replace": "scq"
+  },
+  "extra_edits": [
+   {
+    "field": "answer",
+    "find": "[\"\",\"B\"]",
+    "replace": "B"
+   }
+  ],
+  "evidence": "Both blind solves and the stored solution identify option B (1.44 min) as the single correct answer. The question is a single-choice question incorrectly stored as mcq with malformed key [\"\",\"B\"].",
+  "confidence": 1,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R021",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The question is multiple-choice with only option B correct, causing unfair negative marking.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": [
+   {
+    "repair": "wrong_chapter",
+    "field": "",
+    "find": "",
+    "replace": "",
+    "note": "Question on nuclear decay / mean life is incorrectly filed under 'Mathematics in physics'."
+   }
+  ]
+ }
+}

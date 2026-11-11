@@ -1,0 +1,28 @@
+{
+ "key": "3ed72a4089088d1d3413ed2b5b0eeb10365f3c6a8fe83e4084a2330b8b51e040",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:29:56.413Z",
+ "response": {
+  "question_verdict": "language_mode",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "The student requests the question in Hindi. The question and solution are correct, and both blind solves independently confirm keyed option A (600 eV).",
+  "confidence": 1,
+  "solution_final_answer": "A",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R039",
+    "verdict": "language_mode",
+    "comment_flag": "none",
+    "student_claim": "Requests the question in Hindi",
+    "student_was_right": false
+   }
+  ],
+  "other_issues": []
+ }
+}

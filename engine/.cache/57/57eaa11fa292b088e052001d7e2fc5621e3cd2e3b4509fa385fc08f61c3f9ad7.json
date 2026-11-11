@@ -1,0 +1,28 @@
+{
+ "key": "57eaa11fa292b088e052001d7e2fc5621e3cd2e3b4509fa385fc08f61c3f9ad7",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:13:12.232Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "wrong_chapter",
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "The question concerns action potential generation in neurons, which belongs to Zoology (Neural Control and Coordination) rather than Botany (The Living World).",
+  "confidence": 1,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R023",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The question belongs to the Neural Control and Coordination chapter rather than The Living World.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

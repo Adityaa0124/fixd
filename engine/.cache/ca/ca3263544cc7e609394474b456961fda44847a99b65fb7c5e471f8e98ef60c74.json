@@ -1,0 +1,26 @@
+{
+ "key": "ca3263544cc7e609394474b456961fda44847a99b65fb7c5e471f8e98ef60c74",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:08:19.261Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": null,
+  "steps": [
+   "Write the formula for horizontal range: R = (u^2 * 2 * sinΘ * cosΘ) / g.",
+   "Write the formula for maximum height: H = (u^2 * sin^2Θ) / (2g).",
+   "Equate R and H: 2 * sinΘ * cosΘ = sin^2Θ / 2.",
+   "Cancel sinΘ on both sides (assuming Θ ≠ 0) to get 4 * cosΘ = sinΘ.",
+   "Rearrange to find tanΘ = 4.",
+   "Thus, the angle of projection is Θ = tan^(-1)(4), which matches option (B)."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

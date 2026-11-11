@@ -4,10 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "npm run snapshot",
     "dev": "vite",
+    "snapshot": "tsx scripts/snapshot.ts",
+    "prebuild": "npm run snapshot",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -b --noEmit"
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
     "@fixd/shared": "*",

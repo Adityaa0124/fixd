@@ -1,0 +1,26 @@
+{
+ "key": "522f57d6e4cf36889de004d83b461c214bd5532ed021bfe2703010f308f9043f",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:08:53.576Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": null,
+  "steps": [
+   "The de Broglie wavelength of an electron is related to its kinetic energy K by λ = h / √(2mK).",
+   "A convenient approximation for an electron is λ (in Å) ≈ √(150 / K (in eV)).",
+   "The given wavelength is 0.3 nm, which is equal to 3 Å.",
+   "Substituting λ = 3 Å into the formula gives 3 = √(150 / K).",
+   "Squaring both sides yields 9 = 150 / K, so K = 150 / 9 = 16.67 eV.",
+   "This value is closest to 16.8 eV, which matches option (B)."
+  ],
+  "confidence": 0.99,
+  "option_flags": []
+ }
+}

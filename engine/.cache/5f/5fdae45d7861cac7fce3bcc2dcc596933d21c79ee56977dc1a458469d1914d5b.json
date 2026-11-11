@@ -1,0 +1,20 @@
+{
+ "key": "5fdae45d7861cac7fce3bcc2dcc596933d21c79ee56977dc1a458469d1914d5b",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:19:53.299Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "wheater",
+    "replace": "whether",
+    "note": "Spelling mistake: 'wheater' instead of 'whether'.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

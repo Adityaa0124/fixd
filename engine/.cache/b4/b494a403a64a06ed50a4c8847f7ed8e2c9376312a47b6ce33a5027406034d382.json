@@ -1,0 +1,25 @@
+{
+ "key": "b494a403a64a06ed50a4c8847f7ed8e2c9376312a47b6ce33a5027406034d382",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:07:33.299Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": null,
+  "steps": [
+   "To determine the ancestral state of a trait among closely related species, biologists use the outgroup method.",
+   "An outgroup is a more distantly related organism that serves as a reference group.",
+   "Option A is unhelpful because no fossils exist.",
+   "Option C uses a mammal, which is too distantly related to provide useful information about a snake-specific trait.",
+   "Option B correctly describes finding a more distantly related snake (an outgroup) to compare the trait, which is the standard phylogenetic approach."
+  ],
+  "confidence": 0.99,
+  "option_flags": []
+ }
+}

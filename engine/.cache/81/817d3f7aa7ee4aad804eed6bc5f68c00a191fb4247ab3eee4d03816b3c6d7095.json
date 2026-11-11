@@ -1,0 +1,26 @@
+{
+ "key": "817d3f7aa7ee4aad804eed6bc5f68c00a191fb4247ab3eee4d03816b3c6d7095",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:10:02.885Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A"
+  ],
+  "value": "5.7 \\times 10^{-5} /^\\circ C",
+  "steps": [
+   "Identify given values: L_0 = 100 cm, \\Delta T = 100^\\circ C, \\Delta L = 0.19 cm.",
+   "Use the linear expansion formula: \\Delta L = L_0 \\alpha \\Delta T.",
+   "Calculate the coefficient of linear expansion: \\alpha = \\frac{0.19}{100 \\times 100} = 1.9 \\times 10^{-5} /^\\circ C.",
+   "Use the relation between cubical and linear expansion coefficients: \\gamma = 3\\alpha.",
+   "Calculate the coefficient of cubical expansion: \\gamma = 3 \\times 1.9 \\times 10^{-5} = 5.7 \\times 10^{-5} /^\\circ C.",
+   "Match the result with Option (A)."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

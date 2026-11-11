@@ -3,48 +3,136 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background: var(--bg);
-  color: var(--tx);
-  font: 425 15px/1.55 var(--font-sans);
+html,
+body,
+#root {
+  height: 100%;
 }
 
+/* The app is a fixed viewport shell; only its panes scroll. Clipping the document means nothing
+   (an sr-only label, a focus() call, scrollIntoView) can ever scroll the whole page and push the
+   top bar out of view. */
+html,
+body {
+  overflow: clip;
+  overscroll-behavior: none;
+}
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--tx));
+  font: 425 14.5px/1.55 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--pine-500));
+  outline-offset: 2px;
+}
+
+/* ---------- Question content, rendered like an exam paper ---------- */
 .fx-q {
-  font-size: 16px;
+  font-family: var(--font-display);
+  font-size: 17px;
   line-height: 1.7;
-  color: var(--tx);
+  color: rgb(var(--tx));
   overflow-wrap: anywhere;
 }
 .fx-q h1,
 .fx-q h2,
 .fx-q h3,
-.fx-q h4 {
+.fx-q h4,
+.fx-q h5,
+.fx-q p {
   font: inherit;
-  margin: 0 0 0.4em;
+  margin: 0 0 0.35em;
+}
+.fx-q img {
+  max-width: 100%;
+  height: auto;
+}
+.fx-q table {
+  border-collapse: collapse;
+  margin: 0.4em 0;
+}
+.fx-q td,
+.fx-q th {
+  border: 1px solid rgb(var(--line-strong));
+  padding: 2px 8px;
 }
 .fx-q math {
-  font-size: 1.08em;
+  font-size: 1.05em;
 }
 .fx-q math[display="block"] {
   margin: 0.4em 0;
 }
-.fx-q mark[data-fx="del"] {
-  background: var(--del-bg);
-  color: var(--del-tx);
-  text-decoration: line-through;
-  border-radius: 4px;
-  padding: 0 2px;
+.fx-q.fx-small {
+  font-size: 15px;
+  line-height: 1.6;
 }
-.fx-q mark[data-fx="ins"] {
-  background: var(--ins-bg);
-  color: var(--ins-tx);
-  border-radius: 4px;
+
+/* Red pen marks: what a teacher would write on the paper */
+.fx-q del[data-fx],
+.fx-q ins[data-fx] {
+  border-radius: 3px;
   padding: 0 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.fx-q del[data-fx] {
+  background: rgb(var(--red-50));
+  color: rgb(var(--red-600));
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+.fx-q ins[data-fx] {
+  background: rgb(var(--green-50));
+  color: rgb(var(--green-600));
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
 }
 .fx-q mark[data-fx="box"] {
-  background: transparent;
-  outline: 2px solid var(--amber-600);
+  background: rgb(var(--amber-50));
+  color: inherit;
+  outline: 1.5px solid rgb(var(--amber-600));
   outline-offset: 2px;
   border-radius: 4px;
 }
+.fx-q del[data-fx] math,
+.fx-q ins[data-fx] math {
+  color: inherit;
+}
 
+/* Scrollbars that stay quiet */
+.fx-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--line-strong)) transparent;
+}
+
+@keyframes fx-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fx-toast {
+  animation: fx-in 180ms var(--ease);
+}
+@keyframes fx-drawer {
+  from {
+    transform: translateX(12px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.fx-drawer {
+  animation: fx-drawer 200ms var(--ease);
+}

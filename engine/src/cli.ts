@@ -26,7 +26,6 @@ fs.mkdirSync(path.join(ROOT, 'engine/out'), { recursive: true });
 if (!only) {
   fs.writeFileSync(path.join(ROOT, 'results.json'), JSON.stringify(results, null, 2) + '\n');
   fs.writeFileSync(path.join(ROOT, 'engine/out/cases.json'), JSON.stringify(cases, null, 2));
-  fs.copyFileSync(path.join(ROOT, 'engine/out/cases.json'), path.join(ROOT, 'web/public/snapshot.json'));
 } else {
   fs.writeFileSync(path.join(ROOT, 'engine/out/partial.json'), JSON.stringify({ cases, results }, null, 2));
 }

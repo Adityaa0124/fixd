@@ -1,0 +1,32 @@
+{
+ "key": "01f947b1754de3c5669f682067acf0ad693c9b68c634c6c056b76a4f8ea5f6d9",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:13:18.685Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "markup_leak",
+  "edit": {
+   "field": "question",
+   "find": "\\frac{7}{8}",
+   "replace": "7/8"
+  },
+  "extra_edits": [],
+  "evidence": "Raw LaTeX code '\\frac{7}{8}' is exposed in the question stem instead of being rendered or formatted as '7/8'. The student's report is accurate.",
+  "confidence": 1,
+  "solution_final_answer": "C",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R014",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Raw LaTeX code (\\frac) is visible in the question stem.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

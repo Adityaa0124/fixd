@@ -1,0 +1,28 @@
+{
+ "key": "3c6790d259aad9d6bb8fdaae74f892f2cab5819664d6cd52b1a87eb09fe853ea",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:06.045Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "<mtext> eqcu </mtext>",
+    "replace": "<mtext> each </mtext>",
+    "note": "Misspelling of subscript 'each' as 'eqcu'",
+    "confidence": 0.95
+   },
+   {
+    "repair": "spelling",
+    "field": "solution",
+    "find": "<mtext> eqch </mtext>",
+    "replace": "<mtext> each </mtext>",
+    "note": "Misspelling of subscript 'each' as 'eqch'",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

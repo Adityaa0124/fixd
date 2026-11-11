@@ -1,0 +1,25 @@
+{
+ "key": "7d628facfd8f0acf2a044b2bf39797c7e50acde4fe61b24d51cb90f20fabce75",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:10:14.974Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "D"
+  ],
+  "value": null,
+  "steps": [
+   "Parathormone increases blood Ca2+ while Calcitonin decreases it; they are antagonistic.",
+   "Insulin decreases blood glucose while Glucagon increases it; they are antagonistic.",
+   "Aldosterone increases blood pressure (via Na+ reabsorption) while ANF decreases it (via Na+ excretion); they are antagonistic.",
+   "Relaxin relaxes pelvic ligaments during childbirth, whereas Inhibin inhibits FSH secretion; they do not have opposite effects.",
+   "Therefore, Relaxin and Inhibin are not antagonistic."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

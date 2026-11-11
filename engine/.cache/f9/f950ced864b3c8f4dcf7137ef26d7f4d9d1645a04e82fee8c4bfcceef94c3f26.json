@@ -1,0 +1,28 @@
+{
+ "key": "f950ced864b3c8f4dcf7137ef26d7f4d9d1645a04e82fee8c4bfcceef94c3f26",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:21:06.921Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "markup_leak",
+    "field": "solution",
+    "find": "<msub><mi>v</mi><mrow><mrow><mi mathvariant=\"normal\">C</mi><mi mathvariant=\"normal\">M</mi></mrow></mrow></msub><mi>&</mi><mo>&#x0003D;</mo>",
+    "replace": "<msub><mi>v</mi><mrow><mrow><mi mathvariant=\"normal\">C</mi><mi mathvariant=\"normal\">M</mi></mrow></mrow></msub><mo>&#x0003D;</mo>",
+    "note": "Remove stray LaTeX alignment marker '&' leaked into MathML as <mi>&</mi>.",
+    "confidence": 0.95
+   },
+   {
+    "repair": "markup_leak",
+    "field": "solution",
+    "find": "<mspace linebreak=\"newline\" /><mi>&</mi><mo>&#x0003D;</mo>",
+    "replace": "<mspace linebreak=\"newline\" /><mo>&#x0003D;</mo>",
+    "note": "Remove stray LaTeX alignment marker '&' leaked into MathML as <mi>&</mi>.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

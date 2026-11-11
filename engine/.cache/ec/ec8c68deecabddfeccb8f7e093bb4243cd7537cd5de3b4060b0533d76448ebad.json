@@ -1,0 +1,25 @@
+{
+ "key": "ec8c68deecabddfeccb8f7e093bb4243cd7537cd5de3b4060b0533d76448ebad",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:07:57.549Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A"
+  ],
+  "value": "A",
+  "steps": [
+   "The relationship between kinetic energy (K) and momentum (p) for a body of mass m is K = p^2 / (2m).",
+   "Given that the new kinetic energy K' is 4 times the initial kinetic energy (K' = 4K).",
+   "Substitute the relation: p'^2 / (2m) = 4 * (p^2 / (2m)).",
+   "Solving for p' gives p'^2 = 4p^2, which means p' = 2p.",
+   "Therefore, the new momentum becomes twice its initial value."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

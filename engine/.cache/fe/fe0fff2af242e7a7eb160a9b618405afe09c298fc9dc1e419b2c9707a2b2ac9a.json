@@ -1,0 +1,28 @@
+{
+ "key": "fe0fff2af242e7a7eb160a9b618405afe09c298fc9dc1e419b2c9707a2b2ac9a",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:13:15.778Z",
+ "response": {
+  "question_verdict": "app_issue",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "The question, key (A), and solution are correct: since p = \\sqrt{2mK}, quadrupling kinetic energy doubles the momentum. The student report is entirely about platform option selection behavior.",
+  "confidence": 1,
+  "solution_final_answer": "A",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R038",
+    "verdict": "app_issue",
+    "comment_flag": "none",
+    "student_claim": "The app saved option B when the student selected option A.",
+    "student_was_right": false
+   }
+  ],
+  "other_issues": []
+ }
+}

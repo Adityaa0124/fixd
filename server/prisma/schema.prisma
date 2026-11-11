@@ -52,6 +52,7 @@ model Case {
   findings         Json
   otherIssues      Json
   guardErrors      Json
+  editsRejected    Json?
   urgency          Float
   urgencyBreakdown Json
   status           String   // open | auto_applied | confirmed | approved | edited | rejected | no_change | acknowledged
@@ -97,6 +98,7 @@ model Action {
   versionFrom  Int?
   versionTo    Int?
   undone       Boolean   @default(false)
+  meta         Json?     // reply state before this action, linked action ids
   createdAt    DateTime  @default(now())
   case         Case      @relation(fields: [caseId], references: [id], onDelete: Cascade)
 }

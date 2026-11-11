@@ -1,0 +1,28 @@
+{
+ "key": "5bc1c5a5ea10390dce06e0c6cf3e83cfac1a2f3efe18504d510ed1204929eb5f",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:33.007Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "exam_reference",
+    "field": "question",
+    "find": "(NEET 2019) ",
+    "replace": "",
+    "note": "Remove NEET exam reference tag from the question stem.",
+    "confidence": 0.98
+   },
+   {
+    "repair": "spelling",
+    "field": "question",
+    "find": "of<span style=\"color:#000000\">leaf",
+    "replace": "of <span style=\"color:#000000\">leaf",
+    "note": "Add missing space between 'of' and 'leaf'.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

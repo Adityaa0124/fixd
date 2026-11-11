@@ -1,0 +1,25 @@
+{
+ "key": "1a604e75da6a40b45f3a1445ba6590ebfe862687e0d12619fcaf644ee08a9259",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:10:24.604Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "D"
+  ],
+  "value": "1.1",
+  "steps": [
+   "Energy of incident photon E = hc/λ.",
+   "Using hc ≈ 12400 eV·Å, E = 12400 / 4000 = 3.1 eV.",
+   "Einstein's photoelectric equation: K_max = E - Φ, where Φ is the work function.",
+   "Substitute the values: K_max = 3.1 eV - 2.0 eV = 1.1 eV.",
+   "Stopping potential V_0 = K_max / e = 1.1 V."
+  ],
+  "confidence": 0.99,
+  "option_flags": []
+ }
+}

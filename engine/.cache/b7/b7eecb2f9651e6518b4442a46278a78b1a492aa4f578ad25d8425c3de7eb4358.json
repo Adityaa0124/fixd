@@ -1,0 +1,11 @@
+{
+ "key": "b7eecb2f9651e6518b4442a46278a78b1a492aa4f578ad25d8425c3de7eb4358",
+ "purpose": "reply",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "reply-v2",
+ "variant": null,
+ "at": "2026-11-11T12:14:22.521Z",
+ "response": {
+  "reply": "The stored question and options are complete in our system. Please try rotating your phone to landscape mode or zooming out to see the full options."
+ }
+}

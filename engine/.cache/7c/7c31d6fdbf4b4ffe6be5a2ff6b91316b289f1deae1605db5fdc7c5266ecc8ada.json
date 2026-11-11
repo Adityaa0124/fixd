@@ -1,0 +1,20 @@
+{
+ "key": "7c31d6fdbf4b4ffe6be5a2ff6b91316b289f1deae1605db5fdc7c5266ecc8ada",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:19:54.030Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "notation",
+    "field": "question",
+    "find": "(C) Aldosterone Atrial Natriuretic Factor",
+    "replace": "(C) Aldosterone - Atrial Natriuretic Factor",
+    "note": "Missing hyphen/separator between the pair of hormones in option (C).",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

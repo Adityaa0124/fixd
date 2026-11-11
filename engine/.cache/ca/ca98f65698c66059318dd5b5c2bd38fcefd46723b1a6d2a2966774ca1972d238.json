@@ -1,0 +1,25 @@
+{
+ "key": "ca98f65698c66059318dd5b5c2bd38fcefd46723b1a6d2a2966774ca1972d238",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:10:55.018Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "20"
+  ],
+  "value": "20",
+  "steps": [
+   "Identify the normal force N exerted by the wall, which equals the pressing force: N = 100 N.",
+   "Calculate the maximum static frictional force: f_max = \\mu N = 0.3 \\times 100 = 30 N.",
+   "Calculate the downward force due to gravity (weight) assuming g = 10 m/s^2: W = mg = 2 \\times 10 = 20 N.",
+   "Compare W and f_max: since 20 N \\le 30 N, the body does not slide and is in static equilibrium.",
+   "In static equilibrium, the actual frictional force adjusts to equal the applied downward force: f = W = 20 N."
+  ],
+  "confidence": 0.99,
+  "option_flags": []
+ }
+}

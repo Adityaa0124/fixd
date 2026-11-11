@@ -1,0 +1,20 @@
+{
+ "key": "5a0d6b1799232c3a34b7f6f4cc87ab0c51416ff94e9885134ef9bb3440fb5320",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:40.317Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "wrong_chapter",
+    "field": "question",
+    "find": "",
+    "replace": "",
+    "note": "The question is about radioactive decay and mean life, which belongs to the chapter 'Nuclei' rather than 'Mathematics in physics'.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

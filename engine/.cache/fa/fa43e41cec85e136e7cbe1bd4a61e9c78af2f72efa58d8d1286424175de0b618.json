@@ -1,0 +1,25 @@
+{
+ "key": "fa43e41cec85e136e7cbe1bd4a61e9c78af2f72efa58d8d1286424175de0b618",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:10:13.338Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "D"
+  ],
+  "value": "Relaxin - Inhibin",
+  "steps": [
+   "Parathormone increases blood calcium, while Calcitonin decreases it; they are antagonistic.",
+   "Insulin decreases blood glucose, while Glucagon increases it; they are antagonistic.",
+   "Aldosterone increases blood pressure by sodium reabsorption, while ANF decreases it by sodium excretion; they are antagonistic.",
+   "Relaxin relaxes the pubic symphysis during childbirth, while Inhibin inhibits FSH secretion; they do not have opposite effects.",
+   "Therefore, Relaxin and Inhibin are not antagonistic to each other."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

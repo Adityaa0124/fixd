@@ -1,0 +1,20 @@
+{
+ "key": "9db26b8c5bfd14ba0b10c06bd176302112ffd6d3c137188823610db8215e4d97",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:54.071Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "markup_leak",
+    "field": "solution",
+    "find": "<mi>K</mi><mi>&</mi><mo>&#x0003D;</mo><mfrac><mrow><mn>1.574</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>29</mn></mrow></msup></mrow><mrow><mn>1.638</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>13</mn></mrow></msup></mrow></mfrac><mspace linebreak=\"newline\" /><mi>K</mi><mi>&</mi><mo>&#x02248;</mo>",
+    "replace": "<mi>K</mi><mo>&#x0003D;</mo><mfrac><mrow><mn>1.574</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>29</mn></mrow></msup></mrow><mrow><mn>1.638</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>13</mn></mrow></msup></mrow></mfrac><mspace linebreak=\"newline\" /><mi>K</mi><mo>&#x02248;</mo>",
+    "note": "Stray LaTeX alignment marker '&' leaked into the MathML expression.",
+    "confidence": 0.98
+   }
+  ]
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "key": "24c1f12c89fdaad49106fc5d4fe9c25c18929322136b3a3b850ec9d2b9522377",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:15:18.016Z",
+ "response": {
+  "question_verdict": "not_actionable",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Both blind solves and the stored solution confirm that Golden rice prevents vitamin A deficiency blindness, matching keyed option C. The report provides no usable details and checks found no defect.",
+  "confidence": 1,
+  "solution_final_answer": "C",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R040",
+    "verdict": "not_actionable",
+    "comment_flag": "none",
+    "student_claim": "Student claims the question or answer is wrong without providing any explanation or usable details.",
+    "student_was_right": false
+   }
+  ],
+  "other_issues": []
+ }
+}

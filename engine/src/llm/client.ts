@@ -33,6 +33,7 @@ const USAGE_FILE = path.join(ROOT, 'engine/out/usage.jsonl');
 const OFFLINE = process.env.FIXD_OFFLINE === '1';
 const MAX_CALLS = Number(process.env.FIXD_MAX_CALLS ?? 250);
 const RPM = Number(process.env.FIXD_RPM ?? 12);
+const MAX_IN_FLIGHT = Number(process.env.FIXD_IN_FLIGHT ?? 4);
 
 let networkCalls = 0;
 let ai: GoogleGenAI | null = null;
@@ -75,7 +76,7 @@ function writeCache(key: string, c: JsonCall<unknown>, response: unknown) {
   }, null, 1));
 }
 
-/* ---------- limiter: per model spacing + max 2 in flight ---------- */
+/* ---------- limiter: per model spacing + bounded in flight ---------- */
 const lastStart = new Map<string, number>();
 const inFlight = new Map<string, number>();
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -86,7 +87,7 @@ async function acquire(model: string) {
     const now = Date.now();
     const last = lastStart.get(model) ?? 0;
     const flying = inFlight.get(model) ?? 0;
-    if (now - last >= gap && flying < 2) {
+    if (now - last >= gap && flying < MAX_IN_FLIGHT) {
       lastStart.set(model, now);
       inFlight.set(model, flying + 1);
       return;
@@ -149,6 +150,7 @@ async function send(c: JsonCall<unknown>, extraUser = ''): Promise<string> {
 export async function callJson<T>(c: JsonCall<T>): Promise<JsonResult<T>> {
   const key = keyOf(c);
   const hit = readCache(key);
+  if (process.env.FIXD_TRACE_CACHE) fs.appendFileSync(process.env.FIXD_TRACE_CACHE, key + '\n'); // which entries a run depends on
   if (hit !== undefined) {
     const parsed = c.zod.safeParse(hit);
     if (parsed.success) return { data: parsed.data, cached: true, key };

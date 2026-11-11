@@ -1,0 +1,26 @@
+{
+ "key": "69d455caa33cc74da90da5e551ab153e5d41d90de0957868533dadde2065b322",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:07:06.912Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "C"
+  ],
+  "value": null,
+  "steps": [
+   "Identify the masses of the two blocks: m1 = 10 kg and m2 = 4 kg.",
+   "Identify their initial velocities right after the impulse: v1 = 14 m/s and v2 = 0 m/s.",
+   "Use the formula for the velocity of the centre of mass: V_cm = (m1*v1 + m2*v2) / (m1 + m2).",
+   "Substitute the known values into the equation: V_cm = (10 * 14 + 4 * 0) / (10 + 4).",
+   "Calculate the total momentum and total mass: V_cm = 140 / 14.",
+   "Solve for the velocity of the centre of mass: V_cm = 10 m/s, which matches option (C)."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

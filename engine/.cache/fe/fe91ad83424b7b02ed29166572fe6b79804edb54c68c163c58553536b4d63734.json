@@ -1,0 +1,26 @@
+{
+ "key": "fe91ad83424b7b02ed29166572fe6b79804edb54c68c163c58553536b4d63734",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:08:23.519Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "14"
+  ],
+  "value": "14",
+  "steps": [
+   "The potential at the surface of the sphere is V(R) = kQ/R = 16 V.",
+   "For a solid sphere, the potential at an internal point (r ≤ R) is V(r) = (kQ / 2R) * (3 - r^2/R^2).",
+   "At point P (r = R/2), the potential is V(P) = (kQ / 2R) * (3 - 1/4) = (11/8) * (kQ/R).",
+   "Substituting kQ/R = 16 V, we get V(P) = (11/8) * 16 = 22 V.",
+   "At point S (r = 2R), the potential is V(S) = kQ / (2R) = (1/2) * (kQ/R) = 8 V.",
+   "The potential difference between P and S is V(P) - V(S) = 22 - 8 = 14 V."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

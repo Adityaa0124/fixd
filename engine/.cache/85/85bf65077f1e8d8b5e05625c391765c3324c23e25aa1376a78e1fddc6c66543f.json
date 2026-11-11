@@ -1,0 +1,26 @@
+{
+ "key": "85bf65077f1e8d8b5e05625c391765c3324c23e25aa1376a78e1fddc6c66543f",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:10:36.864Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A",
+   "B",
+   "D"
+  ],
+  "value": null,
+  "steps": [
+   "For option A: If initial velocity u is parallel to a uniform electric field E, the force qE is parallel to u, causing linear acceleration and a straight-line path.",
+   "For option B: If u is perpendicular to E, the particle moves with constant velocity along u and constant acceleration along E, resulting in a parabolic path (like a projectile).",
+   "For option C: If u is parallel to a uniform magnetic field B, the magnetic force q(u x B) is zero, so the particle moves in a straight line, not a helix.",
+   "For option D: If u is perpendicular to B, the magnetic force provides a constant centripetal force perpendicular to both u and B, resulting in a circular path in a plane normal to B."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

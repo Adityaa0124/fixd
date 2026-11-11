@@ -1,0 +1,26 @@
+{
+ "key": "b57585ba3ae0343bdd221f8fd9739fe83071e44c19e6a24a30f410281491d4c2",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:09:32.030Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": "1.44 min",
+  "steps": [
+   "Identify initial nuclei N_0 = 48 \\times 10^{23} and final nuclei N = 6 \\times 10^{23} at t = 3 min.",
+   "Use the radioactive decay law N = N_0 (1/2)^{t/T_{1/2}}.",
+   "Substitute the values: 6 \\times 10^{23} = 48 \\times 10^{23} (1/2)^{3/T_{1/2}}, which simplifies to 1/8 = (1/2)^{3/T_{1/2}}.",
+   "Solve for half-life: 3 = 3/T_{1/2} \\implies T_{1/2} = 1 min.",
+   "Calculate mean life \\tau = T_{1/2} / \\ln(2) = 1 / 0.693 \\approx 1.44 min.",
+   "Match the calculated mean life with Option (B)."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

@@ -1,4 +1,4 @@
-import type { RepairKey } from '@fixd/shared';
+import { letters, type Edit, type RepairKey } from '@fixd/shared';
 import type { ParsedQuestion } from '../parse';
 
 export type FindingCode =
@@ -13,14 +13,17 @@ export interface Finding {
   detail: string;
   suggestedRepair: RepairKey | null;
   findCandidate?: string;     // exact raw substring, when one exists
+  suggestedEdit?: Edit;       // deterministic, fully specified edit when the fix is mechanical
   certain: boolean;           // false = heuristic, LLM must confirm
 }
 
 const EXAM_TAG = /\(\s*(?:JEE(?:\s*(?:Main|Advanced|Adv))?|NEET|AIEEE|AIPMT|BITSAT|CBSE|AIIMS)[^)]{0,40}\)/i;
-const LATEX = /\\(?:frac|sqrt|times|alpha|beta|theta|lambda|mu|pi|omega|Delta|cdot|left|right|text|mathrm)\b[^<\s]{0,40}/;
+const LATEX = /\\(?:frac|dfrac|sqrt|times|alpha|beta|gamma|theta|lambda|mu|pi|omega|Delta|delta|cdot|left|right|text|mathrm|AA|circ|degree|propto|infty|sum|int|vec|hat)\b[^<\s]{0,40}/g;
+const ALIGN = /<mi>&(?:amp;)?<\/mi>/g;
 const NOISE = [/space for rough work/i, /^\s*(?:<[^>]+>\s*)*(?:Q\.?\s*\d+[.)]|\d+\.)\s/i, /\bsource\s*:/i];
 const FIGURE = /\b(figure|fig\.|diagram|shown below|as shown|graph shown)\b/i;
-const UNIT_HINT = /\(\s*in\s+[^)]+\)|\bin\s+(?:cm|mm|m|s|sec|N|V|J|eV|kg|g|K|°C|W|A|Hz|D|dioptres?|volts?|seconds?|metres?|newtons?)\b/i;
+const UNIT_HINT = /\(\s*in\s+[^)]+\)|\bin\s+(?:cm|mm|m|s|sec|N|V|J|eV|kg|g|K|°C|W|A|Hz|D|dioptres?|volts?|seconds?|metres?|newtons?)(?:\s*(?:3|³|\^3|2|²|\^2))?\b|\b(?:mm|cm|m)\s*(?:3|³|\^3)\b/i;
+const DIMENSIONLESS = /\b(?:value of|find|then)\s+[a-zA-Z]\s*(?:is|=|will be)?\s*[.?]?\s*$|\bratio\b|\bnumber of\b|\bn\s*=|\bx\s*=|\binteger\b/i;
 
 function norm(s: string): string {
   return s.replace(/\s+/g, ' ').trim().toLowerCase();
@@ -55,8 +58,11 @@ export function staticChecks(p: ParsedQuestion): Finding[] {
   }
 
   for (const [field, raw] of [['question', p.questionRaw], ['solution', p.solutionRaw]] as const) {
-    const lm = raw.match(LATEX);
-    if (lm) out.push({ code: 'markup_leak', field, detail: `raw LaTeX visible: ${lm[0]}`, suggestedRepair: 'markup_leak', findCandidate: lm[0], certain: true });
+    for (const lm of raw.matchAll(LATEX)) {
+      out.push({ code: 'markup_leak', field, detail: `raw LaTeX visible: ${lm[0]}`, suggestedRepair: 'markup_leak', findCandidate: lm[0], certain: true });
+    }
+    const align = [...raw.matchAll(ALIGN)].length;
+    if (align) out.push({ code: 'markup_leak', field, detail: `${align} stray alignment marker(s) <mi>&amp;</mi> render as a visible "&"`, suggestedRepair: 'markup_leak', findCandidate: align === 1 ? raw.match(ALIGN)![0] : undefined, certain: true });
     const escaped = raw.match(/&lt;\/?[a-z]+[^&]{0,20}&gt;/i);
     if (escaped) out.push({ code: 'markup_leak', field, detail: `escaped HTML visible: ${escaped[0]}`, suggestedRepair: 'markup_leak', findCandidate: escaped[0], certain: true });
     for (const r of NOISE) {
@@ -76,11 +82,22 @@ export function staticChecks(p: ParsedQuestion): Finding[] {
     const tm = issue.includes('type mismatch');
     out.push({ code: tm ? 'type_mismatch_candidate' : 'answer_format', field: tm ? 'questionType' : 'answer', detail: issue, suggestedRepair: tm ? 'type_mismatch' : 'answer_key', certain: !tm });
   }
+  if (p.answerIssues.length && p.type === 'mcq' && Array.isArray(p.answerRaw)) {
+    const ls = letters(p.answerRaw);
+    if (ls.length > 1 && JSON.stringify(ls) !== JSON.stringify(p.answerRaw)) {
+      out.push({
+        code: 'answer_format', field: 'answer',
+        detail: `stored mcq key ${JSON.stringify(p.answerRaw)} is malformed; the same letters stored correctly are ${JSON.stringify(ls)}. Graders compare element by element, so students who mark ${ls.join(', ')} are marked wrong.`,
+        suggestedRepair: 'answer_key', certain: true,
+        suggestedEdit: { field: 'answer', find: JSON.stringify(p.answerRaw), replace: JSON.stringify(ls) },
+      });
+    }
+  }
   if (p.answer.kind === 'invalid') {
     out.push({ code: 'answer_format', field: 'answer', detail: p.answer.reason, suggestedRepair: 'answer_key', certain: true });
   }
 
-  if (p.type === 'integerQuestion' && !UNIT_HINT.test(p.stemText)) {
+  if (p.type === 'integerQuestion' && !UNIT_HINT.test(p.stemText) && !DIMENSIONLESS.test(p.stemText)) {
     out.push({ code: 'integer_unit_unstated', field: 'question', detail: 'integer answer but no unit or "(in X)" stated in the stem', suggestedRepair: 'answer_form', certain: false });
   }
 

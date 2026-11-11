@@ -1,0 +1,20 @@
+{
+ "key": "1abd2e3a52123b73c5862a54d9d58a7f5f14c3493783e30ef5f83b01cba78887",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:21:08.221Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "wrong_chapter",
+    "field": "question",
+    "find": "",
+    "replace": "",
+    "note": "The question is about action potentials in neurons, which belongs to Zoology / Human Physiology under the chapter 'Neural Control and Coordination', not 'The Living World' in Botany.",
+    "confidence": 1
+   }
+  ]
+ }
+}

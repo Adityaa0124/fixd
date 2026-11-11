@@ -14,4 +14,4 @@ export const LANES = {
   done: ['approved', 'edited', 'rejected', 'confirmed', 'acknowledged'],
 } as const;
 export type Lane = keyof typeof LANES;
-
+export const isLane = (x: unknown): x is Lane => typeof x === 'string' && Object.hasOwn(LANES, x);

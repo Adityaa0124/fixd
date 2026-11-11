@@ -1,0 +1,24 @@
+{
+ "key": "77ee7d85718482112e64d1acf0eb33ef7da5e4d286ec77075811e065fc1116ac",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:07:32.161Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": "She locates a specimen of a more distantly related snake to see if it has a forked tongue",
+  "steps": [
+   "To determine the ancestral state of a trait in a group of closely related species, biologists use an outgroup.",
+   "An outgroup is a more distantly related organism that serves as a reference group.",
+   "By examining the trait in a more distantly related snake (the outgroup), the biologist can infer whether the forked tongue was present in the common ancestor.",
+   "Option (B) correctly describes the use of an outgroup to determine the ancestral state."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

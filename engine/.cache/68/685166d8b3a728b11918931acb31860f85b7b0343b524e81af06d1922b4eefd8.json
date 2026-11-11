@@ -1,0 +1,25 @@
+{
+ "key": "685166d8b3a728b11918931acb31860f85b7b0343b524e81af06d1922b4eefd8",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:07:12.666Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "C"
+  ],
+  "value": "Herb, shrubs receive more green light",
+  "steps": [
+   "Herbs and shrubs typically grow under the canopy of larger trees, acting as shade plants.",
+   "The leaves of the canopy absorb most of the red and blue light for their own photosynthesis.",
+   "The light that filters through the canopy and reaches the herbs and shrubs is predominantly green and far-red light.",
+   "Green light is the least effective wavelength for photosynthesis.",
+   "Because they receive proportionally more green light and less red/blue light, their rate of photosynthesis is lower compared to sun plants."
+  ],
+  "confidence": 0.9,
+  "option_flags": []
+ }
+}

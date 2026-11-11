@@ -1,0 +1,20 @@
+{
+ "key": "19fd85f37815d0dba51b13fb345e24ce587f2ab941848d5580163f8f3a6e6c6e",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:56.052Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "spelling",
+    "field": "question",
+    "find": "It&rsquo;s",
+    "replace": "Its",
+    "note": "'It’s' is a contraction of 'it is'; the possessive form 'Its' is required here.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

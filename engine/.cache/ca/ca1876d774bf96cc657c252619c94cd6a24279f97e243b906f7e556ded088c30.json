@@ -1,0 +1,28 @@
+{
+ "key": "ca1876d774bf96cc657c252619c94cd6a24279f97e243b906f7e556ded088c30",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:13:01.250Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "syllabus",
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Student flagged the topic as out of syllabus for NEET. Per policy, syllabus complaints are flagged for faculty review without arguing the syllabus directly.",
+  "confidence": 0.95,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R026",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The question is out of syllabus for NEET.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

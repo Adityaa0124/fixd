@@ -1,0 +1,46 @@
+{
+ "key": "a05ec0be98ec7b34f1e395f9dff4224fbbda8a6cffa807dfb1950d27e7480988",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:14:24.832Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "type_mismatch",
+  "edit": {
+   "field": "questionType",
+   "find": "mcq",
+   "replace": "scq"
+  },
+  "extra_edits": [
+   {
+    "field": "answer",
+    "find": "[\"\",\"B\"]",
+    "replace": "\"B\""
+   }
+  ],
+  "evidence": "Both blind solves and the stored solution conclude only B (1.44 min) is correct. The question is incorrectly configured as an MCQ with a malformed key [\"\",\"B\"].",
+  "confidence": 0.98,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R021",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The question is single choice with only B correct, but is configured as multiple choice (mcq) with negative marking.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": [
+   {
+    "repair": "wrong_chapter",
+    "field": "chapter",
+    "find": "",
+    "replace": "",
+    "note": "Nuclear decay / radioactivity question is filed under 'Mathematics in physics' instead of 'Nuclei'."
+   }
+  ]
+ }
+}

@@ -9,9 +9,10 @@ const INJECTION = [
   /\bact as\b/i,
 ];
 
-const HINGLISH = /\b(hai|hain|kyu|kyun|nahi|nahin|chahiye|galat|aana|aa raha|kya|toh|hona|kuch|diya|di|ki|ke|ka|mein|me|bhi|sahi|kaise|karu|kar)\b/i;
+const HINGLISH = /\b(hai|hain|kyu|kyun|nahi|nahin|chahiye|galat|aana|aa raha|kya|toh|hona|kuch|diya|di|ki|ke|ka|mein|bhi|sahi|kaise|karu|kar)\b/i;
 const LANGUAGE_REQ = /\b(hindi|marathi|tamil|telugu|bengali|bangla|gujarati|kannada|malayalam|odia|punjabi|urdu)\b|हिंदी|हिन्दी/i;
-const APP = /\b(clicked|tapped|selected|marked)\b.*\b(saved|recorded|registered|wrong|still)\b|\bnegative\b|\bkeyboard\b|\bcrash|\blag\b|\bsubmit/i;
+// Platform behaviour only. "marked A B D and still got it wrong" or "got negative" is about the key, not the app.
+const APP = /\b(clicked|tapped|selected|chose)\b.*\b(saved|recorded|registered|showed|shows)\b|\bkeyboard\b|\bcrash|\blag(?:s|ging)?\b|\bnot submitting\b|\bsubmit button\b/i;
 const DISPLAY = /\b(cut|cropped|screen|phone|load|loading|forever|slow|render|overlap|blurry)\b/i;
 const LOW = /^(wrong|wrong ans(wer)?|error|galat|incorrect|mistake|\?+)$/i;
 

@@ -1,0 +1,11 @@
+{
+ "key": "ece985dcfdfb028f953cf2f3171c8ee91e78caf7809b9b52392ca82e8d18d285",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:29.661Z",
+ "response": {
+  "issues": []
+ }
+}

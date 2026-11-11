@@ -1,0 +1,25 @@
+{
+ "key": "ed8e46765be9fba4373d4d178f01c0f412187c6ec04886f8615a4eaf55f4a977",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:17:59.576Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "(D)"
+  ],
+  "value": null,
+  "steps": [
+   "Statement-I describes dialysis as a 'holding measure' until a renal transplant is performed, which is correct since transplantation is the definitive treatment for end-stage renal disease.",
+   "Statement-II claims that dialysis is 'not a supportive measure' for patients who are inappropriate candidates for a transplant.",
+   "In medical practice, for patients ineligible for a transplant, dialysis serves as the primary and often the only life-sustaining supportive measure.",
+   "Therefore, Statement-II is incorrect because of the word 'not'.",
+   "Statement-I is correct and Statement-II is incorrect."
+  ],
+  "confidence": 0.95,
+  "option_flags": []
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "key": "779f31103e9b3ab0f06ec353ebc43231684bd1cc225e7e99991e2b8fe5cfcab2",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:08:09.111Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "C"
+  ],
+  "value": "180 days",
+  "steps": [
+   "Let the original mass be N_0. The mass disintegrated is (7/8)N_0.",
+   "The remaining mass is N = N_0 - (7/8)N_0 = (1/8)N_0.",
+   "Using the radioactive decay formula: N = N_0(1/2)^n, where n is the number of half-lives.",
+   "Substitute N: (1/8)N_0 = N_0(1/2)^n, which gives (1/2)^3 = (1/2)^n, so n = 3.",
+   "The total time taken is t = n * T_{1/2} = 3 * 60 days = 180 days."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "key": "fbef0f85ca74076b6673b6f31e58bf29e99776cbb2aed13338e40f7490bb43e8",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:20:56.794Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "markup_leak",
+    "field": "question",
+    "find": "\\frac{7}{8}",
+    "replace": "7/8",
+    "note": "Raw LaTeX command \\frac leaked into plain text.",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

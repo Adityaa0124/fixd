@@ -22,4 +22,3 @@ design-kit/
 engine/out/runs/
 engine/out/partial.json
 *.tsbuildinfo
-.neon

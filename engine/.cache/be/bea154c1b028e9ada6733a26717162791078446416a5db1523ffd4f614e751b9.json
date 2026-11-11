@@ -1,0 +1,20 @@
+{
+ "key": "bea154c1b028e9ada6733a26717162791078446416a5db1523ffd4f614e751b9",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:19:58.336Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "spelling",
+    "field": "question",
+    "find": "Epithellial tisue",
+    "replace": "Epithelial tissue",
+    "note": "Fix spelling of 'Epithellial tisue' to 'Epithelial tissue'",
+    "confidence": 0.95
+   }
+  ]
+ }
+}

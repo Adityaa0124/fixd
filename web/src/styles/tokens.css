@@ -1,84 +1,87 @@
-@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,380..500&family=Figtree:wght@400..700&family=DM+Mono:wght@400;500&display=swap");
-
+/*
+ * fixd tokens. Colours are stored as "R G B" triplets so Tailwind can apply
+ * opacity modifiers (bg-line/60 etc). Never use raw hex in components.
+ */
 :root {
   --font-display: "Newsreader", Georgia, serif;
   --font-sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "DM Mono", ui-monospace, Menlo, monospace;
 
-  --bg: #fbfbf9;
-  --surface: #ffffff;
-  --sunken: #f4f5f2;
-  --line: #ebece8;
-  --line-strong: #dfe1dc;
-  --ink: #1b1f1d;
-  --tx: #1c1f1e;
-  --tx-2: #3c423f;
-  --tx-3: #5f6762;
-  --tx-muted: #8b938e;
+  --bg: 250 250 247;
+  --surface: 255 255 255;
+  --sunken: 243 244 240;
+  --line: 232 233 228;
+  --line-strong: 216 219 212;
+  --tx: 27 31 29;
+  --tx-2: 58 64 61;
+  --tx-3: 84 92 87;
+  --tx-muted: 104 112 107;
 
-  --pine-50: #eef7f4;
-  --pine-100: #d5ece5;
-  --pine-200: #a9d8ca;
-  --pine-500: #1f8a73;
-  --pine-600: #0f6b5c;
-  --pine-700: #0b5649;
-  --amber-50: #fff6e5;
-  --amber-600: #b86e0a;
-  --amber-700: #8f5306;
-  --red-50: #fdecea;
-  --red-600: #b42318;
-  --red-700: #8a1c12;
-  --green-50: #eaf6ee;
-  --green-600: #1f7a3d;
-  --green-700: #145c2c;
-  --violet-50: #f2effb;
-  --violet-600: #5b46b2;
+  --pine-50: 236 246 242;
+  --pine-100: 210 234 226;
+  --pine-500: 31 138 115;
+  --pine-600: 15 107 92;
+  --pine-700: 11 86 73;
+  --on-pine: 255 255 255;
 
-  --del-bg: #fde8e6;
-  --del-tx: #8a1c12;
-  --ins-bg: #e3f4e8;
-  --ins-tx: #145c2c;
+  --amber-50: 255 245 226;
+  --amber-100: 250 228 186;
+  --amber-600: 150 86 6;
+  --red-50: 252 236 233;
+  --red-100: 247 210 204;
+  --red-600: 170 33 22;
+  --green-50: 233 245 237;
+  --green-100: 203 233 213;
+  --green-600: 27 112 56;
+  --violet-50: 242 239 251;
+  --violet-600: 88 68 172;
 
   --radius-card: 14px;
-  --radius-pill: 9999px;
-  --shadow-ink: inset 0 1px 0 rgba(255,255,255,.12), inset 0 -1px 0 rgba(0,0,0,.25), 0 1px 2px rgba(0,0,0,.12);
-  --ease: cubic-bezier(.2,0,0,1);
+  --shadow-ink: inset 0 1px 0 rgb(255 255 255 / 0.14), inset 0 -1px 0 rgb(0 0 0 / 0.22), 0 1px 2px rgb(0 0 0 / 0.12);
+  --shadow-float: 0 1px 2px rgb(20 30 25 / 0.06), 0 8px 24px rgb(20 30 25 / 0.08);
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: #0f1211;
-  --surface: #161a19;
-  --sunken: #1d2220;
-  --line: #252b29;
-  --line-strong: #313835;
-  --ink: #e7ebe9;
-  --tx: #e7ebe9;
-  --tx-2: #c4cbc7;
-  --tx-3: #98a19c;
-  --tx-muted: #6f7873;
-  --pine-50: #10261f;
-  --pine-100: #153328;
-  --pine-500: #3fbf9f;
-  --pine-600: #4fd1b0;
-  --pine-700: #7fe0c6;
-  --amber-50: #2a1f0b;
-  --amber-600: #f0a640;
-  --red-50: #2b1412;
-  --red-600: #f0827a;
-  --green-50: #102418;
-  --green-600: #63c584;
-  --violet-50: #1d1930;
-  --violet-600: #a99af0;
-  --del-bg: #3a1a17;
-  --del-tx: #ffb4ab;
-  --ins-bg: #133022;
-  --ins-tx: #9be3b4;
+  --bg: 15 18 17;
+  --surface: 22 26 25;
+  --sunken: 29 34 32;
+  --line: 39 45 43;
+  --line-strong: 54 61 58;
+  --tx: 232 236 234;
+  --tx-2: 199 206 202;
+  --tx-3: 165 174 169;
+  --tx-muted: 140 150 145;
+
+  --pine-50: 16 40 33;
+  --pine-100: 22 56 45;
+  --pine-500: 63 191 159;
+  --pine-600: 86 212 180;
+  --pine-700: 140 228 205;
+  --on-pine: 8 30 24;
+
+  --amber-50: 44 32 10;
+  --amber-100: 70 50 14;
+  --amber-600: 242 172 76;
+  --red-50: 48 21 19;
+  --red-100: 78 30 26;
+  --red-600: 246 142 133;
+  --green-50: 17 39 26;
+  --green-100: 24 62 40;
+  --green-600: 110 206 142;
+  --violet-50: 31 27 52;
+  --violet-600: 176 162 244;
+
+  --shadow-float: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px rgb(0 0 0 / 0.45);
+  color-scheme: dark;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
   }
 }
-

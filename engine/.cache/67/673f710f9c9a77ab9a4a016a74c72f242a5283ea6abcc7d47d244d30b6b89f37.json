@@ -1,0 +1,26 @@
+{
+ "key": "673f710f9c9a77ab9a4a016a74c72f242a5283ea6abcc7d47d244d30b6b89f37",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "direct",
+ "at": "2026-11-11T12:07:53.438Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A"
+  ],
+  "value": "Become twice its initial value",
+  "steps": [
+   "The relationship between kinetic energy (K) and momentum (p) is K = p^2 / (2m).",
+   "Let the initial kinetic energy be K_1 = p_1^2 / (2m).",
+   "The new kinetic energy is K_2 = 4K_1.",
+   "Substitute the momentum relation: p_2^2 / (2m) = 4 * (p_1^2 / (2m)).",
+   "Solving for p_2 gives p_2^2 = 4p_1^2, which means p_2 = 2p_1.",
+   "Therefore, the new momentum becomes twice its initial value."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

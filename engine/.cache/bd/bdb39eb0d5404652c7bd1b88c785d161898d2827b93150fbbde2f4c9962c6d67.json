@@ -1,0 +1,26 @@
+{
+ "key": "bdb39eb0d5404652c7bd1b88c785d161898d2827b93150fbbde2f4c9962c6d67",
+ "purpose": "solve",
+ "model": "gemini-3.1-pro-preview",
+ "promptVersion": "solver-v2",
+ "variant": "elimination",
+ "at": "2026-11-11T12:08:45.989Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "20"
+  ],
+  "value": "20",
+  "steps": [
+   "Let the side length of the cube be a cm.",
+   "Removing the 800 g mass causes the cube to rise by 2 cm.",
+   "The change in buoyant force equals the weight of the removed mass.",
+   "The volume of the cube that emerges from the water is a^2 * 2 cm^3.",
+   "Since the density of water is 1 g/cm^3, the mass of this displaced water is 2a^2 g.",
+   "Equating this to the removed mass: 2a^2 = 800 => a^2 = 400 => a = 20 cm."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

@@ -1,7 +1,17 @@
 import { htmlToText } from '@fixd/engine/html';
 import type { Case, Question, QuestionVersion, Report } from '@prisma/client';
 
-export function summary(c: Case & { question: Question; reports: Report[]; firstVersion?: QuestionVersion }) {
+export type CaseWithReports = Case & { question: Question; reports: Report[] };
+
+export function earliest(dates: Date[]): string | null {
+  if (!dates.length) return null;
+  return new Date(Math.min(...dates.map((d) => d.getTime()))).toISOString();
+}
+
+export function summary(
+  c: CaseWithReports & { firstVersion?: QuestionVersion },
+  blockedReason: string | null
+) {
   return {
     id: c.id,
     questionId: c.questionId,
@@ -16,9 +26,10 @@ export function summary(c: Case & { question: Question; reports: Report[]; first
     urgency: c.urgency,
     students: new Set(c.reports.map((r) => r.studentId)).size,
     reports: c.reports.length,
-    firstReportedAt: c.reports.map((r) => r.reportedAt).sort()[0] ?? null,
+    firstReportedAt: earliest(c.reports.map((r) => r.reportedAt)),
     preview: c.firstVersion ? htmlToText(c.firstVersion.questionHtml).slice(0, 140) : '',
     flags: [...new Set(c.reports.flatMap((r) => r.flags))],
+    approvable: c.status === 'open' && blockedReason === null,
+    blockedReason,
   };
 }
-

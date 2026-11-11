@@ -1,118 +1,72 @@
 import { useState } from 'react';
-import type { CaseDetail } from '../lib/types';
-import { MathHtml } from './MathHtml';
+import clsx from 'clsx';
+import { ChevronDown } from 'lucide-react';
+import type { CaseView } from '../lib/adapt';
+import { answerLetters, formatAnswer } from '../lib/diff';
 
-interface EvidenceTrioProps {
-  c: CaseDetail;
+function same(a: string | null, b: unknown, type: string) {
+  if (a == null) return false;
+  if (type === 'integerQuestion') return Number(a) === Number(Array.isArray(b) ? b[0] : b);
+  return answerLetters(a).sort().join() === answerLetters(b).sort().join() && answerLetters(a).length > 0;
 }
 
-function stringifyAnswer(ans: unknown): string {
-  if (ans == null) return '';
-  if (typeof ans === 'string') return ans;
-  if (Array.isArray(ans)) return ans.join(', ');
-  if (typeof ans === 'object') return JSON.stringify(ans);
-  return String(ans);
-}
-
-export function EvidenceTrio({ c }: EvidenceTrioProps) {
-  const [expandSolver, setExpandSolver] = useState(false);
-
-  const storedKey = stringifyAnswer(c.current.answer);
-  const matchingOption = c.answerOptions.find(
-    (o) => o.label.toUpperCase() === storedKey.toUpperCase()
-  );
-
-  const solves = c.solves || [];
-  const solveAnswers = solves.map((s) => stringifyAnswer(s.answer));
-  const solverMatchesKey =
-    solveAnswers.length > 0 &&
-    solveAnswers.every((a) => a.toUpperCase() === storedKey.toUpperCase());
-
-  // Distinct student claims
-  const claims = [
-    ...new Set(
-      c.reports
-        .map((r) => r.studentClaim || r.comment)
-        .filter(Boolean)
-        .map((s) => s.trim())
-    ),
-  ];
+/** Stored key vs independent solver vs what students claimed. Disagreement is coloured; agreement stays quiet. */
+export function EvidenceTrio({ c }: { c: CaseView }) {
+  const [open, setOpen] = useState<number | null>(null);
+  const key = c.diffBefore.answer;
+  const type = c.diffBefore.questionType;
+  const solved = c.solves.filter((s) => s.answer != null);
+  const solvesAgree = solved.length > 1 && solved.every((s) => s.answer === solved[0]!.answer);
+  const keyDisputed = solved.length > 0 && solved.every((s) => !same(s.answer, key, type)) && solvesAgree;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4 select-none">
-      {/* 1. Stored Key */}
-      <div
-        className={`p-3 rounded-card border ${
-          solverMatchesKey
-            ? 'bg-surface border-line'
-            : 'bg-amber-50/40 border-amber-600/30'
-        }`}
-      >
-        <div className="text-[11px] font-semibold text-tx-muted uppercase tracking-wider mb-1 font-mono">
-          Stored Key
-        </div>
-        <div className="text-base font-bold text-tx font-mono flex items-center gap-2">
-          <span>{storedKey || 'None'}</span>
-        </div>
-        {matchingOption && (
-          <div className="text-xs text-tx-2 mt-1.5 font-sans line-clamp-2">
-            <MathHtml html={matchingOption.text} />
-          </div>
-        )}
+    <section className="grid gap-3 md:grid-cols-3" data-tour="evidence">
+      <div className={clsx('rounded-card border p-4', keyDisputed ? 'border-warn-600/40 bg-warn-50' : 'border-line bg-surface')}>
+        <p className="text-xs text-tx-3">Stored answer key</p>
+        <p className="mt-1 font-display text-2xl text-tx">{formatAnswer(key)}</p>
+        <p className="mt-1 text-xs text-tx-3">{keyDisputed ? 'Every blind solve disagrees with it' : 'As stored in the bank'}</p>
       </div>
 
-      {/* 2. Blind Solver */}
-      <div
-        className={`p-3 rounded-card border ${
-          solverMatchesKey
-            ? 'bg-surface border-line'
-            : 'bg-amber-50/40 border-amber-600/30'
-        }`}
-      >
-        <div className="flex items-center justify-between text-[11px] font-semibold text-tx-muted uppercase tracking-wider mb-1 font-mono">
-          <span>Blind Solves ({solves.length})</span>
-          {solves.length > 0 && (
-            <button
-              type="button"
-              onClick={() => setExpandSolver(!expandSolver)}
-              className="text-[10px] text-pine-600 hover:underline lowercase font-sans"
-            >
-              {expandSolver ? 'collapse' : 'steps'}
-            </button>
-          )}
-        </div>
-        <div className="text-base font-bold text-tx font-mono flex items-center gap-2">
-          {solveAnswers.length > 0 ? solveAnswers.join(' · ') : 'No solver run'}
-        </div>
-        {expandSolver && solves.length > 0 && (
-          <div className="mt-2 text-xs text-tx-2 space-y-2 border-t border-line/60 pt-2 font-mono">
-            {solves.map((s, idx) => (
-              <div key={idx} className="bg-sunken p-2 rounded text-[11px]">
-                <div className="font-semibold text-tx-3 mb-1">Solve {idx + 1}: {stringifyAnswer(s.answer)}</div>
-                <div className="text-tx-muted whitespace-pre-wrap line-clamp-4">{s.reasoning || s.text}</div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* 3. Students Said */}
-      <div className="p-3 rounded-card border bg-surface border-line">
-        <div className="text-[11px] font-semibold text-tx-muted uppercase tracking-wider mb-1 font-mono">
-          Students Claimed ({claims.length})
-        </div>
-        <div className="space-y-1 mt-1 text-xs text-tx font-sans">
-          {claims.slice(0, 3).map((claim, idx) => (
-            <div key={idx} className="line-clamp-2 italic text-tx-2">
-              "{claim}"
+      <div className={clsx('rounded-card border p-4', solved.length > 1 && !solvesAgree ? 'border-warn-600/40 bg-warn-50' : 'border-line bg-surface')}>
+        <p className="text-xs text-tx-3">Blind solves, never shown the key</p>
+        {c.solves.length === 0 && <p className="mt-1 text-sm text-tx-3">Not run for this case</p>}
+        <div className="mt-1 space-y-1.5">
+          {c.solves.map((s, i) => (
+            <div key={i}>
+              <button
+                type="button"
+                className="flex w-full items-center gap-2 text-left"
+                onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+                disabled={!s.steps.length}
+              >
+                <span className="font-display text-2xl text-tx">{s.answer ?? '?'}</span>
+                <span className="text-xs text-tx-3">{s.solvable ? `solve ${i + 1}` : `solve ${i + 1}, missing ${s.missing ?? 'data'}`}</span>
+                {s.steps.length > 0 && <ChevronDown size={14} className={clsx('ml-auto text-tx-3 transition-transform', open !== i && '-rotate-90')} />}
+              </button>
+              {open === i && (
+                <ol className="mt-1.5 list-decimal space-y-1 pl-5 text-xs leading-relaxed text-tx-2">
+                  {s.steps.map((st, j) => (
+                    <li key={j}>{st}</li>
+                  ))}
+                </ol>
+              )}
             </div>
           ))}
-          {claims.length === 0 && (
-            <div className="text-tx-muted italic">No specific claim text</div>
-          )}
         </div>
       </div>
-    </div>
+
+      <div className="rounded-card border border-line bg-surface p-4">
+        <p className="text-xs text-tx-3">What students claimed</p>
+        <ul className="mt-1.5 space-y-1.5">
+          {c.reports.map((r) => (
+            <li key={r.id} className="text-sm leading-snug text-tx">
+              <span className={clsx('mr-1.5 inline-block h-2 w-2 rounded-full align-middle', r.studentWasRight ? 'bg-ok-600' : 'bg-line-strong')} />
+              {r.studentClaim || r.comment || 'No specific claim'}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
-

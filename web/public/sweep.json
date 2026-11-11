@@ -1,190 +1,425 @@
 [
-  {
-    "questionId": "68dea657387eea3d0d95f54a",
-    "qid": "SecAQ14",
-    "subject": "Physics",
-    "chapter": "Geometrical optics and optical instruments",
-    "source": "key_check",
-    "repair": "answer_key",
-    "edit": {
-      "field": "answer",
-      "find": "5",
-      "replace": "3"
-    },
-    "note": "Rejected: manual physics/biology check confirms stored key is already correct",
-    "confidence": 1,
-    "guardOk": true,
-    "guardErrors": [],
-    "status": "rejected"
+ {
+  "questionId": "6264197209f4fd65f58f5707",
+  "qid": "uiKqpBTMj",
+  "subject": "Zoology",
+  "chapter": "Biotechnology and its Applications",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "solution",
+   "find": "riceis",
+   "replace": "rice is"
   },
-  {
-    "questionId": "695ede2a88d7701e561aa9d9",
-    "qid": "MHCET_PCB_PYQ_2021_1_BIO_L876",
-    "subject": "Zoology",
-    "chapter": "Excretory Products and their Elimination",
-    "source": "key_check",
-    "repair": "answer_key",
-    "edit": {
-      "field": "answer",
-      "find": "D",
-      "replace": "B"
-    },
-    "note": "Rejected: manual physics/biology check confirms stored key is already correct",
-    "confidence": 1,
-    "guardOk": true,
-    "guardErrors": [],
-    "status": "rejected"
+  "note": "Words run together: 'riceis' should be 'rice is'.",
+  "confidence": 0.99,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "6264197209f4fd65f58f5707",
+  "qid": "uiKqpBTMj",
+  "subject": "Zoology",
+  "chapter": "Biotechnology and its Applications",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "solution",
+   "find": "producebeta-carotene",
+   "replace": "produce beta-carotene"
   },
-  {
-    "questionId": "68e872546e45ba37dcc16bc0",
-    "qid": "SecAQ6",
-    "subject": "Physics",
-    "chapter": "Electrostatics",
-    "source": "static",
-    "repair": "option_repair",
-    "edit": {
-      "field": "question",
-      "find": " <br />",
-      "replace": ""
-    },
-    "note": "Confirmed option C is completely blank in stored record",
-    "confidence": 0.95,
-    "guardOk": true,
-    "guardErrors": [],
-    "status": "confirmed"
+  "note": "Words run together: 'producebeta-carotene' should be 'produce beta-carotene'.",
+  "confidence": 0.99,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "6264197209f4fd65f58f5707",
+  "qid": "uiKqpBTMj",
+  "subject": "Zoology",
+  "chapter": "Biotechnology and its Applications",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "solution",
+   "find": "ofvitamin",
+   "replace": "of vitamin"
   },
-  {
-    "questionId": "617fa18efd53ff1629ed890f",
-    "qid": "nQM6UGBK-",
-    "subject": "Botany",
-    "chapter": "Morphology of Flowering Plants",
-    "source": "static",
-    "repair": "exam_reference",
-    "edit": {
-      "field": "question",
-      "find": "(NEET 2019)",
-      "replace": ""
-    },
-    "note": "Confirmed exam tag (NEET 2019) leaked into question stem",
-    "confidence": 0.95,
-    "guardOk": true,
-    "guardErrors": [],
-    "status": "confirmed"
+  "note": "Words run together: 'ofvitamin' should be 'of vitamin'.",
+  "confidence": 0.99,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "6264197209f4fd65f58f5707",
+  "qid": "uiKqpBTMj",
+  "subject": "Zoology",
+  "chapter": "Biotechnology and its Applications",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "solution",
+   "find": "helpprevent",
+   "replace": "help prevent"
   },
-  {
-    "questionId": "68e872546e45ba37dcc16bc0",
-    "qid": "SecAQ6",
-    "subject": "Physics",
-    "chapter": "Electrostatics",
-    "source": "static",
-    "repair": "option_repair",
-    "edit": null,
-    "note": "answer_on_blank_option: key is (C) but option (C) is blank",
-    "confidence": 0.95,
-    "guardOk": false,
-    "guardErrors": [
-      "static, no edit"
-    ],
-    "status": "candidate"
+  "note": "Words run together: 'helpprevent' should be 'help prevent'.",
+  "confidence": 0.99,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "6264197209f4fd65f58f5707",
+  "qid": "uiKqpBTMj",
+  "subject": "Zoology",
+  "chapter": "Biotechnology and its Applications",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "solution",
+   "find": "tonight blindness",
+   "replace": "to night blindness"
   },
-  {
-    "questionId": "6956d79788d7701e5617bc29",
-    "qid": "MHCET_BvpWWm7z2cY7YB0TjCzV_PHY_150",
-    "subject": "Physics",
-    "chapter": "AC Circuits",
-    "source": "static",
-    "repair": "identical_options",
-    "edit": null,
-    "note": "duplicate_options: options (B) and (C) are identical: \"0 W\"",
-    "confidence": 0.95,
-    "guardOk": false,
-    "guardErrors": [
-      "static, no edit"
-    ],
-    "status": "candidate"
+  "note": "Words run together: 'tonight blindness' should be 'to night blindness'.",
+  "confidence": 0.98,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "68c801bc1b1dbc16dc93bf2b",
+  "qid": "SecAQ5",
+  "subject": "Physics",
+  "chapter": "Photoelectric effect and matter waves",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "markup_leak",
+  "edit": {
+   "field": "solution",
+   "find": "<mi>K</mi><mi>&</mi><mo>&#x0003D;</mo><mfrac><mrow><mn>1.574</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>29</mn></mrow></msup></mrow><mrow><mn>1.638</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>13</mn></mrow></msup></mrow></mfrac><mspace linebreak=\"newline\" /><mi>K</mi><mi>&</mi><mo>&#x02248;</mo>",
+   "replace": "<mi>K</mi><mo>&#x0003D;</mo><mfrac><mrow><mn>1.574</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>29</mn></mrow></msup></mrow><mrow><mn>1.638</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>13</mn></mrow></msup></mrow></mfrac><mspace linebreak=\"newline\" /><mi>K</mi><mo>&#x02248;</mo>"
   },
-  {
-    "questionId": "622df25ab70e4b50e44ff837",
-    "qid": "F-eZtasNL",
-    "subject": "Physics",
-    "chapter": "Properties of matter and fluid mechanics",
-    "source": "static",
-    "repair": "diagram",
-    "edit": null,
-    "note": "figure_without_image: stem refers to a figure but quesImages is empty",
-    "confidence": 0.95,
-    "guardOk": false,
-    "guardErrors": [
-      "static, no edit"
-    ],
-    "status": "candidate"
+  "note": "Stray LaTeX alignment marker '&' leaked into the MathML expression.",
+  "confidence": 0.98,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "612151a6a34397610a9a2e58",
+  "qid": "pbMm2pKu_",
+  "subject": "Physics",
+  "chapter": "Photoelectric effect and matter waves",
+  "questionReported": true,
+  "source": "static",
+  "repair": "markup_leak",
+  "edit": {
+   "field": "solution",
+   "find": "\\AA",
+   "replace": "Å"
   },
-  {
-    "questionId": "68f21caf941cda588bc04365",
-    "qid": "SecAQ3",
-    "subject": "Physics",
-    "chapter": "Mathematics in physics",
-    "source": "static",
-    "repair": "answer_key",
-    "edit": null,
-    "note": "answer_format: mcq answer array contains an empty string",
-    "confidence": 0.95,
-    "guardOk": false,
-    "guardErrors": [
-      "static, no edit"
-    ],
-    "status": "candidate"
+  "note": "markup_leak: raw LaTeX visible: \\AA",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "68f21caf941cda588bc04365",
+  "qid": "SecAQ3",
+  "subject": "Physics",
+  "chapter": "Mathematics in physics",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "wrong_chapter",
+  "edit": null,
+  "note": "The question is about radioactive decay and mean life, which belongs to the chapter 'Nuclei' rather than 'Mathematics in physics'.",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "66fe9dbe22132e5a70a3e579",
+  "qid": null,
+  "subject": "Zoology",
+  "chapter": "Chemical Coordination and Integration",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "notation",
+  "edit": {
+   "field": "question",
+   "find": "(C) Aldosterone Atrial Natriuretic Factor",
+   "replace": "(C) Aldosterone - Atrial Natriuretic Factor"
   },
-  {
-    "questionId": "622f08d7b70e4b50e4500a1b",
-    "qid": "jxJrYy6ka",
-    "subject": "Physics",
-    "chapter": "Centre of mass and momentum conservation (collision)",
-    "source": "static",
-    "repair": "option_repair",
-    "edit": null,
-    "note": "missing_option: option (D) is absent",
-    "confidence": 0.95,
-    "guardOk": false,
-    "guardErrors": [
-      "static, no edit"
-    ],
-    "status": "candidate"
+  "note": "Missing hyphen/separator between the pair of hormones in option (C).",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "620e23cecc50543bc7db9186",
+  "qid": "ooPnTRb-EH",
+  "subject": "Zoology",
+  "chapter": "Evolution",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "solution",
+   "find": "wheater",
+   "replace": "whether"
   },
-  {
-    "questionId": "68c8153cfb6b2f16e2d3ceaf",
-    "qid": "SecAQ7",
-    "subject": "Physics",
-    "chapter": "Electrostatics",
-    "source": "static",
-    "repair": "answer_key",
-    "edit": null,
-    "note": "answer_format: mcq answer stores several letters in one comma joined string",
-    "confidence": 0.95,
-    "guardOk": false,
-    "guardErrors": [
-      "static, no edit"
-    ],
-    "status": "candidate"
+  "note": "Spelling mistake: 'wheater' instead of 'whether'.",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "68dea657387eea3d0d95f54a",
+  "qid": "SecAQ14",
+  "subject": "Physics",
+  "chapter": "Geometrical optics and optical instruments",
+  "questionReported": false,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "solution",
+   "find": "<mtext> eqcu </mtext>",
+   "replace": "<mtext> each </mtext>"
   },
-  {
-    "questionId": "622df25ab70e4b50e44ff837",
-    "qid": "F-eZtasNL",
-    "subject": "Physics",
-    "chapter": "Properties of matter and fluid mechanics",
-    "source": "triage_other_issue",
-    "repair": "diagram",
-    "edit": {
-      "field": "question",
-      "find": "End 2 has sub-hemispherical soap bubble as shown in figure.",
-      "replace": "End 2 has sub-hemispherical soap bubble."
-    },
-    "note": "The figure is missing, so the reference to it should be removed or the figure must be added.",
-    "confidence": 0.8,
-    "guardOk": false,
-    "guardErrors": [
-      "G1 field \"question\" not allowed for diagram (allowed: )"
-    ],
-    "status": "candidate"
-  }
+  "note": "Misspelling of subscript 'each' as 'eqcu'",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "68dea657387eea3d0d95f54a",
+  "qid": "SecAQ14",
+  "subject": "Physics",
+  "chapter": "Geometrical optics and optical instruments",
+  "questionReported": false,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "solution",
+   "find": "<mtext> eqch </mtext>",
+   "replace": "<mtext> each </mtext>"
+  },
+  "note": "Misspelling of subscript 'each' as 'eqch'",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "6956d79788d7701e5617bc29",
+  "qid": "MHCET_BvpWWm7z2cY7YB0TjCzV_PHY_150",
+  "subject": "Physics",
+  "chapter": "AC Circuits",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "markup_leak",
+  "edit": {
+   "field": "solution",
+   "find": "<mi>&amp;</mi><mi>P</mi>",
+   "replace": "<mi>P</mi>"
+  },
+  "note": "Remove stray LaTeX alignment marker '&' leaked into MathML",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "622df25ab70e4b50e44ff837",
+  "qid": "F-eZtasNL",
+  "subject": "Physics",
+  "chapter": "Properties of matter and fluid mechanics",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "question",
+   "find": "hemispherial",
+   "replace": "hemispherical"
+  },
+  "note": "\"hemispherial\" is a misspelling of \"hemispherical\".",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "617fa18efd53ff1629ed890f",
+  "qid": "nQM6UGBK-",
+  "subject": "Botany",
+  "chapter": "Morphology of Flowering Plants",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "question",
+   "find": "of<span style=\"color:#000000\">leaf",
+   "replace": "of <span style=\"color:#000000\">leaf"
+  },
+  "note": "Add missing space between 'of' and 'leaf'.",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "622f08d7b70e4b50e4500a1b",
+  "qid": "jxJrYy6ka",
+  "subject": "Physics",
+  "chapter": "Centre of mass and momentum conservation (collision)",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "markup_leak",
+  "edit": {
+   "field": "solution",
+   "find": "<msub><mi>v</mi><mrow><mrow><mi mathvariant=\"normal\">C</mi><mi mathvariant=\"normal\">M</mi></mrow></mrow></msub><mi>&</mi><mo>&#x0003D;</mo>",
+   "replace": "<msub><mi>v</mi><mrow><mrow><mi mathvariant=\"normal\">C</mi><mi mathvariant=\"normal\">M</mi></mrow></mrow></msub><mo>&#x0003D;</mo>"
+  },
+  "note": "Remove stray LaTeX alignment marker '&' leaked into MathML as <mi>&</mi>.",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "6956d7e988d7701e5617bd3e",
+  "qid": "MHCET_gNlzG0ZcBlNSzwBSMUak_PHY_129",
+  "subject": "Physics",
+  "chapter": "Oscillations",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "notation",
+  "edit": {
+   "field": "solution",
+   "find": "<mo>&minus;</mo><mfrac><mrow><mi> d </mi><mi> x </mi></mrow><mrow><mi> d </mi><mi> t </mi></mrow></mfrac><mo>&minus;</mo>",
+   "replace": "<mo>=</mo><mfrac><mrow><mi> d </mi><mi> x </mi></mrow><mrow><mi> d </mi><mi> t </mi></mrow></mfrac><mo>=</mo>"
+  },
+  "note": "Equals signs were replaced by minus signs in the expression for velocity.",
+  "confidence": 0.95,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "617fa18efd53ff1629ed890f",
+  "qid": "nQM6UGBK-",
+  "subject": "Botany",
+  "chapter": "Morphology of Flowering Plants",
+  "questionReported": true,
+  "source": "noticed",
+  "repair": "spelling",
+  "edit": {
+   "field": "question",
+   "find": "part of<span style=\"color:#000000\">leaf",
+   "replace": "part of <span style=\"color:#000000\">leaf"
+  },
+  "note": "Missing space between 'of' and 'leaf'.",
+  "confidence": 0.85,
+  "guardOk": true,
+  "guardErrors": [],
+  "status": "verified"
+ },
+ {
+  "questionId": "6062ec84518e9535e120c422",
+  "qid": null,
+  "subject": "Physics",
+  "chapter": "Temperature and thermal properties of matter",
+  "questionReported": true,
+  "source": "proofread",
+  "repair": "spelling",
+  "edit": {
+   "field": "question",
+   "find": "It&rsquo;s",
+   "replace": "Its"
+  },
+  "note": "'It’s' is a contraction of 'it is'; the possessive form 'Its' is required here.",
+  "confidence": 0.95,
+  "guardOk": false,
+  "guardErrors": [
+   "spelling edit changes a non letter character",
+   "spelling edit too large (7 character changes)"
+  ],
+  "status": "rejected"
+ },
+ {
+  "questionId": "622f08d7b70e4b50e4500a1b",
+  "qid": "jxJrYy6ka",
+  "subject": "Physics",
+  "chapter": "Centre of mass and momentum conservation (collision)",
+  "questionReported": true,
+  "source": "noticed",
+  "repair": "markup_leak",
+  "edit": {
+   "field": "solution",
+   "find": "<mi>&</mi>",
+   "replace": ""
+  },
+  "note": "LaTeX alignment ampersand leaked into MathML solution",
+  "confidence": 0.85,
+  "guardOk": false,
+  "guardErrors": [
+   "G3 find occurs 2 times in solution: \"<mi>&</mi>\""
+  ],
+  "status": "rejected"
+ },
+ {
+  "questionId": "6956d79788d7701e5617bc29",
+  "qid": "MHCET_BvpWWm7z2cY7YB0TjCzV_PHY_150",
+  "subject": "Physics",
+  "chapter": "AC Circuits",
+  "questionReported": true,
+  "source": "noticed",
+  "repair": "markup_leak",
+  "edit": {
+   "field": "solution",
+   "find": "<mi>&amp;</mi>P",
+   "replace": "<mi>P</mi>"
+  },
+  "note": "Remove stray LaTeX table alignment character rendering as '&'",
+  "confidence": 0.85,
+  "guardOk": false,
+  "guardErrors": [
+   "G3 find occurs 0 times in solution: \"<mi>&amp;</mi>P\""
+  ],
+  "status": "rejected"
+ },
+ {
+  "questionId": "6956d79788d7701e5617bc29",
+  "qid": "MHCET_BvpWWm7z2cY7YB0TjCzV_PHY_150",
+  "subject": "Physics",
+  "chapter": "AC Circuits",
+  "questionReported": true,
+  "source": "noticed",
+  "repair": "markup_leak",
+  "edit": {
+   "field": "solution",
+   "find": "<mi>&amp;</mi>ϕ",
+   "replace": "<mi>ϕ</mi>"
+  },
+  "note": "Remove stray LaTeX table alignment character rendering as '&'",
+  "confidence": 0.85,
+  "guardOk": false,
+  "guardErrors": [
+   "G3 find occurs 0 times in solution: \"<mi>&amp;</mi>ϕ\""
+  ],
+  "status": "rejected"
+ }
 ]

@@ -1,4 +1,8 @@
 name: keep-warm
+# Render free instances sleep after 15 idle minutes. Ping every 10 minutes.
+# Set the repository variable FIXD_API_URL (Settings > Secrets and variables > Actions > Variables),
+# for example https://fixd-api.onrender.com. /api/ping never touches the database,
+# so this does not keep the Neon compute awake or burn its free hours.
 on:
   schedule:
     - cron: "*/10 * * * *"
@@ -7,12 +11,14 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     timeout-minutes: 3
+    env:
+      API_URL: ${{ vars.FIXD_API_URL }}
     steps:
       - name: Ping API
         run: |
+          if [ -z "$API_URL" ]; then echo "FIXD_API_URL not set, skipping"; exit 0; fi
           for i in 1 2 3; do
-            curl -fsS --max-time 60 https://fixd-api.onrender.com/api/health && exit 0
+            curl -fsS --max-time 60 "$API_URL/api/ping" && exit 0
             sleep 10
           done
           exit 1
-

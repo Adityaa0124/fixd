@@ -1,0 +1,43 @@
+{
+ "key": "3e43045685cd3e11c922efe916b23556f8bfd219d5423e42176bec94bd27cfd8",
+ "purpose": "triage",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "triage-v2.1",
+ "variant": null,
+ "at": "2026-11-11T12:28:40.356Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "option_repair",
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Option (D) is missing from the question options. The correct answer (C) 10 m/s is present and verified by both blind solves, but the fourth option distractor is absent.",
+  "confidence": 0.95,
+  "solution_final_answer": "C",
+  "option_text_source": "unknown",
+  "per_report": [
+   {
+    "reportId": "R010",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Only 3 options are displayed instead of 4.",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R009",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Option (D) is missing.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": [
+   {
+    "repair": "markup_leak",
+    "field": "solution",
+    "find": "<mi>&</mi>",
+    "replace": "",
+    "note": "LaTeX alignment ampersand leaked into MathML solution"
+   }
+  ]
+ }
+}

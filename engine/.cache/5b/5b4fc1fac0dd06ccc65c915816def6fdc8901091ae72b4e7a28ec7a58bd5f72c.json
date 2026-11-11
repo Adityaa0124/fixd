@@ -1,0 +1,20 @@
+{
+ "key": "5b4fc1fac0dd06ccc65c915816def6fdc8901091ae72b4e7a28ec7a58bd5f72c",
+ "purpose": "sweep",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "proofread-v1",
+ "variant": "proofread",
+ "at": "2026-11-11T12:19:45.816Z",
+ "response": {
+  "issues": [
+   {
+    "repair": "wrong_chapter",
+    "field": "question",
+    "find": "",
+    "replace": "",
+    "note": "The question is about displacement current in a capacitor, which belongs to 'Electromagnetic waves' (or 'Capacitance'), not 'Geometrical optics and optical instruments'.",
+    "confidence": 0.99
+   }
+  ]
+ }
+}
