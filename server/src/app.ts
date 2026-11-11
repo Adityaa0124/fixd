@@ -7,8 +7,9 @@ import { casesRouter } from './routes/cases';
 import { auditRouter } from './routes/audit';
 import { adminRouter, demoRouter } from './routes/admin';
 
-const origins = (process.env.WEB_ORIGIN ?? 'http://localhost:5173')
-  .split(',')
+// The production console is always allowed; WEB_ORIGIN adds more (comma separated).
+const PRODUCTION_ORIGINS = ['https://fixd-two.vercel.app'];
+const origins = [...PRODUCTION_ORIGINS, ...(process.env.WEB_ORIGIN ?? 'http://localhost:5173').split(',')]
   .map((s) => s.trim().replace(/\/$/, ''))
   .filter(Boolean);
 
