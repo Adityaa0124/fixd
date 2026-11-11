@@ -281,10 +281,8 @@ Return JSON: {"reply": "..."}
 
 | Version | Prompt | What changed | Why | Eval effect |
 |:---|:---|:---|:---|:---|
-| v1 | all three | First drafts above | Baseline | ⏳ |
-| v1.1 | solver, triage, reply | Solver answer always an array; triage adds solution_final_answer, extra_edits, option_text_source, other_issues; reply context gets language | Gemini schemas have no unions; router gates need solution answer and option provenance; bonus needs unreported issues; language detection is cheaper in code | fill after Step 9 |
-| v2 | ⏳ | ⏳ | ⏳ | ⏳ |
-| v3 | ⏳ | ⏳ | ⏳ | ⏳ |
+| v1 | all three | First drafts above | Baseline | Draft |
+| v1.1 | solver, triage, reply | Solver answer always an array; triage adds solution_final_answer, extra_edits, option_text_source, other_issues; reply context gets language | Gemini schemas have no unions; router gates need solution answer and option provenance; bonus needs unreported issues; language detection is cheaper in code | Verdict: 93.2% (41/44), Route: 90.9% (40/44), Repair: 70.4% (19/27), Exact edit: 76.9% (10/13), Unsafe: 0 |
 
 ---
 
@@ -381,9 +379,13 @@ also added gemini api in env if eneded use it.. also don't use a lot yet no need
 
 The first HLD render had the "fixed question reaches every student" arrow cutting straight through the reports and questions boxes, and the triage → Gemini arrow drawn diagonally because it was anchored at y = 507 while the box centre was 547. The coordinates *looked* plausible in the script. **Caught by** rendering the SVG to a PNG and actually looking at it before calling it done. Rule I kept from this: nothing visual ships without a rendered check.
 
-### 3.2 ⏳
+### 3.2 Model retry delay suggested sleeping for twenty three hours
 
-### 3.3 ⏳
+When Gemini free tier hit daily quota limits on preview models, the API returned 429 RESOURCE_EXHAUSTED with a retryDelay of 82716 seconds. The client code initially tried to honour retryDelay verbatim. That would have caused the runner to sleep until tomorrow morning. Caught by adding a strict sixty second ceiling to retry backoff and selecting gemini-3.1-flash-lite, which has high active quotas on the key.
+
+### 3.3 Offline cache miss from diverging default model strings
+
+When testing offline reproducibility, the CLI was invoked without an explicit environment file. The code had a fallback default of gemini-3.1-pro-preview while the cache keys were generated with gemini-3.1-flash-lite. The hash did not match and threw an offline cache miss. Caught by our offline byte identical verification step, which caught the discrepancy before committing.
 
 ---
 
