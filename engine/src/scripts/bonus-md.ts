@@ -45,3 +45,4 @@ ${table(candidates)}
 
 fs.writeFileSync(path.join(ROOT, 'BONUS.md'), md);
 console.log(`BONUS.md: ${confirmed.length} confirmed, ${candidates.length} candidates`);
+

@@ -56,3 +56,4 @@ export function CaseHeader({ c }: CaseHeaderProps) {
     </div>
   );
 }
+

@@ -40,3 +40,4 @@ export function markEdit(html: string, e: Edit): { before: string; after: string
     after: html.slice(0, i) + `<mark data-fx="ins">${e.replace}</mark>` + html.slice(j),
   };
 }
+

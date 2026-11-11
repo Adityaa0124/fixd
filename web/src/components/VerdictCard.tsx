@@ -87,3 +87,4 @@ export function VerdictCard({ c }: VerdictCardProps) {
     </div>
   );
 }
+

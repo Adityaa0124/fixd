@@ -95,3 +95,4 @@ export function RejectDialog({ isOpen, onClose, onConfirm }: RejectDialogProps) 
     </div>
   );
 }
+

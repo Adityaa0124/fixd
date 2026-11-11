@@ -47,3 +47,4 @@ export function Queue({ items, selectedId, onSelect, isLoading }: QueueProps) {
     </aside>
   );
 }
+

@@ -21,3 +21,4 @@ export function summary(c: Case & { question: Question; reports: Report[]; first
     flags: [...new Set(c.reports.flatMap((r) => r.flags))],
   };
 }
+

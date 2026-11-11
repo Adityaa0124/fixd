@@ -20,3 +20,5 @@ design-kit/
 # engine/.cache is committed on purpose: reruns are free and need no API key
 .vercel/
 engine/out/runs/
+engine/out/partial.json
+*.tsbuildinfo

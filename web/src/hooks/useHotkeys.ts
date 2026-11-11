@@ -23,3 +23,4 @@ export function useHotkeys(map: Record<string, () => void>, enabled = true) {
     return () => window.removeEventListener('keydown', onKey);
   }, [map, enabled]);
 }
+

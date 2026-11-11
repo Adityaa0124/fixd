@@ -49,3 +49,4 @@ export async function restoreVersion(tx: Tx, questionId: string, version: number
   };
   return writeVersion(tx, questionId, snap, by, reason);
 }
+

@@ -47,3 +47,4 @@ export function ShortcutsDialog({ isOpen, onClose }: ShortcutsDialogProps) {
     </div>
   );
 }
+

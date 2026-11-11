@@ -92,3 +92,4 @@ export function WarmupGate({ children }: WarmupGateProps) {
     </>
   );
 }
+

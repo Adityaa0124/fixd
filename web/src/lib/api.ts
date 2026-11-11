@@ -43,3 +43,4 @@ export const api = {
   audit: () => req<AuditEntry[]>('/api/audit?limit=200'),
   sweep: () => req<unknown[]>('/api/sweep'),
 };
+

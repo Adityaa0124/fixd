@@ -87,3 +87,4 @@ export function QueueRow({ item, selected, onSelect }: QueueRowProps) {
     </div>
   );
 }
+

@@ -57,3 +57,4 @@ fs.writeFileSync(path.join(root, 'eval/out/last.json'), JSON.stringify({
   edit: edN ? ed / edN : null, unsafe, missing,
 }, null, 2));
 process.exit(unsafe > 0 ? 1 : 0);
+

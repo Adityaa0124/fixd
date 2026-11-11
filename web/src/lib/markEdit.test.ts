@@ -16,3 +16,4 @@ describe('markEdit', () => {
     expect(res?.before).toContain('<mark data-fx="box"><math><mn>1</mn></math></mark>');
   });
 });
+

@@ -98,3 +98,4 @@ export function AuditDrawer({ isOpen, onClose, entries, isLoading }: AuditDrawer
     </div>
   );
 }
+
