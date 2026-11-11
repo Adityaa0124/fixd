@@ -1,0 +1,11 @@
+{
+ "key": "4e87b04d10deff10559e111cd81ccc5d2429e1db68bf3b8fc309a68558485eb8",
+ "purpose": "reply",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "reply-v1",
+ "variant": null,
+ "at": "2026-11-11T09:42:03.786Z",
+ "response": {
+  "reply": "We are sorry for the display issue on your mobile device. Our team is working on fixing the layout so the options appear clearly for you."
+ }
+}

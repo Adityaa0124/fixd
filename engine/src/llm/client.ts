@@ -100,7 +100,7 @@ function release(model: string) {
 
 function retryDelayMs(err: unknown, attempt: number): number | null {
   const msg = String((err as Error)?.message ?? err);
-  const retryable = /\b(429|500|502|503|504)\b|RESOURCE_EXHAUSTED|UNAVAILABLE|overloaded|deadline/i.test(msg);
+  const retryable = /\b(429|500|502|503|504)\b|RESOURCE_EXHAUSTED|UNAVAILABLE|overloaded|deadline|fetch failed|timeout|UND_ERR|ECONNRESET|ETIMEDOUT/i.test(msg);
   if (!retryable) return null;
   const hinted = msg.match(/retryDelay["':\s]+(\d+(?:\.\d+)?)s/);
   if (hinted && Number(hinted[1]) > 60) return null; // Daily quota exhausted, do not sleep for hours

@@ -1,0 +1,31 @@
+{
+ "key": "e8ab033465f41dcee4e5427414c388111174f66cff6588c0a2f930acabb007df",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-2",
+ "at": "2026-11-11T09:44:50.223Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A",
+   "B",
+   "D"
+  ],
+  "value": "A, B, D",
+  "steps": [
+   "A charged particle moving parallel to an electric field experiences force F=qE in the same or opposite direction, resulting in linear motion.",
+   "A charged particle moving perpendicular to a uniform electric field experiences constant transverse force F=qE, resulting in parabolic trajectory.",
+   "A charged particle moving parallel to a magnetic field experiences zero Lorentz force (F=qvB sin(0)=0), resulting in constant velocity straight line motion.",
+   "A charged particle moving perpendicular to a uniform magnetic field experiences constant centripetal force F=qvB, resulting in circular motion."
+  ],
+  "confidence": 1,
+  "option_flags": [
+   {
+    "label": "C",
+    "issue": "cut_off"
+   }
+  ]
+ }
+}

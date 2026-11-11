@@ -1,0 +1,32 @@
+{
+ "key": "7ff7688c1fe56454ef4656642fcd5d4688ac31781d02d3c39414881d5f68040a",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:40:09.420Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "solution_fix",
+  "edit": {
+   "field": "solution",
+   "find": "a = 40 cm",
+   "replace": "a = 20 cm"
+  },
+  "extra_edits": [],
+  "evidence": "Both blind solves confirm the side length is 20 cm. The stored solution correctly sets up the equation 800 = 2 * a^2, which leads to a = 20 cm, but the final line of the solution incorrectly states 'a = 40 cm'.",
+  "confidence": 1,
+  "solution_final_answer": "20",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R016",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "solution says 40 cm but answer is 20, which one is correct?",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

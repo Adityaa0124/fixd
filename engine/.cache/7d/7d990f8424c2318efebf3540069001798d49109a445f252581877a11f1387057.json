@@ -1,0 +1,26 @@
+{
+ "key": "7d990f8424c2318efebf3540069001798d49109a445f252581877a11f1387057",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-2",
+ "at": "2026-11-11T09:43:54.314Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": "B",
+  "steps": [
+   "Excess pressure in a soap bubble is given by P = 4T/R.",
+   "End 1 has a hemispherical bubble of radius r, so P1 = 4T/r.",
+   "End 2 has a sub-hemispherical bubble, meaning its radius of curvature R2 > r.",
+   "Excess pressure at end 2 is P2 = 4T/R2, which implies P2 < P1.",
+   "Air flows from higher pressure to lower pressure, so air flows from end 1 to end 2.",
+   "As air leaves end 1, the volume of the bubble at end 1 decreases."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

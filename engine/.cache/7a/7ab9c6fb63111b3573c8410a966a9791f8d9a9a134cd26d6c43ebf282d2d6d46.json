@@ -1,0 +1,25 @@
+{
+ "key": "7ab9c6fb63111b3573c8410a966a9791f8d9a9a134cd26d6c43ebf282d2d6d46",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-2",
+ "at": "2026-11-11T09:32:21.147Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "C"
+  ],
+  "value": "C",
+  "steps": [
+   "Sun plants are exposed to direct sunlight containing the full spectrum of visible light.",
+   "Herbs and shrubs growing in the understory receive light filtered through the canopy of taller trees.",
+   "The canopy absorbs red and blue wavelengths efficiently for photosynthesis.",
+   "Green light is poorly absorbed by chlorophyll and is transmitted or reflected through the canopy.",
+   "Therefore, herbs and shrubs receive a higher proportion of green light compared to sun plants."
+  ],
+  "confidence": 0.95,
+  "option_flags": []
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "key": "a554192f82d9e449b9a7ea1394f0a1b15cfd22e2fac3dcd575cf89463272756e",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:41:59.598Z",
+ "response": {
+  "question_verdict": "no_error",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Both blind solves confirm the calculation F = 0.99 * 100 = 99 N, which matches option (C). The student report is about display issues on a mobile device, not a technical error in the question.",
+  "confidence": 1,
+  "solution_final_answer": "C",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R036",
+    "verdict": "display_issue",
+    "comment_flag": "none",
+    "student_claim": "options are cut on my phone screen",
+    "student_was_right": false
+   }
+  ],
+  "other_issues": []
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "key": "e1ebae727f320166d092c155a646b0b706066637680f7c141cb9ced625649640",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:45:56.123Z",
+ "response": {
+  "question_verdict": "no_error",
+  "repair": "answer_form",
+  "edit": {
+   "field": "question",
+   "find": "The friction between wall and body is 0.3. Then the frictional force is equal to",
+   "replace": "The friction between wall and body is 0.3. Then the frictional force is equal to (in N)"
+  },
+  "extra_edits": [],
+  "evidence": "The question asks for an integer answer but does not specify the unit or the required rounding, which is a common ambiguity in integer-type questions. The physics calculation is correct (frictional force equals weight when weight is less than maximum static friction), and both blind solves confirm the result is 20 N.",
+  "confidence": 0.95,
+  "solution_final_answer": "20",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R024",
+    "verdict": "no_error",
+    "comment_flag": "none",
+    "student_claim": "unit not mentioned in question",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

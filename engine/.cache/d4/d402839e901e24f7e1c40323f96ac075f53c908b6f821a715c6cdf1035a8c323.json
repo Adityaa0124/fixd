@@ -1,0 +1,24 @@
+{
+ "key": "d402839e901e24f7e1c40323f96ac075f53c908b6f821a715c6cdf1035a8c323",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-2",
+ "at": "2026-11-11T09:43:34.133Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "D"
+  ],
+  "value": "D",
+  "steps": [
+   "Parathormone increases blood calcium, Calcitonin decreases it; they are antagonistic.",
+   "Insulin decreases blood glucose, Glucagon increases it; they are antagonistic.",
+   "Aldosterone increases sodium reabsorption (raises BP), ANF decreases blood pressure; they are antagonistic.",
+   "Relaxin facilitates childbirth by relaxing pelvic ligaments; Inhibin inhibits FSH secretion; they have unrelated physiological functions."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

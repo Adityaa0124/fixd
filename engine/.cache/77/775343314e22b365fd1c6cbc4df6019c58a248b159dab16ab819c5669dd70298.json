@@ -1,0 +1,24 @@
+{
+ "key": "775343314e22b365fd1c6cbc4df6019c58a248b159dab16ab819c5669dd70298",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:38:18.713Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "C"
+  ],
+  "value": "C",
+  "steps": [
+   "Vitamin A deficiency causes night blindness and other ocular disorders.",
+   "Golden rice is a genetically modified rice variety engineered to produce beta-carotene.",
+   "Beta-carotene is a precursor to Vitamin A in the human body.",
+   "Consumption of Golden rice helps in alleviating Vitamin A deficiency."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

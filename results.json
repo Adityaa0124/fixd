@@ -1,0 +1,570 @@
+[
+  {
+    "reportId": "R001",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "Both blind solves calculate the supply voltage as 50 V using the formula V = sqrt(VR^2 + (VL - VC)^2). The stored solution also correctly calculates 50 V, but the answer key incorrectly points to option C (130 V) instead of option A (50 V).",
+    "student_reply": "You are absolutely right, thanks for pointing this out. The answer key has been updated to 50 V and is fixed now."
+  },
+  {
+    "reportId": "R002",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "Both blind solves calculate the supply voltage as 50 V using the formula V = sqrt(VR^2 + (VL - VC)^2). The stored solution also correctly calculates 50 V, but the answer key incorrectly points to option C (130 V) instead of option A (50 V).",
+    "student_reply": "You are right, the answer key was incorrect and has been fixed to 50 V. Thank you for pointing this out."
+  },
+  {
+    "reportId": "R003",
+    "questionId": "60f744b3f1b9bc7cc7b4a949",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "C",
+      "replace": "A"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "Both blind solves calculate the supply voltage as 50 V using the formula V = sqrt(VR^2 + (VL - VC)^2). The stored solution also correctly calculates 50 V, but the answer key incorrectly points to option C (130 V) instead of option A (50 V).",
+    "student_reply": "You are absolutely right, the calculation is 50 V. We have updated the answer key to reflect this, thank you for pointing it out."
+  },
+  {
+    "reportId": "R004",
+    "questionId": "68e870ef42c06737d6e565c4",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "A",
+      "replace": "D"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "Both blind solves independently calculate the pressure as 4800 N/m^2 using the formula P = (1/3) * rho * v_rms^2. The stored solution correctly calculates 4800 N/m^2, which corresponds to option (D), but the answer key incorrectly points to (A).",
+    "student_reply": "Check karo, P = (1/3) * rho * v_rms^2 use karne par answer 4800 N/m^2 aata hai. Humne answer key update kar di hai, ab option D correct hai."
+  },
+  {
+    "reportId": "R005",
+    "questionId": "68dea616d0cda73d07e93ae6",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "2",
+      "replace": "1"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "Both blind solves calculate the total flux as q/(2ε_0). Comparing this to the expression (nq)/(2ε_0) given in the stem, n must be 1. The stored answer key is 2, which is incorrect.",
+    "student_reply": "You are absolutely right, n is indeed 1. We have updated the answer key and it is now live."
+  },
+  {
+    "reportId": "R006",
+    "questionId": "696a866665252c04fc1f81c2",
+    "verdict": "defect",
+    "repair": "stem_data",
+    "edit": {
+      "field": "question",
+      "find": "The volume contraction of a solid copper cube, when subjected to a hydraulic pressure of 7 × 10^6 P a, would be _ _ _ _ m m^3.",
+      "replace": "The volume contraction of a solid copper cube of side 10 cm, when subjected to a hydraulic pressure of 7 × 10^6 P a, would be _ _ _ _ m m^3."
+    },
+    "route": "faculty_review",
+    "confidence": 0.7,
+    "evidence": "The question asks for the volume contraction of a copper cube but fails to provide the side length or initial volume of the cube. Both blind solves confirm that the calculation is impossible without this missing information. Guard: G3 find occurs 0 times in question: \"The volume contraction of a solid copper cube, when subjected to a hydraulic pre\".",
+    "student_reply": "You are absolutely right, the side length was missing from the question. A teacher is currently reviewing the update to ensure the necessary values are included."
+  },
+  {
+    "reportId": "R007",
+    "questionId": "60f742f6660d187cc13a8078",
+    "verdict": "defect",
+    "repair": "stem_data",
+    "edit": {
+      "field": "question",
+      "find": "A resistance of 40 ohm and an inductance are connected in series",
+      "replace": "A resistance of 40 ohm and an inductance of 95.5 mH are connected in series"
+    },
+    "route": "auto_apply",
+    "confidence": 0.7,
+    "evidence": "The question stem fails to provide the value of the inductance (L), making it impossible to calculate the impedance. Both blind solves confirm that the question is unsolvable as written.",
+    "student_reply": "Aap sahi keh rahe hain, question mein inductance ki value missing thi. Isse ab fix kar diya gaya hai, thank you for pointing it out."
+  },
+  {
+    "reportId": "R008",
+    "questionId": "60f742f6660d187cc13a8078",
+    "verdict": "defect",
+    "repair": "stem_data",
+    "edit": {
+      "field": "question",
+      "find": "A resistance of 40 ohm and an inductance are connected in series",
+      "replace": "A resistance of 40 ohm and an inductance of 95.5 mH are connected in series"
+    },
+    "route": "auto_apply",
+    "confidence": 0.7,
+    "evidence": "The question stem fails to provide the value of the inductance (L), making it impossible to calculate the impedance. Both blind solves confirm that the question is unsolvable as written.",
+    "student_reply": "You are absolutely right, the inductance value was missing. We have updated the question and it is fixed now, thank you for pointing this out."
+  },
+  {
+    "reportId": "R009",
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": {
+      "field": "question",
+      "find": "(A) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>30</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=",
+      "replace": "(A) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>30</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant="
+    },
+    "route": "faculty_review",
+    "confidence": 1,
+    "evidence": "The question is missing a fourth option (D). Both blind solves confirm the calculation and the correct answer is 10 m/s, which is option (C).",
+    "student_reply": "You are right, option D was missing. A teacher is checking the corrected question now, thank you for pointing this out."
+  },
+  {
+    "reportId": "R010",
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": {
+      "field": "question",
+      "find": "(A) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>30</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=",
+      "replace": "(A) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>30</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant="
+    },
+    "route": "faculty_review",
+    "confidence": 1,
+    "evidence": "The question is missing a fourth option (D). Both blind solves confirm the calculation and the correct answer is 10 m/s, which is option (C).",
+    "student_reply": "You are right, the fourth option was missing. A teacher is checking the corrected version now."
+  },
+  {
+    "reportId": "R011",
+    "questionId": "68e872546e45ba37dcc16bc0",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": {
+      "field": "question",
+      "find": "(C) <br />",
+      "replace": "(C) 1: 1<br />"
+    },
+    "route": "auto_apply",
+    "confidence": 0.7,
+    "evidence": "Both blind solves confirm the ratio of forces is 1:1 by Newton's third law. The current answer key (C) is incorrect and points to a blank option. The correct ratio 1:1 is missing from the options.",
+    "student_reply": "Aapne sahi pakda, question mein option missing tha. Humne ise fix kar diya hai aur ab sahi ratio 1:1 update ho gaya hai."
+  },
+  {
+    "reportId": "R012",
+    "questionId": "61dffbec08489156b684bd22",
+    "verdict": "defect",
+    "repair": "spelling",
+    "edit": {
+      "field": "question",
+      "find": "Epithellial tisue",
+      "replace": "Epithelial tissue"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "Option A contains a spelling error ('Epithellial tisue' instead of 'Epithelial tissue'). Both blind solves confirm the correct answer is A.",
+    "student_reply": "You are right, thank you for pointing that out. The spelling error in option A has been corrected."
+  },
+  {
+    "reportId": "R013",
+    "questionId": "617fa18efd53ff1629ed890f",
+    "verdict": "defect",
+    "repair": "exam_reference",
+    "edit": {
+      "field": "question",
+      "find": "(NEET 2019) ",
+      "replace": ""
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "The question is factually correct and the answer key is correct. The student's comment refers to the exam tag '(NEET 2019)' which is present in the stem and is considered an exam_reference that should be removed.",
+    "student_reply": "You are right, that exam tag should not be there. We have removed it and the question is now updated."
+  },
+  {
+    "reportId": "R014",
+    "questionId": "63765a28f1d8416ae0408d89",
+    "verdict": "defect",
+    "repair": "markup_leak",
+    "edit": {
+      "field": "question",
+      "find": "\\frac{7}{8}",
+      "replace": "7/8"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "The question text contains raw LaTeX code '\\frac{7}{8}' which should be rendered as a fraction. The physics calculation is correct: 7/8 disintegrated means 1/8 remains, which is (1/2)^3, corresponding to 3 half-lives of 60 days each, totaling 180 days.",
+    "student_reply": "Thank you for pointing this out. We have fixed the formatting issue and the fraction is now displaying correctly."
+  },
+  {
+    "reportId": "R015",
+    "questionId": "6956d79788d7701e5617bc29",
+    "verdict": "defect",
+    "repair": "option_repair",
+    "edit": {
+      "field": "question",
+      "find": "(C) 0 W",
+      "replace": "(C) 500 W"
+    },
+    "route": "faculty_review",
+    "confidence": 1,
+    "evidence": "Options (B) and (C) are identical (both are '0 W'). The calculation correctly leads to 0 W, so the answer key is correct, but the question has a defect due to duplicate options.",
+    "student_reply": "You are right, both options B and C are identical. A teacher is checking this now to fix the duplicate options."
+  },
+  {
+    "reportId": "R016",
+    "questionId": "6263d75bdd44e265ef926d97",
+    "verdict": "defect",
+    "repair": "solution_fix",
+    "edit": {
+      "field": "solution",
+      "find": "a = 40 cm",
+      "replace": "a = 20 cm"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm the side length is 20 cm. The stored solution correctly sets up the equation 800 = 2 * a^2, which leads to a = 20 cm, but the final line of the solution incorrectly states 'a = 40 cm'.",
+    "student_reply": "You are absolutely right, the correct answer is 20 cm. We have updated the solution text to fix this error, thank you for pointing it out."
+  },
+  {
+    "reportId": "R017",
+    "questionId": "6208e80a9cb2ab67dac61bd0",
+    "verdict": "already_fixed",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "The student report mentions a spelling error ('mere') that was already corrected in the error history on 2026-11-07. Both blind solves confirm the answer key 'C' is correct based on the light quality in the forest understory.",
+    "student_reply": "The spelling error you mentioned was already corrected. The answer remains C because the light quality in the forest understory matches the provided explanation."
+  },
+  {
+    "reportId": "R018",
+    "questionId": "612151a6a34397610a9a2e58",
+    "verdict": "defect",
+    "repair": "solution_missing",
+    "edit": {
+      "field": "solution",
+      "find": "<h3><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>5.469</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>10</mn></mrow></msup><mi>m</mi><mo>&#x0003D;</mo><mn>5.47</mn><mi>\\AA</mi></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mi>&#x003BB;</mi><mo>&#x0003D;</mo><mfrac><mrow><mi>h</mi></mrow><mrow><mo stretchy=",
+      "replace": "The de-Broglie wavelength is given by λ = h / sqrt(2mK). Rearranging for kinetic energy K: K = h^2 / (2mλ^2). Substituting h = 6.626 × 10^-34 J s, m = 9.11 × 10^-31 kg, and λ = 0.3 × 10^-9 m: K = (6.626 × 10^-34)^2 / (2 * 9.11 × 10^-31 * (0.3 × 10^-9)^2) = 2.677 × 10^-18 J. Converting to eV: K = 2.677 × 10^-18 / 1.602 × 10^-19 ≈ 16.7 eV. Thus, the correct option is (B)."
+    },
+    "route": "faculty_review",
+    "confidence": 0.7,
+    "evidence": "The solution provided is completely incoherent, referencing irrelevant values like 5.47 Angstroms and using incorrect variables like 'I' for momentum. Both blind solves confirm the correct kinetic energy is approximately 16.7-16.8 eV, which matches option B, but the solution text itself is nonsensical and does not belong to this question. Guard: solution_missing find must equal the whole current solution.",
+    "student_reply": "You are right, the solution text is indeed incorrect for this question. A teacher is checking it now to ensure the correct explanation is provided."
+  },
+  {
+    "reportId": "R019",
+    "questionId": "612151a6a34397610a9a2e58",
+    "verdict": "defect",
+    "repair": "solution_missing",
+    "edit": {
+      "field": "solution",
+      "find": "<h3><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>5.469</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>10</mn></mrow></msup><mi>m</mi><mo>&#x0003D;</mo><mn>5.47</mn><mi>\\AA</mi></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mi>&#x003BB;</mi><mo>&#x0003D;</mo><mfrac><mrow><mi>h</mi></mrow><mrow><mo stretchy=",
+      "replace": "The de-Broglie wavelength is given by λ = h / sqrt(2mK). Rearranging for kinetic energy K: K = h^2 / (2mλ^2). Substituting h = 6.626 × 10^-34 J s, m = 9.11 × 10^-31 kg, and λ = 0.3 × 10^-9 m: K = (6.626 × 10^-34)^2 / (2 * 9.11 × 10^-31 * (0.3 × 10^-9)^2) = 2.677 × 10^-18 J. Converting to eV: K = 2.677 × 10^-18 / 1.602 × 10^-19 ≈ 16.7 eV. Thus, the correct option is (B)."
+    },
+    "route": "faculty_review",
+    "confidence": 0.7,
+    "evidence": "The solution provided is completely incoherent, referencing irrelevant values like 5.47 Angstroms and using incorrect variables like 'I' for momentum. Both blind solves confirm the correct kinetic energy is approximately 16.7-16.8 eV, which matches option B, but the solution text itself is nonsensical and does not belong to this question. Guard: solution_missing find must equal the whole current solution.",
+    "student_reply": "Aap sahi keh rahe hain, solution mein galti thi. Ek teacher abhi ise check kar rahe hain aur sahi solution jaldi update ho jayega."
+  },
+  {
+    "reportId": "R020",
+    "questionId": "68c8153cfb6b2f16e2d3ceaf",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm that statements A, B, and D are correct. Statement C is incorrect because a particle moving parallel to a magnetic field experiences zero force and moves in a straight line, not a helix. The stored answer key is correct. The student's report is likely due to a platform marking issue or misunderstanding.",
+    "student_reply": "A particle moving parallel to a magnetic field experiences zero force and travels in a straight line, not a helix. Please recheck statement C as it is incorrect, which is why your selection was marked wrong."
+  },
+  {
+    "reportId": "R021",
+    "questionId": "68f21caf941cda588bc04365",
+    "verdict": "defect",
+    "repair": "type_mismatch",
+    "edit": {
+      "field": "questionType",
+      "find": "mcq",
+      "replace": "scq"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "The question is a standard single-choice question (SCQ) but is incorrectly stored as an MCQ with an empty string in the answer array. Both blind solves confirm the correct answer is 1.44 min (Option B).",
+    "student_reply": "You are right, this was incorrectly marked as a multiple correct question. We have fixed the question type and it is now updated."
+  },
+  {
+    "reportId": "R022",
+    "questionId": "61ee6c9d90a1a968a168686b",
+    "verdict": "defect",
+    "repair": "spelling",
+    "edit": {
+      "field": "question",
+      "find": "Choroid plexux",
+      "replace": "Choroid plexus"
+    },
+    "route": "auto_apply",
+    "confidence": 1,
+    "evidence": "The student correctly identified a spelling error in option (D). 'Choroid plexux' should be 'Choroid plexus'.",
+    "student_reply": "You are right, thank you for pointing out that spelling error. We have corrected it and the update is live now."
+  },
+  {
+    "reportId": "R023",
+    "questionId": "68ecbacb2ec87a18deba1ad7",
+    "verdict": "defect",
+    "repair": "wrong_chapter",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 1,
+    "evidence": "The question is correctly identified as belonging to the 'Neural Control and Coordination' chapter, not 'The Living World'. As the taxonomy does not allow editing the chapter field via an edit object, the verdict is 'defect' and the edit is null.",
+    "student_reply": "You are absolutely right, this question belongs to Neural Control and Coordination. A teacher is reviewing this now to update the chapter mapping."
+  },
+  {
+    "reportId": "R024",
+    "questionId": "5fc60508028950133eac8963",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 0.95,
+    "evidence": "The question asks for an integer answer but does not specify the unit or the required rounding, which is a common ambiguity in integer-type questions. The physics calculation is correct (frictional force equals weight when weight is less than maximum static friction), and both blind solves confirm the result is 20 N.",
+    "student_reply": "You are right that the unit was missing, and we appreciate you pointing that out. The calculation remains 20 N as the integer value."
+  },
+  {
+    "reportId": "R025",
+    "questionId": "622df25ab70e4b50e44ff837",
+    "verdict": "defect",
+    "repair": null,
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 1,
+    "evidence": "The question refers to a figure that is missing from the record, which is a defect. Both blind solves confirm the physics logic leading to option B is correct, assuming the standard interpretation of a sub-hemispherical bubble having a larger radius of curvature than a hemispherical one. Guard: G2 unknown repair \"null\".",
+    "student_reply": "You are right, the figure is missing from this question. A teacher is checking this now to get it updated for you."
+  },
+  {
+    "reportId": "R026",
+    "questionId": "620e23cecc50543bc7db9186",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "The question asks about outgroup comparison in phylogenetics, which is a standard concept in evolutionary biology and relevant to the NEET syllabus under the topic of Evolution. Both blind solves confirm that option B is the correct method for determining ancestral states.",
+    "student_reply": "Outgroup comparison is part of the Evolution unit in the NEET syllabus. It is used to determine ancestral states by comparing the organism to a closely related group that branched off earlier."
+  },
+  {
+    "reportId": "R027",
+    "questionId": "6062ec84518e9535e120c422",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "The calculation for the coefficient of linear expansion (alpha) is 1.9 x 10^-5 /oC, and the coefficient of cubical expansion (gamma) is 3 * alpha = 5.7 x 10^-5 /oC. Both blind solves confirm this result, which matches option (A).",
+    "student_reply": "The coefficient of cubical expansion is calculated as 3 times the linear expansion, which gives 5.7 x 10^-5 /oC. Could you please describe which part of the calculation or the options seems incorrect to you?"
+  },
+  {
+    "reportId": "R028",
+    "questionId": "6956d7bb23cb221e570d6013",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm the derivation H = R leads to tan(theta) = 4. The student's claim that the answer is tan^-1(2) is incorrect.",
+    "student_reply": "The derivation H = R actually leads to tan(theta) = 4, so tan inverse 4 is the correct result. You might have missed the factor of 4 in the range formula."
+  },
+  {
+    "reportId": "R029",
+    "questionId": "68e8734442c06737d6e56da4",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm the mass is 10 kg, leading to the equations F - 100μ = 10 and 2F - 100μ = 100. Solving these yields F = 90 N and μ = 0.8, which matches the stored solution and answer key.",
+    "student_reply": "Using the equations F - 100μ = 10 and 2F - 100μ = 100, subtracting the first from the second gives F = 90 N. Substituting this back results in 90 - 100μ = 10, which confirms μ = 0.8."
+  },
+  {
+    "reportId": "R030",
+    "questionId": "6956d7e988d7701e5617bd3e",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm the calculation: v = A * omega * cos(omega * t). With T = 16s, omega = pi/8 rad/s. At t = 2s, v = A * (pi/8) * cos(pi/4) = A * (pi/8) * (1/sqrt(2)). Setting v = pi gives A = 8*sqrt(2) m, which matches option D.",
+    "student_reply": "Using v = A * omega * cos(omega * t) with omega = pi/8 and t = 2s, the equation becomes pi = A * (pi/8) * cos(pi/4). Solving this gives A = 8 * sqrt(2) m, which matches option D."
+  },
+  {
+    "reportId": "R031",
+    "questionId": "68dea619d0cda73d07e93aee",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves independently confirm the angular displacement difference is (π/8)t^2. Setting this equal to 2π (for the first alignment) yields t^2 = 16, so t = 4 seconds. The student's claim of 2 seconds is incorrect.",
+    "student_reply": "Angular displacement ka formula (pi/8)t^2 hai, jise 2pi se equate karne par t^2 = 16 milta hai, isliye t = 4 seconds sahi answer hai."
+  },
+  {
+    "reportId": "R032",
+    "questionId": "68dea7c2387eea3d0d95f9bb",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "The question asks for the shift in cm. The calculation yields 0.08 m, which is equal to 8 cm. The student is confusing the unit (meters vs centimeters).",
+    "student_reply": "Calculation mein 0.08 m aa raha hai, jise cm mein convert karne ke liye 100 se multiply karna padta hai. Isliye 0.08 m barabar 8 cm hota hai."
+  },
+  {
+    "reportId": "R033",
+    "questionId": "68dea715387eea3d0d95f790",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "The student is incorrect about significant figures. The side length 7.203 m has 4 significant figures, so the surface area must be rounded to 4 significant figures (311.3 m^2). Multiplying by 10 gives 3113, which matches the answer key.",
+    "student_reply": "The side length 7.203 m has 4 significant figures, so the area must be rounded to 4 significant figures. This results in 311.3, which gives 3113 when multiplied by 10."
+  },
+  {
+    "reportId": "R034",
+    "questionId": "695ee00b88d7701e561aabc5",
+    "verdict": "defect",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "D",
+      "replace": "C"
+    },
+    "route": "faculty_review",
+    "confidence": 1,
+    "evidence": "The assertion is true: for two waves of equal intensity I0 and phase difference π/2, the resultant intensity is I = I0 + I0 + 2*sqrt(I0*I0)*cos(π/2) = 2*I0. Wait, the calculation shows I = 2*I0, not I0. Let's re-evaluate: I = I1 + I2 + 2*sqrt(I1*I2)cos(phi). If I1=I2=I0, then I = 2*I0 + 2*I0*cos(phi). For phi=π/2, I = 2*I0. The assertion claims the intensity is equal to one wave (I0), which is false. The reason is also false because intensity is not always the sum of individual intensities. Both A and R are false. The current key 'D' is incorrect.",
+    "student_reply": "Actually, for two waves of equal intensity I0 with a phase difference of 90 degrees, the resultant intensity is 2*I0 because the interference term 2*sqrt(I0*I0)*cos(90) becomes zero, leaving I = I0 + I0. A teacher is currently reviewing this to ensure the answer key is updated correctly."
+  },
+  {
+    "reportId": "R035",
+    "questionId": "66fe9dbe22132e5a70a3e579",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm that Parathormone/Calcitonin, Insulin/Glucagon, and Aldosterone/ANF are well-known antagonistic pairs. Relaxin and Inhibin have distinct, non-antagonistic physiological roles, making option D the correct answer.",
+    "student_reply": "Relaxin and Inhibin have distinct physiological roles and do not act antagonistically. Please review the functions of these hormones in your textbook to see why the given answer is correct."
+  },
+  {
+    "reportId": "R036",
+    "questionId": "60ca4feb6420652745f55522",
+    "verdict": "display_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm the calculation F = 0.99 * 100 = 99 N, which matches option (C). The student report is about display issues on a mobile device, not a technical error in the question.",
+    "student_reply": "We are sorry for the display issue on your mobile device. Our team is working on fixing the layout so the options appear clearly for you."
+  },
+  {
+    "reportId": "R037",
+    "questionId": "68c9ae5afb6b2f16e2d43b1c",
+    "verdict": "display_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm the calculation: photon energy is 3.1 eV, work function is 2.0 eV, so maximum kinetic energy is 1.1 eV, which corresponds to a stopping potential of 1.1 V. The stored answer key and solution are correct.",
+    "student_reply": "We are sorry for the delay you are facing with the app. Our team is working to optimize the loading speed so you can practice without interruptions."
+  },
+  {
+    "reportId": "R038",
+    "questionId": "68f21df0941cda588bc0470b",
+    "verdict": "app_issue",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm that if kinetic energy becomes four times, momentum becomes twice its initial value, matching option (A). The student report claims a UI/app issue where the wrong option was recorded.",
+    "student_reply": "We are looking into this display issue to ensure your selections are recorded correctly. Please note that option A is indeed the correct answer because momentum is proportional to the square root of kinetic energy, so a 4x increase in energy results in a 2x increase in momentum."
+  },
+  {
+    "reportId": "R039",
+    "questionId": "68c801bc1b1dbc16dc93bf2b",
+    "verdict": "language_mode",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm the calculation leads to approximately 600 eV, which matches option (A). The student report is a request for a language change.",
+    "student_reply": "Filhal ye question sirf English me available hai, par hum jaldi hi iska Hindi version add karne ki koshish karenge."
+  },
+  {
+    "reportId": "R040",
+    "questionId": "6264197209f4fd65f58f5707",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm that Golden rice is engineered to produce beta-carotene, a precursor to Vitamin A, which prevents blindness associated with Vitamin A deficiency. The stored answer key 'C' is correct.",
+    "student_reply": "Golden rice is actually engineered to produce beta-carotene, which is a precursor to Vitamin A. This helps prevent blindness caused by Vitamin A deficiency, so the provided answer is correct."
+  },
+  {
+    "reportId": "R041",
+    "questionId": "6208e298fa399567e0878700",
+    "verdict": "not_actionable",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "Both blind solves confirm that Julius von Sachs is the scientist who provided evidence for the production of glucose (stored as starch) in plants, matching the stored answer key.",
+    "student_reply": "Could you please describe which part of the question or answer seems incorrect so we can look into it for you?"
+  },
+  {
+    "reportId": "R042",
+    "questionId": "63c7cce12981ed154ee92c94",
+    "verdict": "defect",
+    "repair": "wrong_chapter",
+    "edit": null,
+    "route": "faculty_review",
+    "confidence": 1,
+    "evidence": "The student is correct that displacement current belongs to Electromagnetism, not Geometrical Optics. However, the question itself is physically correct and the answer key is accurate.",
+    "student_reply": "You are absolutely right, displacement current belongs to Electromagnetism and not Geometrical Optics. Thank you for pointing this out, a teacher is reviewing the categorization now."
+  },
+  {
+    "reportId": "R043",
+    "questionId": "636283dbe3770c24f866e6d6",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "The surface charge density is defined as σ = q / (4πr²). For the bigger drop, Q = 64q and R = 4r, so σ_big = 64q / (4π(4r)²) = 64q / (64πr²) = q / (πr²). The ratio σ_big / σ_small = (q / πr²) / (q / 4πr²) = 4/1. The student incorrectly assumes that a larger area implies a lower density without accounting for the proportional increase in total charge.",
+    "student_reply": "While the surface area increases by a factor of 16, the total charge increases by a factor of 64. Since charge density is charge divided by area, the ratio becomes 64/16, which simplifies to 4:1."
+  },
+  {
+    "reportId": "R044",
+    "questionId": "68dea577d0cda73d07e9391c",
+    "verdict": "no_error",
+    "repair": null,
+    "edit": null,
+    "route": "no_change",
+    "confidence": 1,
+    "evidence": "The potential at the surface is 16 V. The potential at r = R/2 is (11/8)*16 = 22 V. The potential at r = 2R is (1/2)*16 = 8 V. The potential difference is 22 - 8 = 14 V. The student likely calculated only the potential at point P (22 V) and ignored the potential at point S.",
+    "student_reply": "The potential at r = R/2 is 22 V, but the potential at r = 2R is 8 V. You need to subtract these values to find the potential difference, which gives 22 V - 8 V = 14 V."
+  }
+]

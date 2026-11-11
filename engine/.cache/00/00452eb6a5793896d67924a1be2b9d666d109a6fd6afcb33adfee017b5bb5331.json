@@ -1,0 +1,39 @@
+{
+ "key": "00452eb6a5793896d67924a1be2b9d666d109a6fd6afcb33adfee017b5bb5331",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:35:49.524Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "option_repair",
+  "edit": {
+   "field": "question",
+   "find": "(C) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>10</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=",
+   "replace": "(C) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>10</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math><br/>(D) <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mn>5</mn><mrow><mtext>&#x000A0;</mtext><mi mathvariant=\"normal\">m</mi></mrow><mo>&#x0002F;</mo><mi>&#x00073;</mi></mrow></mstyle></math>"
+  },
+  "extra_edits": [],
+  "evidence": "The question is missing a fourth option (D). Both blind solves confirm the calculation leads to 10 m/s, which is option (C).",
+  "confidence": 1,
+  "solution_final_answer": "C",
+  "option_text_source": "unknown",
+  "per_report": [
+   {
+    "reportId": "R010",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "only 3 options showing",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R009",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "option D is missing",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

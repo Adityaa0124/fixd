@@ -1,0 +1,26 @@
+{
+ "key": "f7ec9b30be6b9451430d831451f7bc148fe06c7697826f8bece12d469af0a891",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:38:59.261Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": "B",
+  "steps": [
+   "Horizontal range R = (u^2 * sin(2*theta)) / g",
+   "Maximum height H = (u^2 * sin^2(theta)) / (2*g)",
+   "Set R = H: (u^2 * 2 * sin(theta) * cos(theta)) / g = (u^2 * sin^2(theta)) / (2*g)",
+   "Simplify: 2 * cos(theta) = sin(theta) / 2",
+   "Rearrange: sin(theta) / cos(theta) = 4",
+   "Result: tan(theta) = 4, so theta = tan^-1(4)"
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

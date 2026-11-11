@@ -1,0 +1,11 @@
+{
+ "key": "75721e5c1416745a24929936608507c760fb4fe3b221b33832157293bfdb2330",
+ "purpose": "reply",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "reply-v1",
+ "variant": null,
+ "at": "2026-11-11T09:36:43.326Z",
+ "response": {
+  "reply": "Outgroup comparison is part of the Evolution unit in the NEET syllabus. It is used to determine ancestral states by comparing the organism to a closely related group that branched off earlier."
+ }
+}

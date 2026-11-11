@@ -1,0 +1,25 @@
+{
+ "key": "c6afc5451d9bdf748ea847a9fd96ea6c15cb4ef149ba1cefd0dd070c39ade5ff",
+ "purpose": "solve",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:24:46.559Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A"
+  ],
+  "value": "5.7 x 10-5/oC",
+  "steps": [
+   "Given initial length L_0 = 100 cm, temperature change ΔT = 100°C, and increase in length ΔL = 0.19 cm.",
+   "Linear expansion is given by ΔL = L_0 α ΔT, so α = ΔL / (L_0 ΔT).",
+   "Calculate α = 0.19 / (100 × 100) = 1.9 × 10⁻⁵ /°C.",
+   "The coefficient of cubical expansion is γ = 3α.",
+   "Calculate γ = 3 × 1.9 × 10⁻⁵ = 5.7 × 10⁻⁵ /°C."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

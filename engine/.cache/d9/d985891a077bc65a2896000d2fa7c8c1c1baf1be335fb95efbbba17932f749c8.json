@@ -1,0 +1,25 @@
+{
+ "key": "d985891a077bc65a2896000d2fa7c8c1c1baf1be335fb95efbbba17932f749c8",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:42:09.047Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "B"
+  ],
+  "value": "1.44",
+  "steps": [
+   "N(t) = N0 * (1/2)^(t/T_half) where N(t) = 6*10^23, N0 = 48*10^23, t = 3 min.",
+   "6/48 = (1/2)^(3/T_half) => 1/8 = (1/2)^(3/T_half).",
+   "(1/2)^3 = (1/2)^(3/T_half) => 3 = 3/T_half => T_half = 1 min.",
+   "Mean life (tau) = T_half / ln(2) = 1 / 0.693.",
+   "tau = 1.4427 min."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

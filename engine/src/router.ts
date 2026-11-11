@@ -66,3 +66,4 @@ export function route(args: {
   }
   return { route: ok ? 'auto_apply' : 'faculty_review', gates };
 }
+

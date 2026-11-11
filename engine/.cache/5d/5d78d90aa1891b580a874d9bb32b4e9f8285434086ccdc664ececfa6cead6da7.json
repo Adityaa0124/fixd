@@ -1,0 +1,26 @@
+{
+ "key": "5d78d90aa1891b580a874d9bb32b4e9f8285434086ccdc664ececfa6cead6da7",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:40:49.357Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A"
+  ],
+  "value": "600 eV",
+  "steps": [
+   "Energy of X-ray photon E = eV = 24800 eV.",
+   "Wavelength lambda = hc / E = (12400 eV A) / 24800 eV = 0.5 A = 0.5 * 10^-10 m.",
+   "De-Broglie wavelength lambda = h / sqrt(2mK), so K = h^2 / (2m * lambda^2).",
+   "K = (6.6 * 10^-34)^2 / (2 * 9.1 * 10^-31 * (0.5 * 10^-10)^2).",
+   "K = 43.56 * 10^-68 / (18.2 * 10^-31 * 0.25 * 10^-20) = 43.56 * 10^-68 / (4.55 * 10^-51).",
+   "K = 9.57 * 10^-17 J = 9.57 * 10^-17 / 1.6 * 10^-19 eV = 598.1 eV, approximately 600 eV."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

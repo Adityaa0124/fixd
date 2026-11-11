@@ -1,0 +1,31 @@
+{
+ "key": "74416cc2e8f293d469b262ce5592b13acd13859af50b2bba479c002c9b9c001e",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:44:44.952Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A",
+   "B",
+   "D"
+  ],
+  "value": "A, B, D",
+  "steps": [
+   "A charged particle in a uniform electric field E experiences force F=qE, causing linear motion if initial velocity u is parallel to E.",
+   "If u is perpendicular to E, the particle experiences constant acceleration perpendicular to u, resulting in parabolic motion.",
+   "A charged particle in a uniform magnetic field B experiences force F=q(v x B), which is zero if v is parallel to B, resulting in straight-line motion.",
+   "If u is perpendicular to B, the force F=qvB acts as a centripetal force, resulting in circular motion in a plane normal to B."
+  ],
+  "confidence": 1,
+  "option_flags": [
+   {
+    "label": "C",
+    "issue": "cut_off"
+   }
+  ]
+ }
+}

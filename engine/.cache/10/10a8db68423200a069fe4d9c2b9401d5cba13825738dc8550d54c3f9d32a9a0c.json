@@ -1,0 +1,32 @@
+{
+ "key": "10a8db68423200a069fe4d9c2b9401d5cba13825738dc8550d54c3f9d32a9a0c",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:33:43.554Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "answer_key",
+  "edit": {
+   "field": "answer",
+   "find": "2",
+   "replace": "1"
+  },
+  "extra_edits": [],
+  "evidence": "Both blind solves calculate the total flux as q/(2ε_0). Comparing this to the expression (nq)/(2ε_0) given in the stem, n must be 1. The stored answer key is 2, which is incorrect.",
+  "confidence": 1,
+  "solution_final_answer": "1",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R005",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "answer key wrong i got n=1",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

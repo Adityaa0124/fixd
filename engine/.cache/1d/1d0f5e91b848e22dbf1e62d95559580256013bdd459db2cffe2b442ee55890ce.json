@@ -1,0 +1,39 @@
+{
+ "key": "1d0f5e91b848e22dbf1e62d95559580256013bdd459db2cffe2b442ee55890ce",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": "retry",
+ "at": "2026-11-11T09:40:35.058Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "solution_missing",
+  "edit": {
+   "field": "solution",
+   "find": "<h3><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mo>&#x0003D;</mo><mn>5.469</mn><mi>&#x000D7;</mi><msup><mn>10</mn><mrow><mo>&#x02212;</mo><mn>10</mn></mrow></msup><mi>m</mi><mo>&#x0003D;</mo><mn>5.47</mn><mi>\\AA</mi></mrow></mstyle></math> <math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mstyle displaystyle=\"true\"><mrow><mi>&#x003BB;</mi><mo>&#x0003D;</mo><mfrac><mrow><mi>h</mi></mrow><mrow><mo stretchy=",
+   "replace": "The de-Broglie wavelength is given by λ = h / sqrt(2mK). Rearranging for kinetic energy K: K = h^2 / (2mλ^2). Substituting h = 6.626 × 10^-34 J s, m = 9.11 × 10^-31 kg, and λ = 0.3 × 10^-9 m: K = (6.626 × 10^-34)^2 / (2 * 9.11 × 10^-31 * (0.3 × 10^-9)^2) = 2.677 × 10^-18 J. Converting to eV: K = 2.677 × 10^-18 / 1.602 × 10^-19 ≈ 16.7 eV. Thus, the correct option is (B)."
+  },
+  "extra_edits": [],
+  "evidence": "The solution provided is completely incoherent, referencing irrelevant values like 5.47 Angstroms and using incorrect variables like 'I' for momentum. Both blind solves confirm the correct kinetic energy is approximately 16.7-16.8 eV, which matches option B, but the solution text itself is nonsensical and does not belong to this question.",
+  "confidence": 0.95,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R018",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "solution is of some other question",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R019",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "solution me 5.47 angstrom aa raha hai, question me kuch aur pucha hai",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

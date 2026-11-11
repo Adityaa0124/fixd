@@ -1,0 +1,28 @@
+{
+ "key": "61415d715114b8dbd4702ca552af82f7b5ba50ee9804e50c3221826dc05c2700",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:42:39.537Z",
+ "response": {
+  "question_verdict": "no_error",
+  "repair": null,
+  "edit": null,
+  "extra_edits": [],
+  "evidence": "Both blind solves confirm that Julius von Sachs is the scientist who provided evidence for the production of glucose (stored as starch) in plants, matching the stored answer key.",
+  "confidence": 1,
+  "solution_final_answer": "A",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R041",
+    "verdict": "not_actionable",
+    "comment_flag": "none",
+    "student_claim": "asdfgh",
+    "student_was_right": false
+   }
+  ],
+  "other_issues": []
+ }
+}

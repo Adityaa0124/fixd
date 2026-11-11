@@ -17,7 +17,7 @@ const TAG_EXEMPT: RepairKey[] = ['markup_leak', 'option_repair', 'solution_fix',
 const EXAM_TAG = /\(\s*(?:JEE|NEET|AIEEE|AIPMT|BITSAT|CBSE|AIIMS)[^)]{0,40}\)/i;
 
 const tags = (s: string) => [...s.matchAll(/<\/?([a-zA-Z][\w-]*)/g)].map((m) => m[0].toLowerCase());
-const numbers = (s: string) => s.match(/\d+(?:\.\d+)?/g) ?? [];
+const numbers = (s: string): string[] => s.match(/\d+(?:\.\d+)?/g) ?? [];
 const nonLetters = (s: string) => s.replace(/\p{L}/gu, '').replace(/\s+/g, ' ').trim();
 
 function isSubsequence(short: string, long: string): boolean {
@@ -127,3 +127,4 @@ export function guard(args: {
 
   return { ok: errors.length === 0, errors, edits, after: errors.length ? null : after, normalizedFind: res.normalizedFind };
 }
+

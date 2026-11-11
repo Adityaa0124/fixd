@@ -1,0 +1,11 @@
+{
+ "key": "dbe6485ea635b47c0f9f084d0562453ab7075ce8a8e0df2505e711c82e765f6d",
+ "purpose": "reply",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "reply-v1",
+ "variant": null,
+ "at": "2026-11-11T09:44:43.661Z",
+ "response": {
+  "reply": "We are sorry for the delay you are facing with the app. Our team is working to optimize the loading speed so you can practice without interruptions."
+ }
+}

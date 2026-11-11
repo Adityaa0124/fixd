@@ -1,0 +1,11 @@
+{
+ "key": "6df976fa2166231ef5acabd95aea8e004c595ac931883486df1c0366ef2a93b6",
+ "purpose": "reply",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "reply-v1",
+ "variant": null,
+ "at": "2026-11-11T09:42:43.556Z",
+ "response": {
+  "reply": "Could you please describe which part of the question or answer seems incorrect so we can look into it for you?"
+ }
+}

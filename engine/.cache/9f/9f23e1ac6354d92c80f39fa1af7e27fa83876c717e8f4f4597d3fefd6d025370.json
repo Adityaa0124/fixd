@@ -1,0 +1,26 @@
+{
+ "key": "9f23e1ac6354d92c80f39fa1af7e27fa83876c717e8f4f4597d3fefd6d025370",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:35:38.778Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "C"
+  ],
+  "value": "10 m/s",
+  "steps": [
+   "Identify masses: m1 = 10 kg, m2 = 4 kg.",
+   "Identify velocities: v1 = 14 m/s, v2 = 0 m/s.",
+   "Formula for velocity of centre of mass: Vcm = (m1*v1 + m2*v2) / (m1 + m2).",
+   "Substitute values: Vcm = (10 * 14 + 4 * 0) / (10 + 4).",
+   "Calculate numerator: 140.",
+   "Calculate result: 140 / 14 = 10 m/s."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

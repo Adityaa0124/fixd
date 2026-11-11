@@ -1,0 +1,46 @@
+{
+ "key": "53154efbe5aefd60568379e4979762816442776449020a281c0c9d3b81a24e04",
+ "purpose": "triage",
+ "model": "gemini-3.5-flash",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:28:15.707Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "answer_key",
+  "edit": {
+   "field": "answer",
+   "find": "\"C\"",
+   "replace": "\"A\""
+  },
+  "extra_edits": [],
+  "evidence": "Both blind solves and the stored solution calculate 50 V (option A), but the answer key is set to C.",
+  "confidence": 1,
+  "solution_final_answer": "A",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R002",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The answer key is incorrect.",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R003",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "The result is 50 V (Option A), so key should not be C.",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R001",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Stored solution evaluates to 50 V, but key is set to C.",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "key": "a7ea1418fcb3ea6796fa01d22e7f9c1af03df1145bafc285d67410a83afdd920",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:44:04.402Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "diagram",
+  "edit": {
+   "field": "question",
+   "find": "as shown in figure.",
+   "replace": "as shown in figure (missing)."
+  },
+  "extra_edits": [],
+  "evidence": "The question stem refers to a figure that is missing from the record. Both blind solves confirm the physics logic leading to option B is correct, but the missing figure makes the question incomplete for the student.",
+  "confidence": 1,
+  "solution_final_answer": "B",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R025",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Figure not given",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

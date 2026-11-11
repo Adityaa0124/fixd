@@ -1,0 +1,26 @@
+{
+ "key": "741c587900f4dd60978464bb0bdd8a8d01cf4d99fe0279f7433c72e79fed4f4c",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:39:59.054Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "20"
+  ],
+  "value": "20",
+  "steps": [
+   "Let L be the side of the cube and rho_w be the density of water (1 g/cm^3).",
+   "Case 1: Cube + 800g mass floats fully submerged: (M_cube + 800)g = rho_w * L^3 * g.",
+   "Case 2: Cube floats with 2cm above water: M_cube * g = rho_w * L^2 * (L - 2) * g.",
+   "Subtracting the two equations: 800 = rho_w * L^3 - rho_w * L^2 * (L - 2).",
+   "800 = L^3 - (L^3 - 2L^2) = 2L^2.",
+   "L^2 = 400, so L = 20 cm."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

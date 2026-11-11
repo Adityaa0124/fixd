@@ -1,0 +1,46 @@
+{
+ "key": "222ee78b75a626c68c2f89844e7f8abb39b69a5a54412298ec1a65d11711195e",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:31:56.785Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "answer_key",
+  "edit": {
+   "field": "answer",
+   "find": "C",
+   "replace": "A"
+  },
+  "extra_edits": [],
+  "evidence": "Both blind solves calculate the supply voltage as 50 V using the formula V = sqrt(VR^2 + (VL - VC)^2). The stored solution also correctly calculates 50 V, but the answer key incorrectly points to option C (130 V) instead of option A (50 V).",
+  "confidence": 1,
+  "solution_final_answer": "A",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R002",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "wrong ans",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R003",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "Sir root(40^2+30^2)=50 then why 130??",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R001",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "answer should be 50V. solution also says 50 but key is C",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}

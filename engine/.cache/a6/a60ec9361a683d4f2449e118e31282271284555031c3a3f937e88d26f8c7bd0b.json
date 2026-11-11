@@ -1,0 +1,26 @@
+{
+ "key": "a60ec9361a683d4f2449e118e31282271284555031c3a3f937e88d26f8c7bd0b",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-2",
+ "at": "2026-11-11T09:38:44.685Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "14"
+  ],
+  "value": "14",
+  "steps": [
+   "Potential at surface V_s = kQ/R = 16 V.",
+   "Potential inside at r = R/2 is V_p = (kQ/2R^3) * (3R^2 - r^2) = (kQ/2R^3) * (3R^2 - R^2/4) = (kQ/2R^3) * (11R^2/4) = 11kQ/8R.",
+   "Potential outside at r = 2R is V_s = kQ/2R.",
+   "V_p = (11/8) * 16 = 22 V.",
+   "V_s = (1/2) * 16 = 8 V.",
+   "Potential difference V_p - V_s = 22 - 8 = 14 V."
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

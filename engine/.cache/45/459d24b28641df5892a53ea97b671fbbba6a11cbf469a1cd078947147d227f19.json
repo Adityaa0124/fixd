@@ -1,0 +1,25 @@
+{
+ "key": "459d24b28641df5892a53ea97b671fbbba6a11cbf469a1cd078947147d227f19",
+ "purpose": "solve",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "solver-v1.1",
+ "variant": "solve-1",
+ "at": "2026-11-11T09:37:38.585Z",
+ "response": {
+  "solvable": true,
+  "missing": null,
+  "answer": [
+   "A"
+  ],
+  "value": "A",
+  "steps": [
+   "Initial kinetic energy K1 = p1^2 / (2m)",
+   "New kinetic energy K2 = 4 * K1 = p2^2 / (2m)",
+   "p2^2 / (2m) = 4 * (p1^2 / (2m))",
+   "p2^2 = 4 * p1^2",
+   "p2 = 2 * p1"
+  ],
+  "confidence": 1,
+  "option_flags": []
+ }
+}

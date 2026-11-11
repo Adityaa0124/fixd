@@ -1,0 +1,39 @@
+{
+ "key": "1d80a61fa49dd4864fb752aa73087dc5fe835967c5b08ea109e0baa4ee2a3d60",
+ "purpose": "triage",
+ "model": "gemini-3.1-flash-lite",
+ "promptVersion": "triage-v1.1",
+ "variant": null,
+ "at": "2026-11-11T09:35:03.762Z",
+ "response": {
+  "question_verdict": "defect",
+  "repair": "stem_data",
+  "edit": {
+   "field": "question",
+   "find": "A resistance of 40 ohm and an inductance are connected in series",
+   "replace": "A resistance of 40 ohm and an inductance of 95.5 mH are connected in series"
+  },
+  "extra_edits": [],
+  "evidence": "The question stem fails to provide the value of the inductance (L), making it impossible to calculate the impedance. Both blind solves confirm that the question is unsolvable as written.",
+  "confidence": 1,
+  "solution_final_answer": "C",
+  "option_text_source": null,
+  "per_report": [
+   {
+    "reportId": "R008",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "data missing",
+    "student_was_right": true
+   },
+   {
+    "reportId": "R007",
+    "verdict": "defect",
+    "comment_flag": "none",
+    "student_claim": "inductance ki value hi nahi di hai",
+    "student_was_right": true
+   }
+  ],
+  "other_issues": []
+ }
+}
