@@ -118,3 +118,4 @@ export interface Snapshot {
   solution: string;
   answer: string | string[];
 }
+

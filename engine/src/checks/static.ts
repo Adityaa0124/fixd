@@ -100,3 +100,4 @@ export function staticChecks(p: ParsedQuestion): Finding[] {
   }
   return out;
 }
+

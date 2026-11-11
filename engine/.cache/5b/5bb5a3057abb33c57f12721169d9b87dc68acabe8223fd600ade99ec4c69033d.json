@@ -1,0 +1,11 @@
+{
+ "key": "5bb5a3057abb33c57f12721169d9b87dc68acabe8223fd600ade99ec4c69033d",
+ "purpose": "reply",
+ "model": "gemini-3.8-flash",
+ "promptVersion": "smoke-1",
+ "variant": null,
+ "at": "2026-11-11T08:58:49.688Z",
+ "response": {
+  "ok": true
+ }
+}

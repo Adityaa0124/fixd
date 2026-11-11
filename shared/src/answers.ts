@@ -75,3 +75,4 @@ export function fromSolver(type: QuestionType, arr: string[] | null | undefined)
   if (!arr || arr.length === 0) return { kind: 'invalid', raw: arr, reason: 'solver returned no answer' };
   return normalizeAnswer(type, type === 'integerQuestion' ? arr[0] : arr);
 }
+

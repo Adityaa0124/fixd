@@ -39,3 +39,4 @@ export function urgency(i: UrgencyInput, now: Date = new Date()): UrgencyBreakdo
   const score = Math.round(students * severity * ageFactor * uncertainty * 10) / 10;
   return { score, severity, students, ageDays: Math.round(ageDays * 10) / 10, ageFactor, uncertainty };
 }
+

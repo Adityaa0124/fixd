@@ -55,3 +55,4 @@ export function applyEdit(s: Snapshot, e: Edit): Snapshot {
 export function applyEdits(s: Snapshot, edits: Edit[]): Snapshot {
   return edits.reduce(applyEdit, s);
 }
+

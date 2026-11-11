@@ -46,3 +46,4 @@ export function sanitizeComment(raw: string): SanitizedComment {
     .replace(/>/g, '›');           // cannot close <student_comment>
   return { text, flags, lang: HINGLISH.test(trimmed) ? 'hinglish' : 'english' };
 }
+

@@ -102,3 +102,4 @@ export function optionsText(p: ParsedQuestion): string {
   if (!p.options.length) return '(integer type, no options)';
   return p.options.map((o) => `(${o.label}) ${o.blank ? '[BLANK]' : o.text}`).join('\n');
 }
+

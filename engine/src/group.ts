@@ -14,3 +14,4 @@ export function groupReports(reports: RawReport[]): CaseGroup[] {
     return { questionId, reports: sorted, firstReportedAt: sorted[0]!.reportedAt };
   });
 }
+

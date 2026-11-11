@@ -21,3 +21,4 @@ describe('applyEdit', () => {
     expect(() => applyEdit(s, { field: 'question', find: 'nope', replace: 'x' })).toThrow());
   it('answer swap', () => expect(applyEdit(s, { field: 'answer', find: 'C', replace: 'A' }).answer).toBe('A'));
 });
+
