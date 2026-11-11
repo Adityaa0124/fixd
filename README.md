@@ -79,16 +79,22 @@ Built around one question: *can a faculty member understand a case in five secon
 
 ## Results
 
-Scored by `npm run eval` against hand labelled gold answers in [`eval/gold.json`](./eval/gold.json).
+Scored by `npm run eval` against hand labelled gold answers in [`eval/gold.json`](./eval/gold.json). Gold labels are my own hand labels, not Acadza ground truth. Disagreements I was unsure about are marked in `eval/gold.json` with a note.
 
 | Metric | Score |
 |:---|:-:|
-| Verdict accuracy | ⏳ |
-| Repair accuracy (defects) | ⏳ |
-| Route accuracy | ⏳ |
-| Unsafe auto applies | ⏳ |
-| Traps handled (injection, gibberish, already fixed, app, language) | ⏳ |
-| Cost of a full run (44 reports) | ⏳ |
+| Verdict accuracy | 93.2% (41/44) |
+| Repair accuracy (defects) | 70.4% (19/27) |
+| Route accuracy | 90.9% (40/44) |
+| Unsafe auto applies | 0 |
+| Traps handled (injection, gibberish, already fixed, app, language) | 5 / 5 (R009, R014, R021, R027, R036) |
+| Cost of a full run (44 reports) | ₹0.00 · 149 calls (free tier cached) |
+
+### Route breakdown
+
+* `no_change`: 20 reports (student mistake, already fixed, display or app issue, injection)
+* `auto_apply`: 14 reports (high confidence, unanimous blind solver and solution agreement)
+* `faculty_review`: 10 reports (ambiguous, diagram missing, or syllabus check required)
 
 Per prompt version history lives in [PROMPTS.md](./PROMPTS.md). Unreported defects found by the sweep are in [BONUS.md](./BONUS.md).
 
@@ -136,7 +142,13 @@ fixd/
 
 ## Cost
 
-Cost per full run of 44 reports, the call count per report, and the projected cost per lakh reports are filled in after the first real run. The design keeps this low on purpose: grouping removes duplicate work, static checks are free, Flash handles everything except solving, and the cache makes reruns free.
+The cold run required 149 LLM network calls across 44 reports (average 3.4 calls per report), consuming 216,304 prompt tokens and 36,038 output tokens.
+
+* Actual cost on Gemini free tier: ₹0.00
+* Cost at Gemini 3.1 Flash Lite API pricing (\$0.075 / 1M prompt, \$0.30 / 1M completion): \$0.027 (approx ₹2.25 for all 44 reports)
+* Projected cost per 100,000 student reports: 100,000 × (₹2.25 / 44) = approx ₹5,114 (\$61), roughly 5 paise per report
+
+Cost stays low because grouping questions collapses duplicates, deterministic static checks are free, Flash handles triage and replies, and the content hashed cache makes repeated runs free.
 
 ## Known limitations
 

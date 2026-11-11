@@ -30,7 +30,7 @@ What *does* auto apply is reversible, verifiable and local: a stray "(JEE Main 2
 
 **Auto fix revert rate:** the share of AI applied fixes that faculty later revert.
 
-It is the one number that tells us whether auto apply has earned trust. Target under 2%. If it climbs, the threshold goes up and the offending repair type goes back to human review, the same day. Time to fix and faculty hours saved only matter if this one is near zero.
+It is the one number that tells us whether auto apply has earned trust. Target under 2%. It is directly computable from the Action table by dividing revert actions by auto apply actions. If it climbs, the threshold goes up and the offending repair type goes back to human review, the same day. Time to fix and faculty hours saved only matter if this one is near zero.
 
 ## One idea beyond the brief: Silent Defect Radar
 

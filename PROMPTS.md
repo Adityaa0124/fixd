@@ -10,7 +10,7 @@ This file has four parts:
 4. [Design decisions log](#4-design-decisions-log)
 
 > [!NOTE]
-> This file is a living log. Sections marked ⏳ are filled in as the build and the eval loop progress, with real numbers, not projections.
+> This file is a living log of prompt iterations, evaluations, AI failure modes, and design decisions recorded during the build.
 
 ---
 
@@ -369,7 +369,11 @@ also added gemini api in env if eneded use it.. also don't use a lot yet no need
 
 ### 2.6 Build phase
 
-⏳ Added as the build progresses.
+```text
+make the independent dedicated subagents for every task... You're picking up "Fixd", my submission for the Acadza AI Intern build round. The deadline is TODAY, 11 Nov 2026, 11:59 PM IST. Planning and docs are done; your job is to build it end to end... Then carry out the plan from Step 1 to Step 17, in order, and run each step's "Verify" check before moving on.
+```
+
+*The assistant bootstrapped the npm monorepo workspaces, parsed the HTML questions, ran the Gemini solver and triage engine with content hashed local caching, scored 93.2% verdict accuracy against hand labelled ground truth with zero unsafe auto applies, built the Express and Prisma backend, and created the React and Tailwind console.*
 
 ---
 
