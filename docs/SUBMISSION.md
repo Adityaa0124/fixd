@@ -27,7 +27,7 @@ Before recording: press **Reset demo**, then reload.
 >
 > **Repo:** https://github.com/Adityaa0124/fixd
 > **Live console:** https://fixd-two.vercel.app (API: https://fixd-api-y1o7.onrender.com)
-> **Video (3 min):** \<link\>
+> **Video (3 min):** https://drive.google.com/file/d/1Jfj3URk-hNCyJEi1Lg9v4ehih6wG8oIv/view?usp=sharing
 >
 > Fixd turns student reports into safe fixes: two blind solves by different methods, a taxonomy bound triage, a code scope guard on every edit, rule based routing, and post fix verification for stem and option repairs. On my hand labelled gold set it reaches 44/44 on verdict, repair and route with zero unsafe auto applies, and a proofreading sweep found 18 defects nobody reported (BONUS.md). The console loads the precomputed results instantly and switches to the live API; Reset demo restores the seed.
 >
