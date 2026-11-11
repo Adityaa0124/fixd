@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Question {
+  id             String            @id
+  qid            String?
+  subject        String
+  chapter        String
+  level          String
+  currentVersion Int               @default(1)
+  versions       QuestionVersion[]
+  reports        Report[]
+  case           Case?
+}
+
+model QuestionVersion {
+  id           Int      @id @default(autoincrement())
+  questionId   String
+  version      Int
+  questionType String
+  questionHtml String
+  solutionHtml String
+  answer       Json
+  createdAt    DateTime @default(now())
+  createdBy    String
+  reason       String
+  actionId     Int?
+  question     Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([questionId, version])
+}
+
+model Case {
+  id               String   @id @default(cuid())
+  questionId       String   @unique
+  verdict          String
+  repair           String?
+  edits            Json     // Edit[] proposed by the engine (guard normalized)
+  route            String   // engine route
+  gates            Json
+  confidence       Float
+  evidence         String
+  agreement        Json
+  solves           Json
+  findings         Json
+  otherIssues      Json
+  guardErrors      Json
+  urgency          Float
+  urgencyBreakdown Json
+  status           String   // open | auto_applied | confirmed | approved | edited | rejected | no_change | acknowledged
+  resolvedAt       DateTime?
+  resolvedBy       String?
+  engineMeta       Json
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  question         Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  actions          Action[]
+
+  @@index([status, urgency])
+}
+
+model Report {
+  id              String   @id
+  questionId      String
+  studentId       String
+  source          String
+  reportedAt      DateTime
+  comment         String
+  flags           String[]
+  lang            String
+  verdict         String
+  route           String
+  studentClaim    String
+  studentWasRight Boolean
+  aiReply         String
+  finalReply      String?
+  replyStatus     String   @default("draft") // draft | sent
+  question        Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
+
+model Action {
+  id           Int       @id @default(autoincrement())
+  caseId       String
+  type         String    // approve | edit | reject | undo | confirm | revert | rerun | acknowledge
+  actor        String
+  note         String?
+  edits        Json?
+  statusBefore String
+  statusAfter  String
+  versionFrom  Int?
+  versionTo    Int?
+  undone       Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  case         Case      @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id         Int      @id @default(autoincrement())
+  at         DateTime @default(now())
+  actor      String
+  action     String
+  caseId     String?
+  questionId String?
+  summary    String
+  before     Json?
+  after      Json?
+
+  @@index([at])
+}

@@ -1,0 +1,22 @@
+# deps and builds
+node_modules/
+dist/
+.vite/
+
+# secrets
+.env
+.env.*
+!.env.example
+
+# local design reference: 87 MB, third party brand assets. Only derived tokens ship.
+design-kit/
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# engine/.cache is committed on purpose: reruns are free and need no API key
+.vercel/
+engine/out/runs/

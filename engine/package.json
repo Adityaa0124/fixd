@@ -1,0 +1,21 @@
+{
+  "name": "@fixd/engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "tsx --env-file=../.env src/cli.ts",
+    "sweep": "tsx --env-file=../.env src/cli.ts --sweep",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fixd/shared": "*",
+    "@google/genai": "^1.30.0",
+    "node-html-parser": "^6.1.13",
+    "zod": "^3.23.8"
+  }
+}

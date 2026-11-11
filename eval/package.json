@@ -1,0 +1,8 @@
+{
+  "name": "@fixd/eval",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "tsx src/score.ts" },
+  "dependencies": { "@fixd/shared": "*" }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "fixd",
+  "private": true,
+  "type": "module",
+  "workspaces": ["shared", "engine", "server", "web", "eval"],
+  "scripts": {
+    "engine": "npm run start -w @fixd/engine --",
+    "engine:offline": "FIXD_OFFLINE=1 npm run start -w @fixd/engine --",
+    "sweep": "npm run sweep -w @fixd/engine",
+    "eval": "npm run start -w @fixd/eval",
+    "db:push": "npm run db:push -w @fixd/server",
+    "db:deploy": "npm run db:deploy -w @fixd/server",
+    "db:seed": "npm run db:seed -w @fixd/server",
+    "dev:server": "npm run dev -w @fixd/server",
+    "dev:web": "npm run dev -w @fixd/web",
+    "dev": "npm-run-all -p dev:server dev:web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.6.3",
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.4",
+    "@types/node": "^22.9.0"
+  }
+}
