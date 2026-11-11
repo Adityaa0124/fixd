@@ -1,0 +1,49 @@
+@import "./tokens.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: var(--bg);
+  color: var(--tx);
+  font: 425 15px/1.55 var(--font-sans);
+}
+
+.fx-q {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--tx);
+  overflow-wrap: anywhere;
+}
+.fx-q h1,
+.fx-q h2,
+.fx-q h3,
+.fx-q h4 {
+  font: inherit;
+  margin: 0 0 0.4em;
+}
+.fx-q math {
+  font-size: 1.08em;
+}
+.fx-q math[display="block"] {
+  margin: 0.4em 0;
+}
+.fx-q mark[data-fx="del"] {
+  background: var(--del-bg);
+  color: var(--del-tx);
+  text-decoration: line-through;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+.fx-q mark[data-fx="ins"] {
+  background: var(--ins-bg);
+  color: var(--ins-tx);
+  border-radius: 4px;
+  padding: 0 2px;
+}
+.fx-q mark[data-fx="box"] {
+  background: transparent;
+  outline: 2px solid var(--amber-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
