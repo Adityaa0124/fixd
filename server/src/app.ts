@@ -34,14 +34,21 @@ export function createApp() {
     res.json({ ok: true });
   });
 
-  app.get('/api/health', async (_req, res) => {
+  // Liveness plus database readiness. Served at /health (load balancers, uptime monitors)
+  // and /api/health (the console). 503 when the database is unreachable.
+  const health: express.RequestHandler = async (_req, res) => {
+    const version = process.env.RENDER_GIT_COMMIT?.slice(0, 7) ?? 'local';
+    const uptimeSeconds = Math.round(process.uptime());
+    const t0 = Date.now();
     try {
       const cases = await db.case.count();
-      res.json({ ok: true, db: true, cases, version: process.env.RENDER_GIT_COMMIT?.slice(0, 7) ?? 'local' });
+      res.json({ ok: true, db: true, dbLatencyMs: Date.now() - t0, cases, version, uptimeSeconds });
     } catch {
-      res.status(503).json({ ok: false, db: false });
+      res.status(503).json({ ok: false, db: false, version, uptimeSeconds });
     }
-  });
+  };
+  app.get('/health', health);
+  app.get('/api/health', health);
 
   app.use('/api/cases', casesRouter);
   app.use('/api', auditRouter);

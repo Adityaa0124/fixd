@@ -6,7 +6,7 @@
 
 An AI triage engine and a faculty review console for Acadza's JEE / NEET question bank.
 
-**[Live console](https://fixd-two.vercel.app)** · [API](https://fixd-api-y1o7.onrender.com/api/health) · [3 min walkthrough](#) · [PROMPTS.md](./PROMPTS.md) · [PRODUCT.md](./PRODUCT.md)
+**[Live console](https://fixd-two.vercel.app)** · [API health](https://fixd-api-y1o7.onrender.com/health) · [3 min walkthrough](#) · [PROMPTS.md](./PROMPTS.md) · [PRODUCT.md](./PRODUCT.md)
 
 </div>
 

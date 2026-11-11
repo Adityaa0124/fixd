@@ -11,7 +11,7 @@ Errors always look like `{ "error": "human readable message" }`.
 | 409 | Action not allowed in the current state (wrong status, approve blocked by the guard, nothing to undo, reply already sent) |
 | 429 | Rate limited (demo reset) |
 | 500 | Internal error. Message is always the generic `"internal error"`; details go to server logs only |
-| 503 | `/api/health` only: database unreachable |
+| 503 | `/health` and `/api/health` only: database unreachable |
 
 Case ids are **stable across reseeds**: `case.id === case.questionId`.
 
@@ -25,11 +25,13 @@ No database access. Use for keep warm.
 { "ok": true }
 ```
 
-### `GET /api/health`
+### `GET /health` and `GET /api/health`
+
+Same handler at both paths: `/health` for uptime monitors and load balancers, `/api/health` for the console. Response adds `dbLatencyMs` and `uptimeSeconds`; a 503 body is `{ ok: false, db: false, version, uptimeSeconds }`.
+
 ```json
-{ "ok": true, "db": true, "cases": 39, "version": "a1b2c3d" }
+{ "ok": true, "db": true, "dbLatencyMs": 42, "cases": 39, "version": "a1b2c3d", "uptimeSeconds": 3600 }
 ```
-503 → `{ "ok": false, "db": false }`
 
 ---
 
