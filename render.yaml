@@ -25,7 +25,8 @@ services:
         sync: false
       - key: DIRECT_URL
         sync: false
+      # Exact origins allowed by CORS: the production console, plus local dev.
       - key: WEB_ORIGIN
-        sync: false
+        value: "https://fixd-two.vercel.app,http://localhost:5173"
       - key: ADMIN_TOKEN
         generateValue: true
