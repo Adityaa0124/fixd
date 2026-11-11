@@ -103,6 +103,7 @@ function retryDelayMs(err: unknown, attempt: number): number | null {
   const retryable = /\b(429|500|502|503|504)\b|RESOURCE_EXHAUSTED|UNAVAILABLE|overloaded|deadline/i.test(msg);
   if (!retryable) return null;
   const hinted = msg.match(/retryDelay["':\s]+(\d+(?:\.\d+)?)s/);
+  if (hinted && Number(hinted[1]) > 60) return null; // Daily quota exhausted, do not sleep for hours
   const base = hinted ? Number(hinted[1]) * 1000 : 2000 * 2 ** attempt;
   return base + Math.floor(Math.random() * 750);
 }

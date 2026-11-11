@@ -23,7 +23,7 @@ Fixd makes three kinds of LLM call. Everything else (parsing, static checks, sco
 | Blind solver | `gemini-3.1-pro-preview` | 0.2 | JSON schema | 2 |
 | Triage | `gemini-3.8-flash` | 0 | JSON schema | 1 (+1 retry if the guard rejects) |
 | Reply writer | `gemini-3.8-flash` | 0.4 | JSON schema | 1 per report |
-| Sweep | same triage prompt, no reports | 0 | JSON schema | 1 per question |
+| Sweep | same triage prompt, no reports | 0 | JSON schema | 1 per unreported question |
 
 All student text enters prompts inside `<student_comment>` tags and is described to the model as **untrusted data**. Structured output is enforced with Gemini's `responseSchema`, then validated again in code with Zod. A response that fails validation is never used.
 
@@ -196,6 +196,47 @@ Return JSON only. One "per_report" entry for every report id above.
 }
 ```
 
+#### v1.1 additions
+
+Additional output fields:
+* solution_final_answer: what the stored solution concludes, mapped to an option letter (or the number for integer type). null if the solution does not conclude anything.
+* extra_edits: only for type_mismatch, the second edit (for example the answer field). Otherwise an empty array.
+* option_text_source: for option_repair only, where the restored option text comes from: "solution", "solver", or "unknown". null for every other repair.
+* other_issues: real defects noticed that no report mentions. Empty array if none.
+
+Updated response schema (v1.1):
+
+```json
+{
+  "evidence": "string",
+  "solution_final_answer": "string | null",
+  "question_verdict": "string",
+  "repair": "string | null",
+  "edit": { "field": "string", "find": "string", "replace": "string" },
+  "extra_edits": [{ "field": "string", "find": "string", "replace": "string" }],
+  "option_text_source": "solution | solver | unknown | null",
+  "confidence": "number",
+  "per_report": [
+    {
+      "reportId": "string",
+      "verdict": "string",
+      "comment_flag": "none | injection | gibberish",
+      "student_claim": "string",
+      "student_was_right": "boolean"
+    }
+  ],
+  "other_issues": [
+    {
+      "repair": "string",
+      "field": "string",
+      "find": "string",
+      "replace": "string",
+      "note": "string"
+    }
+  ]
+}
+```
+
 Why `per_report` exists: reports on the same question can have different verdicts. On one question a student can be right about a wrong key while another student on the same question is asking for Hindi.
 
 ### 1.3 Reply writer · v1
@@ -241,6 +282,7 @@ Return JSON: {"reply": "..."}
 | Version | Prompt | What changed | Why | Eval effect |
 |:---|:---|:---|:---|:---|
 | v1 | all three | First drafts above | Baseline | ⏳ |
+| v1.1 | solver, triage, reply | Solver answer always an array; triage adds solution_final_answer, extra_edits, option_text_source, other_issues; reply context gets language | Gemini schemas have no unions; router gates need solution answer and option provenance; bonus needs unreported issues; language detection is cheaper in code | fill after Step 9 |
 | v2 | ⏳ | ⏳ | ⏳ | ⏳ |
 | v3 | ⏳ | ⏳ | ⏳ | ⏳ |
 
