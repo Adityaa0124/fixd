@@ -1,0 +1,190 @@
+[
+  {
+    "questionId": "68dea657387eea3d0d95f54a",
+    "qid": "SecAQ14",
+    "subject": "Physics",
+    "chapter": "Geometrical optics and optical instruments",
+    "source": "key_check",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "5",
+      "replace": "3"
+    },
+    "note": "Rejected: manual physics/biology check confirms stored key is already correct",
+    "confidence": 1,
+    "guardOk": true,
+    "guardErrors": [],
+    "status": "rejected"
+  },
+  {
+    "questionId": "695ede2a88d7701e561aa9d9",
+    "qid": "MHCET_PCB_PYQ_2021_1_BIO_L876",
+    "subject": "Zoology",
+    "chapter": "Excretory Products and their Elimination",
+    "source": "key_check",
+    "repair": "answer_key",
+    "edit": {
+      "field": "answer",
+      "find": "D",
+      "replace": "B"
+    },
+    "note": "Rejected: manual physics/biology check confirms stored key is already correct",
+    "confidence": 1,
+    "guardOk": true,
+    "guardErrors": [],
+    "status": "rejected"
+  },
+  {
+    "questionId": "68e872546e45ba37dcc16bc0",
+    "qid": "SecAQ6",
+    "subject": "Physics",
+    "chapter": "Electrostatics",
+    "source": "static",
+    "repair": "option_repair",
+    "edit": {
+      "field": "question",
+      "find": " <br />",
+      "replace": ""
+    },
+    "note": "Confirmed option C is completely blank in stored record",
+    "confidence": 0.95,
+    "guardOk": true,
+    "guardErrors": [],
+    "status": "confirmed"
+  },
+  {
+    "questionId": "617fa18efd53ff1629ed890f",
+    "qid": "nQM6UGBK-",
+    "subject": "Botany",
+    "chapter": "Morphology of Flowering Plants",
+    "source": "static",
+    "repair": "exam_reference",
+    "edit": {
+      "field": "question",
+      "find": "(NEET 2019)",
+      "replace": ""
+    },
+    "note": "Confirmed exam tag (NEET 2019) leaked into question stem",
+    "confidence": 0.95,
+    "guardOk": true,
+    "guardErrors": [],
+    "status": "confirmed"
+  },
+  {
+    "questionId": "68e872546e45ba37dcc16bc0",
+    "qid": "SecAQ6",
+    "subject": "Physics",
+    "chapter": "Electrostatics",
+    "source": "static",
+    "repair": "option_repair",
+    "edit": null,
+    "note": "answer_on_blank_option: key is (C) but option (C) is blank",
+    "confidence": 0.95,
+    "guardOk": false,
+    "guardErrors": [
+      "static, no edit"
+    ],
+    "status": "candidate"
+  },
+  {
+    "questionId": "6956d79788d7701e5617bc29",
+    "qid": "MHCET_BvpWWm7z2cY7YB0TjCzV_PHY_150",
+    "subject": "Physics",
+    "chapter": "AC Circuits",
+    "source": "static",
+    "repair": "identical_options",
+    "edit": null,
+    "note": "duplicate_options: options (B) and (C) are identical: \"0 W\"",
+    "confidence": 0.95,
+    "guardOk": false,
+    "guardErrors": [
+      "static, no edit"
+    ],
+    "status": "candidate"
+  },
+  {
+    "questionId": "622df25ab70e4b50e44ff837",
+    "qid": "F-eZtasNL",
+    "subject": "Physics",
+    "chapter": "Properties of matter and fluid mechanics",
+    "source": "static",
+    "repair": "diagram",
+    "edit": null,
+    "note": "figure_without_image: stem refers to a figure but quesImages is empty",
+    "confidence": 0.95,
+    "guardOk": false,
+    "guardErrors": [
+      "static, no edit"
+    ],
+    "status": "candidate"
+  },
+  {
+    "questionId": "68f21caf941cda588bc04365",
+    "qid": "SecAQ3",
+    "subject": "Physics",
+    "chapter": "Mathematics in physics",
+    "source": "static",
+    "repair": "answer_key",
+    "edit": null,
+    "note": "answer_format: mcq answer array contains an empty string",
+    "confidence": 0.95,
+    "guardOk": false,
+    "guardErrors": [
+      "static, no edit"
+    ],
+    "status": "candidate"
+  },
+  {
+    "questionId": "622f08d7b70e4b50e4500a1b",
+    "qid": "jxJrYy6ka",
+    "subject": "Physics",
+    "chapter": "Centre of mass and momentum conservation (collision)",
+    "source": "static",
+    "repair": "option_repair",
+    "edit": null,
+    "note": "missing_option: option (D) is absent",
+    "confidence": 0.95,
+    "guardOk": false,
+    "guardErrors": [
+      "static, no edit"
+    ],
+    "status": "candidate"
+  },
+  {
+    "questionId": "68c8153cfb6b2f16e2d3ceaf",
+    "qid": "SecAQ7",
+    "subject": "Physics",
+    "chapter": "Electrostatics",
+    "source": "static",
+    "repair": "answer_key",
+    "edit": null,
+    "note": "answer_format: mcq answer stores several letters in one comma joined string",
+    "confidence": 0.95,
+    "guardOk": false,
+    "guardErrors": [
+      "static, no edit"
+    ],
+    "status": "candidate"
+  },
+  {
+    "questionId": "622df25ab70e4b50e44ff837",
+    "qid": "F-eZtasNL",
+    "subject": "Physics",
+    "chapter": "Properties of matter and fluid mechanics",
+    "source": "triage_other_issue",
+    "repair": "diagram",
+    "edit": {
+      "field": "question",
+      "find": "End 2 has sub-hemispherical soap bubble as shown in figure.",
+      "replace": "End 2 has sub-hemispherical soap bubble."
+    },
+    "note": "The figure is missing, so the reference to it should be removed or the figure must be added.",
+    "confidence": 0.8,
+    "guardOk": false,
+    "guardErrors": [
+      "G1 field \"question\" not allowed for diagram (allowed: )"
+    ],
+    "status": "candidate"
+  }
+]

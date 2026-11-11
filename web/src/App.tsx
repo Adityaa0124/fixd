@@ -6,7 +6,7 @@ import {
   useMutation,
   useQueryClient,
 } from '@tanstack/react-query';
-import type { Lane, Edit } from './lib/types';
+import type { Lane, Edit, SweepFinding } from './lib/types';
 import { api } from './lib/api';
 import { useHotkeys } from './hooks/useHotkeys';
 import { WarmupGate } from './components/WarmupGate';
@@ -23,6 +23,7 @@ import { EditDialog } from './components/EditDialog';
 import { RejectDialog } from './components/RejectDialog';
 import { ShortcutsDialog } from './components/ShortcutsDialog';
 import { AuditDrawer } from './components/AuditDrawer';
+import { SweepPanel } from './components/SweepPanel';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -77,6 +78,24 @@ function Console() {
 
   const items = casesData?.items || [];
   const counts = casesData?.counts || {};
+
+  // Sweep findings query
+  const { data: sweepFindings = [] } = useQuery<SweepFinding[]>({
+    queryKey: ['sweep'],
+    queryFn: async () => {
+      try {
+        return (await api.sweep()) as SweepFinding[];
+      } catch {
+        const res = await fetch('/sweep.json');
+        return (await res.json()) as SweepFinding[];
+      }
+    },
+  });
+
+  const allCounts = {
+    ...counts,
+    sweep: sweepFindings.filter((f) => f.guardOk).length,
+  };
 
   // Sync selectedId with items
   useEffect(() => {
@@ -204,7 +223,7 @@ function Console() {
     <div className="min-h-screen bg-bg text-tx flex flex-col font-sans">
       <TopBar
         lane={lane}
-        counts={counts}
+        counts={allCounts}
         onSelectLane={setLane}
         search={search}
         onSearchChange={setSearch}
@@ -214,61 +233,65 @@ function Console() {
         onOpenShortcuts={() => setShortcutsOpen(true)}
       />
 
-      <div className="flex-1 flex overflow-hidden">
-        <Queue
-          items={items}
-          selectedId={selectedId}
-          onSelect={setSelectedId}
-          isLoading={queueLoading}
-        />
+      {lane === 'sweep' ? (
+        <SweepPanel findings={sweepFindings} />
+      ) : (
+        <div className="flex-1 flex overflow-hidden">
+          <Queue
+            items={items}
+            selectedId={selectedId}
+            onSelect={setSelectedId}
+            isLoading={queueLoading}
+          />
 
-        <main className="flex-1 overflow-y-auto flex flex-col justify-between">
-          <div className="p-6 max-w-5xl w-full mx-auto">
-            {detailLoading ? (
-              <div className="space-y-4 animate-pulse">
-                <div className="h-6 bg-sunken rounded w-1/3" />
-                <div className="h-32 bg-sunken rounded-card" />
-                <div className="h-48 bg-sunken rounded-card" />
-              </div>
-            ) : caseDetail ? (
-              <>
-                <CaseHeader c={caseDetail} />
-                <VerdictCard c={caseDetail} />
-                <EvidenceTrio c={caseDetail} />
-                <QuestionDiff c={caseDetail} />
-                <AlsoNoticed c={caseDetail} />
-                <Reports
-                  c={caseDetail}
-                  replies={replies}
-                  onReplyChange={(rid, text) =>
-                    setReplies((prev) => ({ ...prev, [rid]: text }))
-                  }
-                />
-              </>
-            ) : (
-              <div className="py-24 text-center">
-                <h3 className="font-display italic text-3xl text-tx mb-2">No case selected</h3>
-                <p className="text-xs text-tx-3">Pick a case from the queue to review.</p>
-              </div>
+          <main className="flex-1 overflow-y-auto flex flex-col justify-between">
+            <div className="p-6 max-w-5xl w-full mx-auto">
+              {detailLoading ? (
+                <div className="space-y-4 animate-pulse">
+                  <div className="h-6 bg-sunken rounded w-1/3" />
+                  <div className="h-32 bg-sunken rounded-card" />
+                  <div className="h-48 bg-sunken rounded-card" />
+                </div>
+              ) : caseDetail ? (
+                <>
+                  <CaseHeader c={caseDetail} />
+                  <VerdictCard c={caseDetail} />
+                  <EvidenceTrio c={caseDetail} />
+                  <QuestionDiff c={caseDetail} />
+                  <AlsoNoticed c={caseDetail} />
+                  <Reports
+                    c={caseDetail}
+                    replies={replies}
+                    onReplyChange={(rid, text) =>
+                      setReplies((prev) => ({ ...prev, [rid]: text }))
+                    }
+                  />
+                </>
+              ) : (
+                <div className="py-24 text-center">
+                  <h3 className="font-display italic text-3xl text-tx mb-2">No case selected</h3>
+                  <p className="text-xs text-tx-3">Pick a case from the queue to review.</p>
+                </div>
+              )}
+            </div>
+
+            {caseDetail && (
+              <ActionBar
+                lane={lane}
+                c={caseDetail}
+                isPending={actionMutation.isPending}
+                onApprove={handleApprove}
+                onOpenEdit={() => setEditOpen(true)}
+                onOpenReject={() => setRejectOpen(true)}
+                onConfirm={handleConfirm}
+                onOpenRevert={() => setRevertOpen(true)}
+                onAcknowledge={handleAcknowledge}
+                onUndo={handleUndo}
+              />
             )}
-          </div>
-
-          {caseDetail && (
-            <ActionBar
-              lane={lane}
-              c={caseDetail}
-              isPending={actionMutation.isPending}
-              onApprove={handleApprove}
-              onOpenEdit={() => setEditOpen(true)}
-              onOpenReject={() => setRejectOpen(true)}
-              onConfirm={handleConfirm}
-              onOpenRevert={() => setRevertOpen(true)}
-              onAcknowledge={handleAcknowledge}
-              onUndo={handleUndo}
-            />
-          )}
-        </main>
-      </div>
+          </main>
+        </div>
+      )}
 
       {caseDetail && (
         <>

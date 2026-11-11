@@ -383,9 +383,9 @@ The first HLD render had the "fixed question reaches every student" arrow cuttin
 
 When Gemini free tier hit daily quota limits on preview models, the API returned 429 RESOURCE_EXHAUSTED with a retryDelay of 82716 seconds. The client code initially tried to honour retryDelay verbatim. That would have caused the runner to sleep until tomorrow morning. Caught by adding a strict sixty second ceiling to retry backoff and selecting gemini-3.1-flash-lite, which has high active quotas on the key.
 
-### 3.3 Offline cache miss from diverging default model strings
+### 3.3 The blind solver miscalculated combined lens power on SecAQ14
 
-When testing offline reproducibility, the CLI was invoked without an explicit environment file. The code had a fallback default of gemini-3.1-pro-preview while the cache keys were generated with gemini-3.1-flash-lite. The hash did not match and threw an offline cache miss. Caught by our offline byte identical verification step, which caught the discrepancy before committing.
+During the sweep of unreported questions, the blind solver proposed an answer key defect on question SecAQ14, claiming both solves gave 3 dioptres while the key stored 5 dioptres. Recomputing the physics on paper proved the stored key was right: object distance u = -12.5 cm, magnification m = -4 gives image distance v = 50 cm. Total focal length F = 10 cm, system power P = 10 dioptres. Since two identical lenses are in contact, each lens has power 5 dioptres. Caught by the rule that every candidate key change must be solved on paper by hand before confirmation.
 
 ---
 

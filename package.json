@@ -7,6 +7,7 @@
     "engine": "npm run start -w @fixd/engine --",
     "engine:offline": "FIXD_OFFLINE=1 npm run start -w @fixd/engine --",
     "sweep": "npm run sweep -w @fixd/engine",
+    "bonus": "tsx engine/src/scripts/bonus-md.ts",
     "eval": "npm run start -w @fixd/eval",
     "db:push": "npm run db:push -w @fixd/server",
     "db:deploy": "npm run db:deploy -w @fixd/server",
