@@ -9,7 +9,7 @@
     "sweep": "npm run sweep -w @fixd/engine",
     "bonus": "tsx engine/src/scripts/bonus-md.ts",
     "eval": "npm run start -w @fixd/eval",
-    "db:push": "npm run db:push -w @fixd/server",
+    "db:push": "prisma db push --schema server/prisma/schema.prisma",
     "db:deploy": "npm run db:deploy -w @fixd/server",
     "db:seed": "npm run db:seed -w @fixd/server",
     "dev:server": "npm run dev -w @fixd/server",
